@@ -20,7 +20,25 @@
 #include "Timer.h"
 #include "udma.h"
 
+#include "InteractiveInterface.h"
+#include "stdio.h"
+char strtf[18];
 
+typedef struct
+{
+	uint8_t Rsv1; //预留
+	uint8_t ID;
+	uint32_t System_time;
+	//int 24:
+	uint8_t dis_x1k[3]; //Dist距离 1000倍
+	uint8_t dis_status;
+	uint16_t Strength; //信号强度,暂时设定为>0有效
+	uint8_t Rsv2;			 //预留
+
+	float Dist; //解析完成后的距离值
+
+} __PACKED _TfMini;
+static const unsigned char packet_ID[2] = {0x57, 0x00};
 
 /*接收缓冲区*/
 #define RX_BUFFER_SIZE 24
@@ -32,7 +50,7 @@ static float ks109_HIGH;
 static void UART7_Handler(void);
 static void UART7_receive(void);
 static void ks109_send(unsigned int Task_ID);
-void init_drv_Ultrasonic(void)
+void init_drv_TFmini(void)
 {
    
    SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOE);
@@ -41,7 +59,7 @@ void init_drv_Ultrasonic(void)
 	 GPIOPinConfigure(GPIO_PE1_U7TX);
 	 
 	 GPIOPinTypeUART(GPIOE_BASE, GPIO_PIN_0 | GPIO_PIN_1);
-	 UARTConfigSetExpClk(UART7_BASE, SysCtlClockGet() , 115200,			
+	 UARTConfigSetExpClk(UART7_BASE, SysCtlClockGet() , 921600,			
 	                   (UART_CONFIG_WLEN_8 
 										| UART_CONFIG_STOP_ONE 
 										|	UART_CONFIG_PAR_NONE));	
@@ -61,69 +79,117 @@ void init_drv_Ultrasonic(void)
 													Position_Sensor_DataType_s_z , \
 													Position_Sensor_frame_ENU , \
 													0.05f , \
-													0, 0 );
+													false );
 }
 
 uint16_t hign_z;
-static uint8_t hbyte[9];
+//static uint8_t hbyte[9];
+_TfMini SensorD;
 
 static void UART7_Handler()
 {
-	int i = 0;
+	
+	static int i = 0;
 	UARTIntClear( UART7_BASE , UART_INT_OE | UART_INT_RT );
 	UARTRxErrorClear( UART7_BASE );
+	
 	while( ( UART7->FR & (1<<4) ) == false	)
 	{
 		//接收
-		
     uint8_t rdata = UART7->DR & 0xff;
+		
 		static unsigned char rc_counter = 0;
 		static unsigned char receive = 0;
 		
+
 		static uint16_t check_sum;
 		static signed char sum = 0;
-		
-	  if( rc_counter < 2 )
-		{
-			//接收包头
-			if( rdata != 0x59)
+		/************************/
+			if (rc_counter == 0)
+				sum = 0;
+			if (rc_counter < 2)
 			{
-				rc_counter = 0;
-			}else
-			{
-				hbyte[rc_counter] = rdata;
-				++rc_counter;
+				//接收包头
+				if (rdata != packet_ID[rc_counter])
+					rc_counter = 0;
+				else
+				{
+					sum += rdata;
+					++rc_counter;
+				}
 			}
-		}else if( rc_counter < 9 )
-		{
-			hbyte[rc_counter] = rdata;
-			++rc_counter;
-		}else if(rc_counter == 9)
-		{
-			check_sum = hbyte[0]+hbyte[1]+hbyte[2]+hbyte[3]+hbyte[4]+hbyte[5]+hbyte[6]+hbyte[7];
-			if((check_sum&0xFF) != hbyte[8])
-			{
-				rc_counter = 0;
-			}
-			else{
-				++rc_counter;
-			}
-		}else
-		{
-			vector3_float position;
-			position.z = ((float)(signed short)(((((unsigned short)hbyte[3])<<8)|(uint8_t)hbyte[2])));
-				hign_z = position.z;
-			if( position.z > 1 && position.z < 5000 )
-			{
-				PositionSensorUpdatePosition( default_ultrasonic_sensor_index , position , true , -1, 0 , 0 );
-			}
+			else if (rc_counter < 15) //接收[Rsv1-Rsv2]数据
+            {                         //接收数据
+                switch (rc_counter)
+                {
+                case 2:
+                    SensorD.Rsv1 = rdata;
+                    break;
+                case 3:
+                    SensorD.ID = rdata;
+                    break;
+                case 4:
+                case 5:
+                case 6:
+                case 7:
+                    ((unsigned char *)&SensorD.System_time)[rc_counter - 4] = rdata;
+                    break;
+                case 8:
+                case 9:
+                case 10:
+                    ((unsigned char *)SensorD.dis_x1k)[rc_counter - 8] = rdata;
+                    break;
+                case 11:
+                    SensorD.dis_status = rdata;
+                    break;
+                case 12:
+                case 13:
+                    ((unsigned char *)&SensorD.Strength)[rc_counter - 12] = rdata;
+                    break;
+                case 14:
+                    SensorD.Rsv1 = rdata;
+                    break;
+                default:
+                    rc_counter = 0;
+                    break;
+                
+                }
+                sum += (unsigned char)rdata;
+                ++rc_counter;
+            }
 			else
-			{
-				PositionSensorSetInavailable( default_ultrasonic_sensor_index );
+			{ //校验
+				if (sum == rdata)
+				{ //校验成功
+
+					//开始计算距离值
+					int32_t temp = (int32_t)(SensorD.dis_x1k[0] << 8 | SensorD.dis_x1k[1] << 16 | SensorD.dis_x1k[2] << 24) / 256;
+					SensorD.Dist = temp / 1000.0f*100;//注意单位
+					//结束计算距离值
+
+					if (SensorD.Strength > 0 && SensorD.Dist > 2 && SensorD.Dist < 500)//2cm~5m
+					{
+						vector3_float position;
+						position.z = SensorD.Dist;
+						//角度补偿
+						float lean_cosin = get_lean_angle_cosin();
+				    position.z *= lean_cosin;
+						hign_z=position.z;
+						
+						sprintf( strtf , "tfz=%lf",position.z);
+						OLED_Draw_Str8x6( strtf , 2 , 5 );
+						OLED_Update();
+						
+				    PositionSensorUpdatePosition( default_ultrasonic_sensor_index , position , true , -1 );					
+	
+					}
+					else
+						PositionSensorSetInavailable( default_ultrasonic_sensor_index );
+				}
+				rc_counter = 0;
 			}
-			rc_counter = 0;
-		}
 		
+		/************************/
 			
 				
 		}

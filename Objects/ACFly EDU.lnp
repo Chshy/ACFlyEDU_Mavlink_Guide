@@ -14,7 +14,7 @@
 ".\objects\drv_receiver.o"
 ".\objects\receiver.o"
 ".\objects\drv_pwmout.o"
-".\objects\drv_ultrasonic.o"
+".\objects\drv_tfmini.o"
 ".\objects\drv_opticalflow.o"
 ".\objects\drv_gps.o"
 ".\objects\drv_eeprom.o"

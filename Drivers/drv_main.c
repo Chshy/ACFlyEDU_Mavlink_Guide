@@ -31,15 +31,11 @@ void init_Drivers()
 	init_drv_Sensors();
 	init_drv_USB();	
 	init_drv_Receiver();	
-	init_drv_Ultrasonic();
-	init_drv_OpticalFlow();
-	init_drv_GPS();
+	init_drv_TFmini();
+	// init_drv_OpticalFlow();
+	// init_drv_GPS();
 	init_drv_Uart2();
 	init_drv_SDI();
 	init_drv_SDI2();
-	init_drv_ADC();
-
-
-
-	
+	init_drv_ADC();	
 }

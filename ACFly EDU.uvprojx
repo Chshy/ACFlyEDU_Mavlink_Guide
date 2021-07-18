@@ -614,6 +614,11 @@
               <FileType>1</FileType>
               <FilePath>.\InteractiveInterface\OLED_Screens.c</FilePath>
             </File>
+            <File>
+              <FileName>LogSystem.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\InteractiveInterface\LogSystem.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

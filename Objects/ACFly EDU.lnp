@@ -32,6 +32,7 @@
 ".\MeasurementSystem\MeasurementSystem.lib"
 ".\objects\sts.o"
 ".\objects\oled_screens.o"
+".\objects\logsystem.o"
 ".\objects\filters_butter.o"
 ".\objects\debug.o"
 ".\objects\mavlink.o"

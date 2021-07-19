@@ -7,6 +7,9 @@
 #include "MeasurementSystem.h"
 
 
+
+#include "LogSystem.h"
+
 //zzw
 
 #include "Sensors.h"
@@ -239,19 +242,19 @@ static bool Msg32_LOCAL_POSITION_NED( uint8_t port, mavlink_message_t* msg_sd )
 	OLED_Draw_Str8x6(str,6,64);
 
 //Ultrasonic
-    if( GetPositionSensor(default_ultrasonic_sensor_index)->present == true )
-    {
-        float USData;
-        get_Estimated_Sensor_Position_z(&USData,default_ultrasonic_sensor_index);
+    // if( GetPositionSensor(default_ultrasonic_sensor_index)->present == true )
+    // {
+    //     float USData;
+    //     get_Estimated_Sensor_Position_z(&USData,default_ultrasonic_sensor_index);
 
-        static char str[32];
-        sprintf(str,"US");
-        OLED_Draw_Str8x6(str,5,0);
-        sprintf(str,"%lf",USData);
-        OLED_Draw_Str8x6(str,6,0);
-        OLED_Update();
+    //     static char str[32];
+    //     sprintf(str,"US");
+    //     OLED_Draw_Str8x6(str,5,0);
+    //     sprintf(str,"%lf",USData);
+    //     OLED_Draw_Str8x6(str,6,0);
+    //     OLED_Update();
 		
-    }
+    // }
 
 
     //sprintf(str,"atm:    ");
@@ -277,6 +280,21 @@ static bool Msg32_LOCAL_POSITION_NED( uint8_t port, mavlink_message_t* msg_sd )
 
 	OLED_Update();
     // */
+
+
+	if( GetPositionSensor(default_laser_sensor_index)->present == true )
+    {
+        float TFData;
+        get_Estimated_Sensor_Position_z(&TFData,default_laser_sensor_index);
+		lprintf(LOG_DEBUG,"TOF Sensor:%f",TFData);
+		
+    }
+	else
+	{
+		lprintf(LOG_WARNING,"TOF Sensor NOT present.");
+	}
+	
+	
     return true;
 }
 

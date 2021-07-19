@@ -177,10 +177,10 @@ static void UART7_Handler()
 					OLED_Draw_Str8x6(strtf, 2, 5);
 					OLED_Update();
 
-					PositionSensorUpdatePosition(default_ultrasonic_sensor_index, position, true, -1);
+					PositionSensorUpdatePosition(default_laser_sensor_index, position, true, -1);
 				}
 				else
-					PositionSensorSetInavailable(default_ultrasonic_sensor_index);
+					PositionSensorSetInavailable(default_laser_sensor_index);
 			}
 			rc_counter = 0;
 		}

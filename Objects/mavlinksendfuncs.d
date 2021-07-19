@@ -193,5 +193,6 @@
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\float.h Math\vector_3.h \
   Basic\Configurations.h Math\Quaternion.h Drivers\Receiver.h \
   Basic\Basic.h Modes\Modes.h MeasurementSystem\MeasurementSystem.h \
-  Drivers\Sensors.h Math\map_projection.h Math\AC_Math.h Math\vector_3.h \
+  InteractiveInterface\LogSystem.h Drivers\Sensors.h \
+  Math\map_projection.h Math\AC_Math.h Math\vector_3.h \
   ControlSystem\ControlSystem.h

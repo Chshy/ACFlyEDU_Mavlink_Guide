@@ -6198,6 +6198,7 @@ Removing Unused input sections from the image.
     Removing oled_screens.o(.text.OLED_Screen_RawRC_Refresh), (248 bytes).
     Removing oled_screens.o(.ARM.exidx.text.OLED_Screen_RawRC_Refresh), (8 bytes).
     Removing oled_screens.o(.rodata.str1.1), (10 bytes).
+    Removing logsystem.o(.text), (0 bytes).
     Removing filters_butter.o(.text), (0 bytes).
     Removing filters_butter.o(.ARM.exidx.text.Filter_Butter2_LP_float_setCutoffFrequency), (8 bytes).
     Removing filters_butter.o(.text.Filter_Butter2_LP_double_setCutoffFrequency), (32 bytes).
@@ -7908,7 +7909,7 @@ Removing Unused input sections from the image.
     Removing usbhhub.o(.data), (8 bytes).
     Removing usbulpi.o(i.ULPIPowerTransceiver), (18 bytes).
 
-2116 unused section(s) (total 1205590 bytes) removed from the image.
+2117 unused section(s) (total 1205590 bytes) removed from the image.
 
 ==============================================================================
 
@@ -8141,6 +8142,7 @@ Image Symbol Table
     FastMathFunctions.c                      0x00000000   Number         0  fastmathfunctions.o ABSOLUTE
     FilteringFunctions.c                     0x00000000   Number         0  filteringfunctions.o ABSOLUTE
     Filters_Butter.c                         0x00000000   Number         0  filters_butter.o ABSOLUTE
+    LogSystem.c                              0x00000000   Number         0  logsystem.o ABSOLUTE
     M00_init.c                               0x00000000   Number         0  m00_init.o ABSOLUTE
     M01_Ground.c                             0x00000000   Number         0  m01_ground.o ABSOLUTE
     M10_RCCalib.c                            0x00000000   Number         0  m10_rccalib.o ABSOLUTE
@@ -11056,128 +11058,128 @@ Memory Map of the image
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x00000000   0x00000000   0x0000026c   Data   RO            3    RESET               startup_tm4c123.o
-    0x0000026c   0x0000026c   0x00000008   Code   RO         7558  * !!!main             c_w.l(__main.o)
-    0x00000274   0x00000274   0x00000034   Code   RO         8244    !!!scatter          c_w.l(__scatter.o)
-    0x000002a8   0x000002a8   0x0000005a   Code   RO         8242    !!dczerorl2         c_w.l(__dczerorl2.o)
+    0x0000026c   0x0000026c   0x00000008   Code   RO         7559  * !!!main             c_w.l(__main.o)
+    0x00000274   0x00000274   0x00000034   Code   RO         8245    !!!scatter          c_w.l(__scatter.o)
+    0x000002a8   0x000002a8   0x0000005a   Code   RO         8243    !!dczerorl2         c_w.l(__dczerorl2.o)
     0x00000302   0x00000302   0x00000002   PAD
-    0x00000304   0x00000304   0x0000001c   Code   RO         8246    !!handler_zi        c_w.l(__scatter_zi.o)
-    0x00000320   0x00000320   0x00000000   Code   RO         7541    .ARM.Collect$$_printf_percent$$00000000  c_w.l(_printf_percent.o)
-    0x00000320   0x00000320   0x00000006   Code   RO         7540    .ARM.Collect$$_printf_percent$$00000003  c_w.l(_printf_f.o)
-    0x00000326   0x00000326   0x00000006   Code   RO         7539    .ARM.Collect$$_printf_percent$$00000009  c_w.l(_printf_d.o)
-    0x0000032c   0x0000032c   0x00000004   Code   RO         7908    .ARM.Collect$$_printf_percent$$00000017  c_w.l(_printf_percent_end.o)
-    0x00000330   0x00000330   0x00000002   Code   RO         8179    .ARM.Collect$$libinit$$00000000  c_w.l(libinit.o)
-    0x00000332   0x00000332   0x00000004   Code   RO         7911    .ARM.Collect$$libinit$$00000001  c_w.l(libinit2.o)
-    0x00000336   0x00000336   0x00000000   Code   RO         7914    .ARM.Collect$$libinit$$00000004  c_w.l(libinit2.o)
-    0x00000336   0x00000336   0x00000008   Code   RO         7915    .ARM.Collect$$libinit$$00000005  c_w.l(libinit2.o)
-    0x0000033e   0x0000033e   0x00000000   Code   RO         7917    .ARM.Collect$$libinit$$0000000A  c_w.l(libinit2.o)
-    0x0000033e   0x0000033e   0x00000000   Code   RO         7919    .ARM.Collect$$libinit$$0000000C  c_w.l(libinit2.o)
-    0x0000033e   0x0000033e   0x00000000   Code   RO         7921    .ARM.Collect$$libinit$$0000000E  c_w.l(libinit2.o)
-    0x0000033e   0x0000033e   0x00000006   Code   RO         7922    .ARM.Collect$$libinit$$0000000F  c_w.l(libinit2.o)
-    0x00000344   0x00000344   0x00000000   Code   RO         7924    .ARM.Collect$$libinit$$00000011  c_w.l(libinit2.o)
-    0x00000344   0x00000344   0x00000000   Code   RO         7926    .ARM.Collect$$libinit$$00000013  c_w.l(libinit2.o)
-    0x00000344   0x00000344   0x00000000   Code   RO         7928    .ARM.Collect$$libinit$$00000015  c_w.l(libinit2.o)
-    0x00000344   0x00000344   0x0000000a   Code   RO         7929    .ARM.Collect$$libinit$$00000016  c_w.l(libinit2.o)
-    0x0000034e   0x0000034e   0x00000000   Code   RO         7930    .ARM.Collect$$libinit$$00000017  c_w.l(libinit2.o)
-    0x0000034e   0x0000034e   0x00000000   Code   RO         7932    .ARM.Collect$$libinit$$00000019  c_w.l(libinit2.o)
-    0x0000034e   0x0000034e   0x00000000   Code   RO         7934    .ARM.Collect$$libinit$$0000001B  c_w.l(libinit2.o)
-    0x0000034e   0x0000034e   0x00000000   Code   RO         7936    .ARM.Collect$$libinit$$0000001D  c_w.l(libinit2.o)
-    0x0000034e   0x0000034e   0x00000000   Code   RO         7938    .ARM.Collect$$libinit$$0000001F  c_w.l(libinit2.o)
-    0x0000034e   0x0000034e   0x00000000   Code   RO         7940    .ARM.Collect$$libinit$$00000021  c_w.l(libinit2.o)
-    0x0000034e   0x0000034e   0x00000000   Code   RO         7942    .ARM.Collect$$libinit$$00000023  c_w.l(libinit2.o)
-    0x0000034e   0x0000034e   0x00000000   Code   RO         7944    .ARM.Collect$$libinit$$00000025  c_w.l(libinit2.o)
-    0x0000034e   0x0000034e   0x00000000   Code   RO         7948    .ARM.Collect$$libinit$$0000002C  c_w.l(libinit2.o)
-    0x0000034e   0x0000034e   0x00000000   Code   RO         7950    .ARM.Collect$$libinit$$0000002E  c_w.l(libinit2.o)
-    0x0000034e   0x0000034e   0x00000000   Code   RO         7952    .ARM.Collect$$libinit$$00000030  c_w.l(libinit2.o)
-    0x0000034e   0x0000034e   0x00000000   Code   RO         7954    .ARM.Collect$$libinit$$00000032  c_w.l(libinit2.o)
-    0x0000034e   0x0000034e   0x00000002   Code   RO         7955    .ARM.Collect$$libinit$$00000033  c_w.l(libinit2.o)
-    0x00000350   0x00000350   0x00000002   Code   RO         8239    .ARM.Collect$$libshutdown$$00000000  c_w.l(libshutdown.o)
-    0x00000352   0x00000352   0x00000000   Code   RO         8197    .ARM.Collect$$libshutdown$$00000002  c_w.l(libshutdown2.o)
-    0x00000352   0x00000352   0x00000000   Code   RO         8199    .ARM.Collect$$libshutdown$$00000004  c_w.l(libshutdown2.o)
-    0x00000352   0x00000352   0x00000000   Code   RO         8202    .ARM.Collect$$libshutdown$$00000007  c_w.l(libshutdown2.o)
-    0x00000352   0x00000352   0x00000000   Code   RO         8205    .ARM.Collect$$libshutdown$$0000000A  c_w.l(libshutdown2.o)
-    0x00000352   0x00000352   0x00000000   Code   RO         8207    .ARM.Collect$$libshutdown$$0000000C  c_w.l(libshutdown2.o)
-    0x00000352   0x00000352   0x00000000   Code   RO         8210    .ARM.Collect$$libshutdown$$0000000F  c_w.l(libshutdown2.o)
-    0x00000352   0x00000352   0x00000002   Code   RO         8211    .ARM.Collect$$libshutdown$$00000010  c_w.l(libshutdown2.o)
-    0x00000354   0x00000354   0x00000000   Code   RO         7868    .ARM.Collect$$rtentry$$00000000  c_w.l(__rtentry.o)
-    0x00000354   0x00000354   0x00000000   Code   RO         8063    .ARM.Collect$$rtentry$$00000002  c_w.l(__rtentry2.o)
-    0x00000354   0x00000354   0x00000006   Code   RO         8075    .ARM.Collect$$rtentry$$00000004  c_w.l(__rtentry4.o)
-    0x0000035a   0x0000035a   0x00000000   Code   RO         8065    .ARM.Collect$$rtentry$$00000009  c_w.l(__rtentry2.o)
-    0x0000035a   0x0000035a   0x00000004   Code   RO         8066    .ARM.Collect$$rtentry$$0000000A  c_w.l(__rtentry2.o)
-    0x0000035e   0x0000035e   0x00000000   Code   RO         8068    .ARM.Collect$$rtentry$$0000000C  c_w.l(__rtentry2.o)
-    0x0000035e   0x0000035e   0x00000008   Code   RO         8069    .ARM.Collect$$rtentry$$0000000D  c_w.l(__rtentry2.o)
-    0x00000366   0x00000366   0x00000002   Code   RO         8182    .ARM.Collect$$rtexit$$00000000  c_w.l(rtexit.o)
-    0x00000368   0x00000368   0x00000000   Code   RO         8215    .ARM.Collect$$rtexit$$00000002  c_w.l(rtexit2.o)
-    0x00000368   0x00000368   0x00000004   Code   RO         8216    .ARM.Collect$$rtexit$$00000003  c_w.l(rtexit2.o)
-    0x0000036c   0x0000036c   0x00000006   Code   RO         8217    .ARM.Collect$$rtexit$$00000004  c_w.l(rtexit2.o)
+    0x00000304   0x00000304   0x0000001c   Code   RO         8247    !!handler_zi        c_w.l(__scatter_zi.o)
+    0x00000320   0x00000320   0x00000000   Code   RO         7542    .ARM.Collect$$_printf_percent$$00000000  c_w.l(_printf_percent.o)
+    0x00000320   0x00000320   0x00000006   Code   RO         7541    .ARM.Collect$$_printf_percent$$00000003  c_w.l(_printf_f.o)
+    0x00000326   0x00000326   0x00000006   Code   RO         7540    .ARM.Collect$$_printf_percent$$00000009  c_w.l(_printf_d.o)
+    0x0000032c   0x0000032c   0x00000004   Code   RO         7909    .ARM.Collect$$_printf_percent$$00000017  c_w.l(_printf_percent_end.o)
+    0x00000330   0x00000330   0x00000002   Code   RO         8180    .ARM.Collect$$libinit$$00000000  c_w.l(libinit.o)
+    0x00000332   0x00000332   0x00000004   Code   RO         7912    .ARM.Collect$$libinit$$00000001  c_w.l(libinit2.o)
+    0x00000336   0x00000336   0x00000000   Code   RO         7915    .ARM.Collect$$libinit$$00000004  c_w.l(libinit2.o)
+    0x00000336   0x00000336   0x00000008   Code   RO         7916    .ARM.Collect$$libinit$$00000005  c_w.l(libinit2.o)
+    0x0000033e   0x0000033e   0x00000000   Code   RO         7918    .ARM.Collect$$libinit$$0000000A  c_w.l(libinit2.o)
+    0x0000033e   0x0000033e   0x00000000   Code   RO         7920    .ARM.Collect$$libinit$$0000000C  c_w.l(libinit2.o)
+    0x0000033e   0x0000033e   0x00000000   Code   RO         7922    .ARM.Collect$$libinit$$0000000E  c_w.l(libinit2.o)
+    0x0000033e   0x0000033e   0x00000006   Code   RO         7923    .ARM.Collect$$libinit$$0000000F  c_w.l(libinit2.o)
+    0x00000344   0x00000344   0x00000000   Code   RO         7925    .ARM.Collect$$libinit$$00000011  c_w.l(libinit2.o)
+    0x00000344   0x00000344   0x00000000   Code   RO         7927    .ARM.Collect$$libinit$$00000013  c_w.l(libinit2.o)
+    0x00000344   0x00000344   0x00000000   Code   RO         7929    .ARM.Collect$$libinit$$00000015  c_w.l(libinit2.o)
+    0x00000344   0x00000344   0x0000000a   Code   RO         7930    .ARM.Collect$$libinit$$00000016  c_w.l(libinit2.o)
+    0x0000034e   0x0000034e   0x00000000   Code   RO         7931    .ARM.Collect$$libinit$$00000017  c_w.l(libinit2.o)
+    0x0000034e   0x0000034e   0x00000000   Code   RO         7933    .ARM.Collect$$libinit$$00000019  c_w.l(libinit2.o)
+    0x0000034e   0x0000034e   0x00000000   Code   RO         7935    .ARM.Collect$$libinit$$0000001B  c_w.l(libinit2.o)
+    0x0000034e   0x0000034e   0x00000000   Code   RO         7937    .ARM.Collect$$libinit$$0000001D  c_w.l(libinit2.o)
+    0x0000034e   0x0000034e   0x00000000   Code   RO         7939    .ARM.Collect$$libinit$$0000001F  c_w.l(libinit2.o)
+    0x0000034e   0x0000034e   0x00000000   Code   RO         7941    .ARM.Collect$$libinit$$00000021  c_w.l(libinit2.o)
+    0x0000034e   0x0000034e   0x00000000   Code   RO         7943    .ARM.Collect$$libinit$$00000023  c_w.l(libinit2.o)
+    0x0000034e   0x0000034e   0x00000000   Code   RO         7945    .ARM.Collect$$libinit$$00000025  c_w.l(libinit2.o)
+    0x0000034e   0x0000034e   0x00000000   Code   RO         7949    .ARM.Collect$$libinit$$0000002C  c_w.l(libinit2.o)
+    0x0000034e   0x0000034e   0x00000000   Code   RO         7951    .ARM.Collect$$libinit$$0000002E  c_w.l(libinit2.o)
+    0x0000034e   0x0000034e   0x00000000   Code   RO         7953    .ARM.Collect$$libinit$$00000030  c_w.l(libinit2.o)
+    0x0000034e   0x0000034e   0x00000000   Code   RO         7955    .ARM.Collect$$libinit$$00000032  c_w.l(libinit2.o)
+    0x0000034e   0x0000034e   0x00000002   Code   RO         7956    .ARM.Collect$$libinit$$00000033  c_w.l(libinit2.o)
+    0x00000350   0x00000350   0x00000002   Code   RO         8240    .ARM.Collect$$libshutdown$$00000000  c_w.l(libshutdown.o)
+    0x00000352   0x00000352   0x00000000   Code   RO         8198    .ARM.Collect$$libshutdown$$00000002  c_w.l(libshutdown2.o)
+    0x00000352   0x00000352   0x00000000   Code   RO         8200    .ARM.Collect$$libshutdown$$00000004  c_w.l(libshutdown2.o)
+    0x00000352   0x00000352   0x00000000   Code   RO         8203    .ARM.Collect$$libshutdown$$00000007  c_w.l(libshutdown2.o)
+    0x00000352   0x00000352   0x00000000   Code   RO         8206    .ARM.Collect$$libshutdown$$0000000A  c_w.l(libshutdown2.o)
+    0x00000352   0x00000352   0x00000000   Code   RO         8208    .ARM.Collect$$libshutdown$$0000000C  c_w.l(libshutdown2.o)
+    0x00000352   0x00000352   0x00000000   Code   RO         8211    .ARM.Collect$$libshutdown$$0000000F  c_w.l(libshutdown2.o)
+    0x00000352   0x00000352   0x00000002   Code   RO         8212    .ARM.Collect$$libshutdown$$00000010  c_w.l(libshutdown2.o)
+    0x00000354   0x00000354   0x00000000   Code   RO         7869    .ARM.Collect$$rtentry$$00000000  c_w.l(__rtentry.o)
+    0x00000354   0x00000354   0x00000000   Code   RO         8064    .ARM.Collect$$rtentry$$00000002  c_w.l(__rtentry2.o)
+    0x00000354   0x00000354   0x00000006   Code   RO         8076    .ARM.Collect$$rtentry$$00000004  c_w.l(__rtentry4.o)
+    0x0000035a   0x0000035a   0x00000000   Code   RO         8066    .ARM.Collect$$rtentry$$00000009  c_w.l(__rtentry2.o)
+    0x0000035a   0x0000035a   0x00000004   Code   RO         8067    .ARM.Collect$$rtentry$$0000000A  c_w.l(__rtentry2.o)
+    0x0000035e   0x0000035e   0x00000000   Code   RO         8069    .ARM.Collect$$rtentry$$0000000C  c_w.l(__rtentry2.o)
+    0x0000035e   0x0000035e   0x00000008   Code   RO         8070    .ARM.Collect$$rtentry$$0000000D  c_w.l(__rtentry2.o)
+    0x00000366   0x00000366   0x00000002   Code   RO         8183    .ARM.Collect$$rtexit$$00000000  c_w.l(rtexit.o)
+    0x00000368   0x00000368   0x00000000   Code   RO         8216    .ARM.Collect$$rtexit$$00000002  c_w.l(rtexit2.o)
+    0x00000368   0x00000368   0x00000004   Code   RO         8217    .ARM.Collect$$rtexit$$00000003  c_w.l(rtexit2.o)
+    0x0000036c   0x0000036c   0x00000006   Code   RO         8218    .ARM.Collect$$rtexit$$00000004  c_w.l(rtexit2.o)
     0x00000372   0x00000372   0x00000002   PAD
-    0x00000374   0x00000374   0x00000006   Code   RO         4155    .emb_text           driverlib.lib(sysctl.o)
+    0x00000374   0x00000374   0x00000006   Code   RO         4156    .emb_text           driverlib.lib(sysctl.o)
     0x0000037a   0x0000037a   0x00000002   PAD
-    0x0000037c   0x0000037c   0x00000026   Code   RO         5834    .emb_text           driverlib.lib(cpu.o)
+    0x0000037c   0x0000037c   0x00000026   Code   RO         5835    .emb_text           driverlib.lib(cpu.o)
     0x000003a2   0x000003a2   0x00000002   PAD
     0x000003a4   0x000003a4   0x00000118   Code   RO            4    .text               startup_tm4c123.o
-    0x000004bc   0x000004bc   0x00000002   Code   RO         7441    .text               c_w.l(use_no_semi_2.o)
-    0x000004be   0x000004be   0x0000005e   Code   RO         7447    .text               c_w.l(h1_alloc.o)
-    0x0000051c   0x0000051c   0x0000004e   Code   RO         7449    .text               c_w.l(h1_free.o)
+    0x000004bc   0x000004bc   0x00000002   Code   RO         7442    .text               c_w.l(use_no_semi_2.o)
+    0x000004be   0x000004be   0x0000005e   Code   RO         7448    .text               c_w.l(h1_alloc.o)
+    0x0000051c   0x0000051c   0x0000004e   Code   RO         7450    .text               c_w.l(h1_free.o)
     0x0000056a   0x0000056a   0x00000002   PAD
-    0x0000056c   0x0000056c   0x00000028   Code   RO         7511    .text               c_w.l(noretval__2sprintf.o)
-    0x00000594   0x00000594   0x0000004e   Code   RO         7515    .text               c_w.l(_printf_pad.o)
+    0x0000056c   0x0000056c   0x00000028   Code   RO         7512    .text               c_w.l(noretval__2sprintf.o)
+    0x00000594   0x00000594   0x0000004e   Code   RO         7516    .text               c_w.l(_printf_pad.o)
     0x000005e2   0x000005e2   0x00000002   PAD
-    0x000005e4   0x000005e4   0x00000078   Code   RO         7517    .text               c_w.l(_printf_dec.o)
-    0x0000065c   0x0000065c   0x00000160   Code   RO         7534    .text               c_w.l(__printf_ss_wp.o)
-    0x000007bc   0x000007bc   0x00000058   Code   RO         7542    .text               c_w.l(memcmp.o)
-    0x00000814   0x00000814   0x0000008a   Code   RO         7544    .text               c_w.l(rt_memcpy_v6.o)
-    0x0000089e   0x0000089e   0x00000064   Code   RO         7546    .text               c_w.l(rt_memcpy_w.o)
-    0x00000902   0x00000902   0x00000044   Code   RO         7550    .text               c_w.l(rt_memclr.o)
-    0x00000946   0x00000946   0x0000004e   Code   RO         7552    .text               c_w.l(rt_memclr_w.o)
+    0x000005e4   0x000005e4   0x00000078   Code   RO         7518    .text               c_w.l(_printf_dec.o)
+    0x0000065c   0x0000065c   0x00000160   Code   RO         7535    .text               c_w.l(__printf_ss_wp.o)
+    0x000007bc   0x000007bc   0x00000058   Code   RO         7543    .text               c_w.l(memcmp.o)
+    0x00000814   0x00000814   0x0000008a   Code   RO         7545    .text               c_w.l(rt_memcpy_v6.o)
+    0x0000089e   0x0000089e   0x00000064   Code   RO         7547    .text               c_w.l(rt_memcpy_w.o)
+    0x00000902   0x00000902   0x00000044   Code   RO         7551    .text               c_w.l(rt_memclr.o)
+    0x00000946   0x00000946   0x0000004e   Code   RO         7553    .text               c_w.l(rt_memclr_w.o)
     0x00000994   0x00000994   0x00000004   PAD
-    0x00000998   0x00000998   0x0000007c   Code   RO         7554    .text               c_w.l(strcmpv7em.o)
-    0x00000a14   0x00000a14   0x00000006   Code   RO         7556    .text               c_w.l(heapauxi.o)
-    0x00000a1a   0x00000a1a   0x00000002   Code   RO         7864    .text               c_w.l(use_no_semi.o)
-    0x00000a1c   0x00000a1c   0x00000008   Code   RO         7876    .text               c_w.l(rt_heap_descriptor_intlibspace.o)
-    0x00000a24   0x00000a24   0x00000004   Code   RO         7878    .text               c_w.l(hguard.o)
-    0x00000a28   0x00000a28   0x0000008a   Code   RO         7880    .text               c_w.l(init_alloc.o)
-    0x00000ab2   0x00000ab2   0x0000000e   Code   RO         7884    .text               c_w.l(h1_init.o)
-    0x00000ac0   0x00000ac0   0x00000016   Code   RO         7896    .text               c_w.l(_rserrno.o)
-    0x00000ad6   0x00000ad6   0x000000b2   Code   RO         7898    .text               c_w.l(_printf_intcommon.o)
-    0x00000b88   0x00000b88   0x0000041c   Code   RO         7900    .text               c_w.l(_printf_fp_dec.o)
-    0x00000fa4   0x00000fa4   0x00000030   Code   RO         7904    .text               c_w.l(_printf_char_common.o)
-    0x00000fd4   0x00000fd4   0x0000000a   Code   RO         7906    .text               c_w.l(_sputc.o)
+    0x00000998   0x00000998   0x0000007c   Code   RO         7555    .text               c_w.l(strcmpv7em.o)
+    0x00000a14   0x00000a14   0x00000006   Code   RO         7557    .text               c_w.l(heapauxi.o)
+    0x00000a1a   0x00000a1a   0x00000002   Code   RO         7865    .text               c_w.l(use_no_semi.o)
+    0x00000a1c   0x00000a1c   0x00000008   Code   RO         7877    .text               c_w.l(rt_heap_descriptor_intlibspace.o)
+    0x00000a24   0x00000a24   0x00000004   Code   RO         7879    .text               c_w.l(hguard.o)
+    0x00000a28   0x00000a28   0x0000008a   Code   RO         7881    .text               c_w.l(init_alloc.o)
+    0x00000ab2   0x00000ab2   0x0000000e   Code   RO         7885    .text               c_w.l(h1_init.o)
+    0x00000ac0   0x00000ac0   0x00000016   Code   RO         7897    .text               c_w.l(_rserrno.o)
+    0x00000ad6   0x00000ad6   0x000000b2   Code   RO         7899    .text               c_w.l(_printf_intcommon.o)
+    0x00000b88   0x00000b88   0x0000041c   Code   RO         7901    .text               c_w.l(_printf_fp_dec.o)
+    0x00000fa4   0x00000fa4   0x00000030   Code   RO         7905    .text               c_w.l(_printf_char_common.o)
+    0x00000fd4   0x00000fd4   0x0000000a   Code   RO         7907    .text               c_w.l(_sputc.o)
     0x00000fde   0x00000fde   0x00000002   PAD
-    0x00000fe0   0x00000fe0   0x00000008   Code   RO         8059    .text               c_w.l(libspace.o)
-    0x00000fe8   0x00000fe8   0x00000008   Code   RO         8082    .text               c_w.l(rt_locale_intlibspace.o)
-    0x00000ff0   0x00000ff0   0x00000008   Code   RO         8087    .text               c_w.l(rt_errno_addr_intlibspace.o)
-    0x00000ff8   0x00000ff8   0x00000000   Code   RO         8091    .text               c_w.l(maybetermalloc1.o)
-    0x00000ff8   0x00000ff8   0x00000034   Code   RO         8093    .text               c_w.l(h1_extend.o)
-    0x0000102c   0x0000102c   0x0000008a   Code   RO         8097    .text               c_w.l(lludiv10.o)
+    0x00000fe0   0x00000fe0   0x00000008   Code   RO         8060    .text               c_w.l(libspace.o)
+    0x00000fe8   0x00000fe8   0x00000008   Code   RO         8083    .text               c_w.l(rt_locale_intlibspace.o)
+    0x00000ff0   0x00000ff0   0x00000008   Code   RO         8088    .text               c_w.l(rt_errno_addr_intlibspace.o)
+    0x00000ff8   0x00000ff8   0x00000000   Code   RO         8092    .text               c_w.l(maybetermalloc1.o)
+    0x00000ff8   0x00000ff8   0x00000034   Code   RO         8094    .text               c_w.l(h1_extend.o)
+    0x0000102c   0x0000102c   0x0000008a   Code   RO         8098    .text               c_w.l(lludiv10.o)
     0x000010b6   0x000010b6   0x00000002   PAD
-    0x000010b8   0x000010b8   0x00000080   Code   RO         8099    .text               c_w.l(_printf_fp_infnan.o)
-    0x00001138   0x00001138   0x000000e4   Code   RO         8103    .text               c_w.l(bigflt0.o)
-    0x0000121c   0x0000121c   0x0000000e   Code   RO         8133    .text               c_w.l(defsig_rtmem_outer.o)
-    0x0000122a   0x0000122a   0x0000004a   Code   RO         8152    .text               c_w.l(sys_stackheap_outer.o)
-    0x00001274   0x00001274   0x00000012   Code   RO         8160    .text               c_w.l(exit.o)
-    0x00001286   0x00001286   0x0000000a   Code   RO         8162    .text               c_w.l(defsig_exit.o)
-    0x00001290   0x00001290   0x00000050   Code   RO         8168    .text               c_w.l(defsig_rtmem_inner.o)
-    0x000012e0   0x000012e0   0x00000032   Code   RO         8192    .text               c_w.l(defsig_general.o)
+    0x000010b8   0x000010b8   0x00000080   Code   RO         8100    .text               c_w.l(_printf_fp_infnan.o)
+    0x00001138   0x00001138   0x000000e4   Code   RO         8104    .text               c_w.l(bigflt0.o)
+    0x0000121c   0x0000121c   0x0000000e   Code   RO         8134    .text               c_w.l(defsig_rtmem_outer.o)
+    0x0000122a   0x0000122a   0x0000004a   Code   RO         8153    .text               c_w.l(sys_stackheap_outer.o)
+    0x00001274   0x00001274   0x00000012   Code   RO         8161    .text               c_w.l(exit.o)
+    0x00001286   0x00001286   0x0000000a   Code   RO         8163    .text               c_w.l(defsig_exit.o)
+    0x00001290   0x00001290   0x00000050   Code   RO         8169    .text               c_w.l(defsig_rtmem_inner.o)
+    0x000012e0   0x000012e0   0x00000032   Code   RO         8193    .text               c_w.l(defsig_general.o)
     0x00001312   0x00001312   0x00000002   PAD
     0x00001314   0x00001314   0x000000b0   Code   RO          439    .text.ADC_Server    drv_adc.o
-    0x000013c4   0x000013c4   0x00000028   Code   RO         1413    .text.Altitude_Control_Disable  ctrl_position.o
-    0x000013ec   0x000013ec   0x00000032   Code   RO         1411    .text.Altitude_Control_Enable  ctrl_position.o
+    0x000013c4   0x000013c4   0x00000028   Code   RO         1414    .text.Altitude_Control_Disable  ctrl_position.o
+    0x000013ec   0x000013ec   0x00000032   Code   RO         1412    .text.Altitude_Control_Enable  ctrl_position.o
     0x0000141e   0x0000141e   0x00000002   PAD
-    0x00001420   0x00001420   0x00000024   Code   RO         1368    .text.Attitude_Control_Disable  ctrl_attitude.o
-    0x00001444   0x00001444   0x00000220   Code   RO         1366    .text.Attitude_Control_Enable  ctrl_attitude.o
-    0x00001664   0x00001664   0x0000000e   Code   RO         1374    .text.Attitude_Control_get_Target_Pitch  ctrl_attitude.o
+    0x00001420   0x00001420   0x00000024   Code   RO         1369    .text.Attitude_Control_Disable  ctrl_attitude.o
+    0x00001444   0x00001444   0x00000220   Code   RO         1367    .text.Attitude_Control_Enable  ctrl_attitude.o
+    0x00001664   0x00001664   0x0000000e   Code   RO         1375    .text.Attitude_Control_get_Target_Pitch  ctrl_attitude.o
     0x00001672   0x00001672   0x00000002   PAD
-    0x00001674   0x00001674   0x0000000e   Code   RO         1372    .text.Attitude_Control_get_Target_Roll  ctrl_attitude.o
+    0x00001674   0x00001674   0x0000000e   Code   RO         1373    .text.Attitude_Control_get_Target_Roll  ctrl_attitude.o
     0x00001682   0x00001682   0x00000002   PAD
-    0x00001684   0x00001684   0x00000084   Code   RO         1378    .text.Attitude_Control_set_Target_RollPitch  ctrl_attitude.o
-    0x00001708   0x00001708   0x0000003c   Code   RO         1380    .text.Attitude_Control_set_Target_Yaw  ctrl_attitude.o
-    0x00001744   0x00001744   0x0000001a   Code   RO         1384    .text.Attitude_Control_set_Target_YawRate  ctrl_attitude.o
+    0x00001684   0x00001684   0x00000084   Code   RO         1379    .text.Attitude_Control_set_Target_RollPitch  ctrl_attitude.o
+    0x00001708   0x00001708   0x0000003c   Code   RO         1381    .text.Attitude_Control_set_Target_Yaw  ctrl_attitude.o
+    0x00001744   0x00001744   0x0000001a   Code   RO         1385    .text.Attitude_Control_set_Target_YawRate  ctrl_attitude.o
     0x0000175e   0x0000175e   0x00000002   PAD
-    0x00001760   0x00001760   0x0000005a   Code   RO         1382    .text.Attitude_Control_set_Target_YawRelative  ctrl_attitude.o
+    0x00001760   0x00001760   0x0000005a   Code   RO         1383    .text.Attitude_Control_set_Target_YawRelative  ctrl_attitude.o
     0x000017ba   0x000017ba   0x00000002   PAD
-    0x000017bc   0x000017bc   0x00000018   Code   RO         1370    .text.Attitude_Control_set_Throttle  ctrl_attitude.o
-    0x000017d4   0x000017d4   0x00000024   Code   RO         1386    .text.Attitude_Control_set_YawLock  ctrl_attitude.o
-    0x000017f8   0x000017f8   0x00001b48   Code   RO         5701    .text.Attitude_Heading_Correction  MeasurementSystem.lib(ms_attitude.o)
+    0x000017bc   0x000017bc   0x00000018   Code   RO         1371    .text.Attitude_Control_set_Throttle  ctrl_attitude.o
+    0x000017d4   0x000017d4   0x00000024   Code   RO         1387    .text.Attitude_Control_set_YawLock  ctrl_attitude.o
+    0x000017f8   0x000017f8   0x00001b48   Code   RO         5702    .text.Attitude_Heading_Correction  MeasurementSystem.lib(ms_attitude.o)
     0x00003340   0x00003340   0x00000030   Code   RO          500    .text.Cfg_get_AccelerometerOffset  configurations.o
     0x00003370   0x00003370   0x00000030   Code   RO          506    .text.Cfg_get_AccelerometerSensivitity  configurations.o
     0x000033a0   0x000033a0   0x0000000e   Code   RO          590    .text.Cfg_get_BatSTVoltage  configurations.o
@@ -11256,22 +11258,22 @@ Memory Map of the image
     0x00003a0a   0x00003a0a   0x00000002   PAD
     0x00003a0c   0x00003a0c   0x00000032   Code   RO          620    .text.Cfg_update_WGA  configurations.o
     0x00003a3e   0x00003a3e   0x00000002   PAD
-    0x00003a40   0x00003a40   0x0000008c   Code   RO         1057    .text.Cmd10_MAV_CMD_SEND_WGA  mavlinkcmdprocess.o
-    0x00003acc   0x00003acc   0x0000001a   Code   RO         1059    .text.Cmd11_MAV_CMD_WRITE_WGA  mavlinkcmdprocess.o
+    0x00003a40   0x00003a40   0x0000008c   Code   RO         1058    .text.Cmd10_MAV_CMD_SEND_WGA  mavlinkcmdprocess.o
+    0x00003acc   0x00003acc   0x0000001a   Code   RO         1060    .text.Cmd11_MAV_CMD_WRITE_WGA  mavlinkcmdprocess.o
     0x00003ae6   0x00003ae6   0x00000002   PAD
-    0x00003ae8   0x00003ae8   0x0000005c   Code   RO         1065    .text.Cmd176_MAV_CMD_DO_SET_MODE  mavlinkcmdprocess.o
-    0x00003b44   0x00003b44   0x000000a0   Code   RO         1061    .text.Cmd21_MAV_CMD_NAV_LAND  mavlinkcmdprocess.o
-    0x00003be4   0x00003be4   0x000000a8   Code   RO         1063    .text.Cmd22_MAV_CMD_NAV_TAKEOFF  mavlinkcmdprocess.o
-    0x00003c8c   0x00003c8c   0x00000002   Code   RO         1067    .text.Cmd511_MAV_CMD_SET_MESSAGE_INTERVAL  mavlinkcmdprocess.o
+    0x00003ae8   0x00003ae8   0x0000005c   Code   RO         1066    .text.Cmd176_MAV_CMD_DO_SET_MODE  mavlinkcmdprocess.o
+    0x00003b44   0x00003b44   0x000000a0   Code   RO         1062    .text.Cmd21_MAV_CMD_NAV_LAND  mavlinkcmdprocess.o
+    0x00003be4   0x00003be4   0x000000a8   Code   RO         1064    .text.Cmd22_MAV_CMD_NAV_TAKEOFF  mavlinkcmdprocess.o
+    0x00003c8c   0x00003c8c   0x00000002   Code   RO         1068    .text.Cmd511_MAV_CMD_SET_MESSAGE_INTERVAL  mavlinkcmdprocess.o
     0x00003c8e   0x00003c8e   0x00000002   PAD
-    0x00003c90   0x00003c90   0x0000004e   Code   RO         1069    .text.Cmd519_MAV_CMD_REQUEST_PROTOCOL_VERSION  mavlinkcmdprocess.o
+    0x00003c90   0x00003c90   0x0000004e   Code   RO         1070    .text.Cmd519_MAV_CMD_REQUEST_PROTOCOL_VERSION  mavlinkcmdprocess.o
     0x00003cde   0x00003cde   0x00000002   PAD
-    0x00003ce0   0x00003ce0   0x00000056   Code   RO         1071    .text.Cmd520_MAV_CMD_REQUEST_AUTOPILOT_CAPABILITIES  mavlinkcmdprocess.o
+    0x00003ce0   0x00003ce0   0x00000056   Code   RO         1072    .text.Cmd520_MAV_CMD_REQUEST_AUTOPILOT_CAPABILITIES  mavlinkcmdprocess.o
     0x00003d36   0x00003d36   0x00000002   PAD
-    0x00003d38   0x00003d38   0x0000083c   Code   RO         1003    .text.CommuLink_RCServer  commulink.o
-    0x00004574   0x00004574   0x0000003e   Code   RO         1001    .text.CommuLink_RCTrigger  commulink.o
+    0x00003d38   0x00003d38   0x0000083c   Code   RO         1004    .text.CommuLink_RCServer  commulink.o
+    0x00004574   0x00004574   0x0000003e   Code   RO         1002    .text.CommuLink_RCTrigger  commulink.o
     0x000045b2   0x000045b2   0x00000002   PAD
-    0x000045b4   0x000045b4   0x000005c2   Code   RO         1005    .text.CommuLink_SendServer  commulink.o
+    0x000045b4   0x000045b4   0x000005c2   Code   RO         1006    .text.CommuLink_SendServer  commulink.o
     0x00004b76   0x00004b76   0x00000002   PAD
     0x00004b78   0x00004b78   0x0000000c   Code   RO          243    .text.FDraw_Clear   oledfont.o
     0x00004b84   0x00004b84   0x00000350   Code   RO          251    .text.FDraw_Font16x8  oledfont.o
@@ -11279,11 +11281,11 @@ Memory Map of the image
     0x0000520c   0x0000520c   0x0000008a   Code   RO          247    .text.FDraw_Logo    oledfont.o
     0x00005296   0x00005296   0x00000002   PAD
     0x00005298   0x00005298   0x00000040   Code   RO          253    .text.FDraw_TickCross8x6  oledfont.o
-    0x000052d8   0x000052d8   0x000000e0   Code   RO          934    .text.Filter_Butter2_LP_float_setCutoffFrequency  filters_butter.o
-    0x000053b8   0x000053b8   0x0000013c   Code   RO          940    .text.Filter_Butter4_LP_float_setCutoffFrequency  filters_butter.o
+    0x000052d8   0x000052d8   0x000000e0   Code   RO          935    .text.Filter_Butter2_LP_float_setCutoffFrequency  filters_butter.o
+    0x000053b8   0x000053b8   0x0000013c   Code   RO          941    .text.Filter_Butter4_LP_float_setCutoffFrequency  filters_butter.o
     0x000054f4   0x000054f4   0x0000017e   Code   RO          873    .text.Filter_Butter8_LP_float_run  ms_main.o
     0x00005672   0x00005672   0x00000006   PAD
-    0x00005678   0x00005678   0x000001dc   Code   RO          944    .text.Filter_Butter8_LP_float_setCutoffFrequency  filters_butter.o
+    0x00005678   0x00005678   0x000001dc   Code   RO          945    .text.Filter_Butter8_LP_float_setCutoffFrequency  filters_butter.o
     0x00005854   0x00005854   0x00000004   PAD
     0x00005858   0x00005858   0x00000390   Code   RO          370    .text.GPS_Handler   drv_gps.o
     0x00005be8   0x00005be8   0x000002c8   Code   RO          368    .text.GPS_Server    drv_gps.o
@@ -11294,7 +11296,7 @@ Memory Map of the image
     0x00005ee8   0x00005ee8   0x0000001a   Code   RO          140    .text.GetMagnetometer  sensors.o
     0x00005f02   0x00005f02   0x00000002   PAD
     0x00005f04   0x00005f04   0x00000018   Code   RO          146    .text.GetPositionSensor  sensors.o
-    0x00005f1c   0x00005f1c   0x0000000c   Code   RO         1295    .text.Get_Guided_Mode_Enabled  m36_mavlink.o
+    0x00005f1c   0x00005f1c   0x0000000c   Code   RO         1296    .text.Get_Guided_Mode_Enabled  m36_mavlink.o
     0x00005f28   0x00005f28   0x00000004   Code   RO           33    .text.HardFault_Handler  main.o
     0x00005f2c   0x00005f2c   0x00000370   Code   RO           95    .text.I2C0_Transfered_Handler  drv_sensors.o
     0x0000629c   0x0000629c   0x00000488   Code   RO           99    .text.I2C1_Transfered_Handler  drv_sensors.o
@@ -11314,73 +11316,73 @@ Memory Map of the image
     0x00006f16   0x00006f16   0x00000002   PAD
     0x00006f18   0x00006f18   0x00000016   Code   RO           76    .text.Led_setStatus  drv_led.o
     0x00006f2e   0x00006f2e   0x00000002   PAD
-    0x00006f30   0x00006f30   0x00000060   Code   RO         1155    .text.M00_init_MainFunc  m00_init.o
-    0x00006f90   0x00006f90   0x00000064   Code   RO         1151    .text.M00_init_enter  m00_init.o
-    0x00006ff4   0x00006ff4   0x0000001c   Code   RO         1153    .text.M00_init_exit  m00_init.o
-    0x00007010   0x00007010   0x00000184   Code   RO         1170    .text.M01_Ground_MainFunc  m01_ground.o
-    0x00007194   0x00007194   0x00000024   Code   RO         1166    .text.M01_Ground_enter  m01_ground.o
-    0x000071b8   0x000071b8   0x0000001c   Code   RO         1168    .text.M01_Ground_exit  m01_ground.o
-    0x000071d4   0x000071d4   0x00001580   Code   RO         1186    .text.M10_RCCalib_MainFunc  m10_rccalib.o
-    0x00008754   0x00008754   0x0000014c   Code   RO         1182    .text.M10_RCCalib_enter  m10_rccalib.o
-    0x000088a0   0x000088a0   0x0000000e   Code   RO         1184    .text.M10_RCCalib_exit  m10_rccalib.o
+    0x00006f30   0x00006f30   0x00000060   Code   RO         1156    .text.M00_init_MainFunc  m00_init.o
+    0x00006f90   0x00006f90   0x00000064   Code   RO         1152    .text.M00_init_enter  m00_init.o
+    0x00006ff4   0x00006ff4   0x0000001c   Code   RO         1154    .text.M00_init_exit  m00_init.o
+    0x00007010   0x00007010   0x00000184   Code   RO         1171    .text.M01_Ground_MainFunc  m01_ground.o
+    0x00007194   0x00007194   0x00000024   Code   RO         1167    .text.M01_Ground_enter  m01_ground.o
+    0x000071b8   0x000071b8   0x0000001c   Code   RO         1169    .text.M01_Ground_exit  m01_ground.o
+    0x000071d4   0x000071d4   0x00001580   Code   RO         1187    .text.M10_RCCalib_MainFunc  m10_rccalib.o
+    0x00008754   0x00008754   0x0000014c   Code   RO         1183    .text.M10_RCCalib_enter  m10_rccalib.o
+    0x000088a0   0x000088a0   0x0000000e   Code   RO         1185    .text.M10_RCCalib_exit  m10_rccalib.o
     0x000088ae   0x000088ae   0x00000002   PAD
-    0x000088b0   0x000088b0   0x00001bf8   Code   RO         1202    .text.M12_AccCalib_MainFunc  m12_acccalib.o
-    0x0000a4a8   0x0000a4a8   0x00000048   Code   RO         1198    .text.M12_AccCalib_enter  m12_acccalib.o
-    0x0000a4f0   0x0000a4f0   0x0000000e   Code   RO         1200    .text.M12_AccCalib_exit  m12_acccalib.o
+    0x000088b0   0x000088b0   0x00001bf8   Code   RO         1203    .text.M12_AccCalib_MainFunc  m12_acccalib.o
+    0x0000a4a8   0x0000a4a8   0x00000048   Code   RO         1199    .text.M12_AccCalib_enter  m12_acccalib.o
+    0x0000a4f0   0x0000a4f0   0x0000000e   Code   RO         1201    .text.M12_AccCalib_exit  m12_acccalib.o
     0x0000a4fe   0x0000a4fe   0x00000002   PAD
-    0x0000a500   0x0000a500   0x00001b78   Code   RO         1218    .text.M13_MagCalib_MainFunc  m13_magcalib.o
-    0x0000c078   0x0000c078   0x0000004c   Code   RO         1214    .text.M13_MagCalib_enter  m13_magcalib.o
-    0x0000c0c4   0x0000c0c4   0x0000000e   Code   RO         1216    .text.M13_MagCalib_exit  m13_magcalib.o
+    0x0000a500   0x0000a500   0x00001b78   Code   RO         1219    .text.M13_MagCalib_MainFunc  m13_magcalib.o
+    0x0000c078   0x0000c078   0x0000004c   Code   RO         1215    .text.M13_MagCalib_enter  m13_magcalib.o
+    0x0000c0c4   0x0000c0c4   0x0000000e   Code   RO         1217    .text.M13_MagCalib_exit  m13_magcalib.o
     0x0000c0d2   0x0000c0d2   0x00000002   PAD
-    0x0000c0d4   0x0000c0d4   0x000002a0   Code   RO         1234    .text.M15_HorizontalCalib_MainFunc  m15_horizontalcalib.o
-    0x0000c374   0x0000c374   0x00000030   Code   RO         1230    .text.M15_HorizontalCalib_enter  m15_horizontalcalib.o
-    0x0000c3a4   0x0000c3a4   0x0000000e   Code   RO         1232    .text.M15_HorizontalCalib_exit  m15_horizontalcalib.o
+    0x0000c0d4   0x0000c0d4   0x000002a0   Code   RO         1235    .text.M15_HorizontalCalib_MainFunc  m15_horizontalcalib.o
+    0x0000c374   0x0000c374   0x00000030   Code   RO         1231    .text.M15_HorizontalCalib_enter  m15_horizontalcalib.o
+    0x0000c3a4   0x0000c3a4   0x0000000e   Code   RO         1233    .text.M15_HorizontalCalib_exit  m15_horizontalcalib.o
     0x0000c3b2   0x0000c3b2   0x00000002   PAD
-    0x0000c3b4   0x0000c3b4   0x0000010c   Code   RO         1250    .text.M30_Att_MainFunc  m30_att.o
-    0x0000c4c0   0x0000c4c0   0x00000020   Code   RO         1246    .text.M30_Att_enter  m30_att.o
-    0x0000c4e0   0x0000c4e0   0x00000018   Code   RO         1248    .text.M30_Att_exit  m30_att.o
-    0x0000c4f8   0x0000c4f8   0x00000308   Code   RO         1266    .text.M32_PosCtrl_MainFunc  m32_posctrl.o
-    0x0000c800   0x0000c800   0x00000020   Code   RO         1262    .text.M32_PosCtrl_enter  m32_posctrl.o
-    0x0000c820   0x0000c820   0x0000001c   Code   RO         1264    .text.M32_PosCtrl_exit  m32_posctrl.o
-    0x0000c83c   0x0000c83c   0x00000218   Code   RO         1282    .text.M35_Auto1_MainFunc  m35_auto1.o
-    0x0000ca54   0x0000ca54   0x00000034   Code   RO         1278    .text.M35_Auto1_enter  m35_auto1.o
-    0x0000ca88   0x0000ca88   0x0000001c   Code   RO         1280    .text.M35_Auto1_exit  m35_auto1.o
-    0x0000caa4   0x0000caa4   0x000001f0   Code   RO         1305    .text.M36_MAVLINK_MainFunc  m36_mavlink.o
-    0x0000cc94   0x0000cc94   0x00000028   Code   RO         1301    .text.M36_MAVLINK_enter  m36_mavlink.o
-    0x0000ccbc   0x0000ccbc   0x0000001c   Code   RO         1303    .text.M36_MAVLINK_exit  m36_mavlink.o
-    0x0000ccd8   0x0000ccd8   0x00001d94   Code   RO         5693    .text.MS_Attitude   MeasurementSystem.lib(ms_attitude.o)
-    0x0000ea6c   0x0000ea6c   0x0000000c   Code   RO         5697    .text.MS_Attitude_WGA  MeasurementSystem.lib(ms_attitude.o)
-    0x0000ea78   0x0000ea78   0x00000018   Code   RO         5699    .text.MS_Attitude_get_WGA  MeasurementSystem.lib(ms_attitude.o)
-    0x0000ea90   0x0000ea90   0x00003080   Code   RO         5777    .text.MS_Position   MeasurementSystem.lib(ms_position.o)
-    0x00011b10   0x00011b10   0x0000000c   Code   RO         5755    .text.MS_Position_WGA  MeasurementSystem.lib(ms_position.o)
-    0x00011b1c   0x00011b1c   0x00000018   Code   RO         5757    .text.MS_Position_get_WGA  MeasurementSystem.lib(ms_position.o)
+    0x0000c3b4   0x0000c3b4   0x0000010c   Code   RO         1251    .text.M30_Att_MainFunc  m30_att.o
+    0x0000c4c0   0x0000c4c0   0x00000020   Code   RO         1247    .text.M30_Att_enter  m30_att.o
+    0x0000c4e0   0x0000c4e0   0x00000018   Code   RO         1249    .text.M30_Att_exit  m30_att.o
+    0x0000c4f8   0x0000c4f8   0x00000308   Code   RO         1267    .text.M32_PosCtrl_MainFunc  m32_posctrl.o
+    0x0000c800   0x0000c800   0x00000020   Code   RO         1263    .text.M32_PosCtrl_enter  m32_posctrl.o
+    0x0000c820   0x0000c820   0x0000001c   Code   RO         1265    .text.M32_PosCtrl_exit  m32_posctrl.o
+    0x0000c83c   0x0000c83c   0x00000218   Code   RO         1283    .text.M35_Auto1_MainFunc  m35_auto1.o
+    0x0000ca54   0x0000ca54   0x00000034   Code   RO         1279    .text.M35_Auto1_enter  m35_auto1.o
+    0x0000ca88   0x0000ca88   0x0000001c   Code   RO         1281    .text.M35_Auto1_exit  m35_auto1.o
+    0x0000caa4   0x0000caa4   0x000001f0   Code   RO         1306    .text.M36_MAVLINK_MainFunc  m36_mavlink.o
+    0x0000cc94   0x0000cc94   0x00000028   Code   RO         1302    .text.M36_MAVLINK_enter  m36_mavlink.o
+    0x0000ccbc   0x0000ccbc   0x0000001c   Code   RO         1304    .text.M36_MAVLINK_exit  m36_mavlink.o
+    0x0000ccd8   0x0000ccd8   0x00001d94   Code   RO         5694    .text.MS_Attitude   MeasurementSystem.lib(ms_attitude.o)
+    0x0000ea6c   0x0000ea6c   0x0000000c   Code   RO         5698    .text.MS_Attitude_WGA  MeasurementSystem.lib(ms_attitude.o)
+    0x0000ea78   0x0000ea78   0x00000018   Code   RO         5700    .text.MS_Attitude_get_WGA  MeasurementSystem.lib(ms_attitude.o)
+    0x0000ea90   0x0000ea90   0x00003080   Code   RO         5778    .text.MS_Position   MeasurementSystem.lib(ms_position.o)
+    0x00011b10   0x00011b10   0x0000000c   Code   RO         5756    .text.MS_Position_WGA  MeasurementSystem.lib(ms_position.o)
+    0x00011b1c   0x00011b1c   0x00000018   Code   RO         5758    .text.MS_Position_get_WGA  MeasurementSystem.lib(ms_position.o)
     0x00011b34   0x00011b34   0x000008d4   Code   RO          871    .text.MS_main       ms_main.o
     0x00012408   0x00012408   0x00000034   Code   RO           97    .text.MainMCHandler  drv_sensors.o
-    0x0001243c   0x0001243c   0x0000001a   Code   RO         1138    .text.Modes_Server  modes.o
+    0x0001243c   0x0001243c   0x0000001a   Code   RO         1139    .text.Modes_Server  modes.o
     0x00012456   0x00012456   0x00000002   PAD
-    0x00012458   0x00012458   0x000000dc   Code   RO         1026    .text.Msg01_SYS_STATUS  mavlinksendfuncs.o
-    0x00012534   0x00012534   0x00000024   Code   RO         1090    .text.Msg0_HEARTBEAT  mavlinkrcprocess.o
-    0x00012558   0x00012558   0x00000268   Code   RO         1108    .text.Msg102_VISION_POSITION_ESTIMATE  mavlinkrcprocess.o
-    0x000127c0   0x000127c0   0x00000006   Code   RO         1092    .text.Msg11_SET_MODE  mavlinkrcprocess.o
+    0x00012458   0x00012458   0x000000dc   Code   RO         1027    .text.Msg01_SYS_STATUS  mavlinksendfuncs.o
+    0x00012534   0x00012534   0x00000024   Code   RO         1091    .text.Msg0_HEARTBEAT  mavlinkrcprocess.o
+    0x00012558   0x00012558   0x00000268   Code   RO         1109    .text.Msg102_VISION_POSITION_ESTIMATE  mavlinkrcprocess.o
+    0x000127c0   0x000127c0   0x00000006   Code   RO         1093    .text.Msg11_SET_MODE  mavlinkrcprocess.o
     0x000127c6   0x000127c6   0x00000002   PAD
-    0x000127c8   0x000127c8   0x0000006e   Code   RO         1094    .text.Msg20_PARAM_REQUEST_READ  mavlinkrcprocess.o
+    0x000127c8   0x000127c8   0x0000006e   Code   RO         1095    .text.Msg20_PARAM_REQUEST_READ  mavlinkrcprocess.o
     0x00012836   0x00012836   0x00000002   PAD
-    0x00012838   0x00012838   0x00000004   Code   RO         1096    .text.Msg21_PARAM_REQUEST_LIST  mavlinkrcprocess.o
-    0x0001283c   0x0001283c   0x00000122   Code   RO         1098    .text.Msg23_PARAM_SET  mavlinkrcprocess.o
+    0x00012838   0x00012838   0x00000004   Code   RO         1097    .text.Msg21_PARAM_REQUEST_LIST  mavlinkrcprocess.o
+    0x0001283c   0x0001283c   0x00000122   Code   RO         1099    .text.Msg23_PARAM_SET  mavlinkrcprocess.o
     0x0001295e   0x0001295e   0x00000002   PAD
-    0x00012960   0x00012960   0x00000036   Code   RO         1038    .text.Msg245_EXTENDED_SYS_STATE  mavlinksendfuncs.o
+    0x00012960   0x00012960   0x00000036   Code   RO         1039    .text.Msg245_EXTENDED_SYS_STATE  mavlinksendfuncs.o
     0x00012996   0x00012996   0x00000002   PAD
-    0x00012998   0x00012998   0x00000154   Code   RO         1028    .text.Msg26_SCALED_IMU  mavlinksendfuncs.o
-    0x00012aec   0x00012aec   0x000000e8   Code   RO         1030    .text.Msg30_ATTITUDE  mavlinksendfuncs.o
-    0x00012bd4   0x00012bd4   0x000000a4   Code   RO         1032    .text.Msg31_ATTITUDE_QUATERNION  mavlinksendfuncs.o
-    0x00012c78   0x00012c78   0x00000244   Code   RO         1034    .text.Msg32_LOCAL_POSITION_NED  mavlinksendfuncs.o
-    0x00012ebc   0x00012ebc   0x000000ac   Code   RO         1036    .text.Msg34_RC_CHANNELS_SCALED  mavlinksendfuncs.o
-    0x00012f68   0x00012f68   0x0000001a   Code   RO         1100    .text.Msg66_REQUEST_DATA_STREAM  mavlinkrcprocess.o
+    0x00012998   0x00012998   0x00000154   Code   RO         1029    .text.Msg26_SCALED_IMU  mavlinksendfuncs.o
+    0x00012aec   0x00012aec   0x000000e8   Code   RO         1031    .text.Msg30_ATTITUDE  mavlinksendfuncs.o
+    0x00012bd4   0x00012bd4   0x000000a4   Code   RO         1033    .text.Msg31_ATTITUDE_QUATERNION  mavlinksendfuncs.o
+    0x00012c78   0x00012c78   0x00000244   Code   RO         1035    .text.Msg32_LOCAL_POSITION_NED  mavlinksendfuncs.o
+    0x00012ebc   0x00012ebc   0x000000ac   Code   RO         1037    .text.Msg34_RC_CHANNELS_SCALED  mavlinksendfuncs.o
+    0x00012f68   0x00012f68   0x0000001a   Code   RO         1101    .text.Msg66_REQUEST_DATA_STREAM  mavlinkrcprocess.o
     0x00012f82   0x00012f82   0x00000002   PAD
-    0x00012f84   0x00012f84   0x00000132   Code   RO         1102    .text.Msg76_COMMAND_LONG  mavlinkrcprocess.o
+    0x00012f84   0x00012f84   0x00000132   Code   RO         1103    .text.Msg76_COMMAND_LONG  mavlinkrcprocess.o
     0x000130b6   0x000130b6   0x00000002   PAD
-    0x000130b8   0x000130b8   0x000000d0   Code   RO         1104    .text.Msg82_SET_ATTITUDE_TARGET  mavlinkrcprocess.o
-    0x00013188   0x00013188   0x000002a0   Code   RO         1106    .text.Msg84_SET_POSITION_TARGET_LOCAL_NED  mavlinkrcprocess.o
+    0x000130b8   0x000130b8   0x000000d0   Code   RO         1105    .text.Msg82_SET_ATTITUDE_TARGET  mavlinkrcprocess.o
+    0x00013188   0x00013188   0x000002a0   Code   RO         1107    .text.Msg84_SET_POSITION_TARGET_LOCAL_NED  mavlinkrcprocess.o
     0x00013428   0x00013428   0x0000000c   Code   RO          216    .text.OLED_Clear    drv_oled.o
     0x00013434   0x00013434   0x00000012   Code   RO          220    .text.OLED_Draw_Str8x6  drv_oled.o
     0x00013446   0x00013446   0x00000002   PAD
@@ -11496,9 +11498,9 @@ Memory Map of the image
     0x000141b4   0x000141b4   0x00000024   Code   RO          672    .text.Param_set_YawCtrl_b  configurations.o
     0x000141d8   0x000141d8   0x0000029e   Code   RO          690    .text.Params_Find   configurations.o
     0x00014476   0x00014476   0x00000002   PAD
-    0x00014478   0x00014478   0x000000a4   Code   RO          987    .text.PortRegister  commulink.o
-    0x0001451c   0x0001451c   0x000001a0   Code   RO         5781    .text.PositionKalmanFilter_run_s_sv  MeasurementSystem.lib(ms_position.o)
-    0x000146bc   0x000146bc   0x000001d4   Code   RO         5779    .text.PositionKalmanFilter_run_s_svb  MeasurementSystem.lib(ms_position.o)
+    0x00014478   0x00014478   0x000000a4   Code   RO          988    .text.PortRegister  commulink.o
+    0x0001451c   0x0001451c   0x000001a0   Code   RO         5782    .text.PositionKalmanFilter_run_s_sv  MeasurementSystem.lib(ms_position.o)
+    0x000146bc   0x000146bc   0x000001d4   Code   RO         5780    .text.PositionKalmanFilter_run_s_svb  MeasurementSystem.lib(ms_position.o)
     0x00014890   0x00014890   0x00000032   Code   RO          148    .text.PositionSensorChangeDataType  sensors.o
     0x000148c2   0x000148c2   0x00000002   PAD
     0x000148c4   0x000148c4   0x000000a4   Code   RO          142    .text.PositionSensorRegister  sensors.o
@@ -11509,23 +11511,23 @@ Memory Map of the image
     0x00014ae4   0x00014ae4   0x0000017c   Code   RO          158    .text.PositionSensorUpdatePosition  sensors.o
     0x00014c60   0x00014c60   0x00000394   Code   RO          160    .text.PositionSensorUpdatePositionGlobalVel  sensors.o
     0x00014ff4   0x00014ff4   0x00000178   Code   RO          164    .text.PositionSensorUpdateVel  sensors.o
-    0x0001516c   0x0001516c   0x00000018   Code   RO         1431    .text.Position_Control_Disable  ctrl_position.o
-    0x00015184   0x00015184   0x00000048   Code   RO         1429    .text.Position_Control_Enable  ctrl_position.o
-    0x000151cc   0x000151cc   0x0000004e   Code   RO         1425    .text.Position_Control_Takeoff_HeightRelative  ctrl_position.o
+    0x0001516c   0x0001516c   0x00000018   Code   RO         1432    .text.Position_Control_Disable  ctrl_position.o
+    0x00015184   0x00015184   0x00000048   Code   RO         1430    .text.Position_Control_Enable  ctrl_position.o
+    0x000151cc   0x000151cc   0x0000004e   Code   RO         1426    .text.Position_Control_Takeoff_HeightRelative  ctrl_position.o
     0x0001521a   0x0001521a   0x00000002   PAD
-    0x0001521c   0x0001521c   0x0000007e   Code   RO         1435    .text.Position_Control_set_TargetPositionXY  ctrl_position.o
+    0x0001521c   0x0001521c   0x0000007e   Code   RO         1436    .text.Position_Control_set_TargetPositionXY  ctrl_position.o
     0x0001529a   0x0001529a   0x00000002   PAD
-    0x0001529c   0x0001529c   0x0000009e   Code   RO         1437    .text.Position_Control_set_TargetPositionXYRelative  ctrl_position.o
+    0x0001529c   0x0001529c   0x0000009e   Code   RO         1438    .text.Position_Control_set_TargetPositionXYRelative  ctrl_position.o
     0x0001533a   0x0001533a   0x00000002   PAD
-    0x0001533c   0x0001533c   0x000000e8   Code   RO         1439    .text.Position_Control_set_TargetPositionXYRelativeBodyHeading  ctrl_position.o
-    0x00015424   0x00015424   0x00000040   Code   RO         1417    .text.Position_Control_set_TargetPositionZ  ctrl_position.o
-    0x00015464   0x00015464   0x00000058   Code   RO         1419    .text.Position_Control_set_TargetPositionZRelative  ctrl_position.o
-    0x000154bc   0x000154bc   0x0000008c   Code   RO         1443    .text.Position_Control_set_TargetVelocityBodyHeadingXY  ctrl_position.o
-    0x00015548   0x00015548   0x000000b8   Code   RO         1445    .text.Position_Control_set_TargetVelocityBodyHeadingXY_AngleLimit  ctrl_position.o
-    0x00015600   0x00015600   0x00000026   Code   RO         1421    .text.Position_Control_set_TargetVelocityZ  ctrl_position.o
+    0x0001533c   0x0001533c   0x000000e8   Code   RO         1440    .text.Position_Control_set_TargetPositionXYRelativeBodyHeading  ctrl_position.o
+    0x00015424   0x00015424   0x00000040   Code   RO         1418    .text.Position_Control_set_TargetPositionZ  ctrl_position.o
+    0x00015464   0x00015464   0x00000058   Code   RO         1420    .text.Position_Control_set_TargetPositionZRelative  ctrl_position.o
+    0x000154bc   0x000154bc   0x0000008c   Code   RO         1444    .text.Position_Control_set_TargetVelocityBodyHeadingXY  ctrl_position.o
+    0x00015548   0x00015548   0x000000b8   Code   RO         1446    .text.Position_Control_set_TargetVelocityBodyHeadingXY_AngleLimit  ctrl_position.o
+    0x00015600   0x00015600   0x00000026   Code   RO         1422    .text.Position_Control_set_TargetVelocityZ  ctrl_position.o
     0x00015626   0x00015626   0x00000002   PAD
-    0x00015628   0x00015628   0x0000002c   Code   RO         1447    .text.Position_Control_set_XYLock  ctrl_position.o
-    0x00015654   0x00015654   0x0000002c   Code   RO         1423    .text.Position_Control_set_ZLock  ctrl_position.o
+    0x00015628   0x00015628   0x0000002c   Code   RO         1448    .text.Position_Control_set_XYLock  ctrl_position.o
+    0x00015654   0x00015654   0x0000002c   Code   RO         1424    .text.Position_Control_set_ZLock  ctrl_position.o
     0x00015680   0x00015680   0x000000d0   Code   RO          813    .text.Quaternion_Integral_Runge1  quaternion.o
     0x00015750   0x00015750   0x000000cc   Code   RO          821    .text.Quaternion_Mult  quaternion.o
     0x0001581c   0x0001581c   0x00000014   Code   RO          829    .text.Quaternion_getPitch  quaternion.o
@@ -11555,11 +11557,11 @@ Memory Map of the image
     0x00016648   0x00016648   0x000000c6   Code   RO          905    .text.STS_Run       sts.o
     0x0001670e   0x0001670e   0x00000002   PAD
     0x00016710   0x00016710   0x0000011c   Code   RO          286    .text.Sbus_Receive_Handler  drv_receiver.o
-    0x0001682c   0x0001682c   0x0000006e   Code   RO         1128    .text.SendMsgToMode  modes.o
+    0x0001682c   0x0001682c   0x0000006e   Code   RO         1129    .text.SendMsgToMode  modes.o
     0x0001689a   0x0001689a   0x00000002   PAD
-    0x0001689c   0x0001689c   0x00000018   Code   RO          983    .text.Send_Param_List  commulink.o
-    0x000168b4   0x000168b4   0x0000016c   Code   RO          985    .text.SetMsgRate    commulink.o
-    0x00016a20   0x00016a20   0x0000000c   Code   RO         1299    .text.Set_POS_Control_Enabled  m36_mavlink.o
+    0x0001689c   0x0001689c   0x00000018   Code   RO          984    .text.Send_Param_List  commulink.o
+    0x000168b4   0x000168b4   0x0000016c   Code   RO          986    .text.SetMsgRate    commulink.o
+    0x00016a20   0x00016a20   0x0000000c   Code   RO         1300    .text.Set_POS_Control_Enabled  m36_mavlink.o
     0x00016a2c   0x00016a2c   0x00000088   Code   RO           13    .text.SystemInit    system_tm4c123.o
     0x00016ab4   0x00016ab4   0x00000010   Code   RO          486    .text.Systick_IRQHandler  basic.o
     0x00016ac4   0x00016ac4   0x00000008   Code   RO          480    .text.Time_isValid  basic.o
@@ -11579,34 +11581,34 @@ Memory Map of the image
     0x00016f5e   0x00016f5e   0x00000002   PAD
     0x00016f60   0x00016f60   0x00000002   Code   RO           27    .text._ttywrch      main.o
     0x00016f62   0x00016f62   0x00000002   PAD
-    0x00016f64   0x00016f64   0x00000124   Code   RO         1822    .text.arm_sin_cos_f32  controllerfunctions.o
-    0x00017088   0x00017088   0x00000090   Code   RO         1892    .text.arm_sin_f32   fastmathfunctions.o
-    0x00017118   0x00017118   0x00000056   Code   RO         1132    .text.change_Mode   modes.o
+    0x00016f64   0x00016f64   0x00000124   Code   RO         1823    .text.arm_sin_cos_f32  controllerfunctions.o
+    0x00017088   0x00017088   0x00000090   Code   RO         1893    .text.arm_sin_f32   fastmathfunctions.o
+    0x00017118   0x00017118   0x00000056   Code   RO         1133    .text.change_Mode   modes.o
     0x0001716e   0x0001716e   0x00000002   PAD
-    0x00017170   0x00017170   0x00002568   Code   RO         1390    .text.ctrl_Attitude  ctrl_attitude.o
-    0x000196d8   0x000196d8   0x000012f8   Code   RO         1449    .text.ctrl_Position  ctrl_position.o
-    0x0001a9d0   0x0001a9d0   0x0000000e   Code   RO         1347    .text.ctrl_main     ctrl_main.o
+    0x00017170   0x00017170   0x00002568   Code   RO         1391    .text.ctrl_Attitude  ctrl_attitude.o
+    0x000196d8   0x000196d8   0x000012f8   Code   RO         1450    .text.ctrl_Position  ctrl_position.o
+    0x0001a9d0   0x0001a9d0   0x0000000e   Code   RO         1348    .text.ctrl_main     ctrl_main.o
     0x0001a9de   0x0001a9de   0x00000002   PAD
-    0x0001a9e0   0x0001a9e0   0x000001a8   Code   RO          958    .text.debug_server  debug.o
+    0x0001a9e0   0x0001a9e0   0x000001a8   Code   RO          959    .text.debug_server  debug.o
     0x0001ab88   0x0001ab88   0x000000e8   Code   RO          482    .text.delay         basic.o
     0x0001ac70   0x0001ac70   0x0000000e   Code   RO          441    .text.getBatteryVoltage  drv_adc.o
     0x0001ac7e   0x0001ac7e   0x00000002   PAD
     0x0001ac80   0x0001ac80   0x00000010   Code   RO          865    .text.get_AccelerationCtrl  ms_main.o
-    0x0001ac90   0x0001ac90   0x00000010   Code   RO         5763    .text.get_AccelerationENU  MeasurementSystem.lib(ms_position.o)
+    0x0001ac90   0x0001ac90   0x00000010   Code   RO         5764    .text.get_AccelerationENU  MeasurementSystem.lib(ms_position.o)
     0x0001aca0   0x0001aca0   0x00000010   Code   RO          863    .text.get_AccelerationFilted  ms_main.o
-    0x0001acb0   0x0001acb0   0x0000001c   Code   RO         5687    .text.get_Airframe_attitude  MeasurementSystem.lib(ms_attitude.o)
+    0x0001acb0   0x0001acb0   0x0000001c   Code   RO         5688    .text.get_Airframe_attitude  MeasurementSystem.lib(ms_attitude.o)
     0x0001accc   0x0001accc   0x0000000c   Code   RO          857    .text.get_Altitude_Measurement_System_Status  ms_main.o
     0x0001acd8   0x0001acd8   0x00000010   Code   RO          867    .text.get_AngularRateCtrl  ms_main.o
     0x0001ace8   0x0001ace8   0x0000000c   Code   RO          855    .text.get_Attitude_Measurement_System_Status  ms_main.o
-    0x0001acf4   0x0001acf4   0x00000070   Code   RO         5769    .text.get_Estimated_Sensor_Position_z  MeasurementSystem.lib(ms_position.o)
+    0x0001acf4   0x0001acf4   0x00000070   Code   RO         5770    .text.get_Estimated_Sensor_Position_z  MeasurementSystem.lib(ms_position.o)
     0x0001ad64   0x0001ad64   0x00000004   PAD
-    0x0001ad68   0x0001ad68   0x000003a0   Code   RO         5775    .text.get_LatLon_From_Point  MeasurementSystem.lib(ms_position.o)
+    0x0001ad68   0x0001ad68   0x000003a0   Code   RO         5776    .text.get_LatLon_From_Point  MeasurementSystem.lib(ms_position.o)
     0x0001b108   0x0001b108   0x0000000a   Code   RO          116    .text.get_MP        sensors.o
     0x0001b112   0x0001b112   0x00000002   PAD
     0x0001b114   0x0001b114   0x0000000c   Code   RO          114    .text.get_MP_Available  sensors.o
-    0x0001b120   0x0001b120   0x00000014   Code   RO          989    .text.get_Port      commulink.o
-    0x0001b134   0x0001b134   0x00000010   Code   RO         5759    .text.get_Position  MeasurementSystem.lib(ms_position.o)
-    0x0001b144   0x0001b144   0x0000000c   Code   RO         1427    .text.get_Position_Control_Enabled  ctrl_position.o
+    0x0001b120   0x0001b120   0x00000014   Code   RO          990    .text.get_Port      commulink.o
+    0x0001b134   0x0001b134   0x00000010   Code   RO         5760    .text.get_Position  MeasurementSystem.lib(ms_position.o)
+    0x0001b144   0x0001b144   0x0000000c   Code   RO         1428    .text.get_Position_Control_Enabled  ctrl_position.o
     0x0001b150   0x0001b150   0x0000000c   Code   RO          859    .text.get_Position_Measurement_System_Status  ms_main.o
     0x0001b15c   0x0001b15c   0x00000012   Code   RO          304    .text.get_Receiver  receiver.o
     0x0001b16e   0x0001b16e   0x00000002   PAD
@@ -11614,44 +11616,44 @@ Memory Map of the image
     0x0001b182   0x0001b182   0x00000002   PAD
     0x0001b184   0x0001b184   0x00000080   Code   RO          476    .text.get_System_Run_Time  basic.o
     0x0001b204   0x0001b204   0x0000006c   Code   RO          468    .text.get_TIME_now  basic.o
-    0x0001b270   0x0001b270   0x0000000e   Code   RO         1364    .text.get_Target_Throttle  ctrl_attitude.o
+    0x0001b270   0x0001b270   0x0000000e   Code   RO         1365    .text.get_Target_Throttle  ctrl_attitude.o
     0x0001b27e   0x0001b27e   0x00000002   PAD
-    0x0001b280   0x0001b280   0x00000010   Code   RO         5761    .text.get_VelocityENU  MeasurementSystem.lib(ms_position.o)
-    0x0001b290   0x0001b290   0x0000000e   Code   RO         1360    .text.get_WindDisturbance_x  ctrl_attitude.o
+    0x0001b280   0x0001b280   0x00000010   Code   RO         5762    .text.get_VelocityENU  MeasurementSystem.lib(ms_position.o)
+    0x0001b290   0x0001b290   0x0000000e   Code   RO         1361    .text.get_WindDisturbance_x  ctrl_attitude.o
     0x0001b29e   0x0001b29e   0x00000002   PAD
-    0x0001b2a0   0x0001b2a0   0x0000000e   Code   RO         1362    .text.get_WindDisturbance_y  ctrl_attitude.o
+    0x0001b2a0   0x0001b2a0   0x0000000e   Code   RO         1363    .text.get_WindDisturbance_y  ctrl_attitude.o
     0x0001b2ae   0x0001b2ae   0x00000002   PAD
-    0x0001b2b0   0x0001b2b0   0x0000001c   Code   RO         5685    .text.get_attitude  MeasurementSystem.lib(ms_attitude.o)
-    0x0001b2cc   0x0001b2cc   0x0000000c   Code   RO         1134    .text.get_current_Mode  modes.o
+    0x0001b2b0   0x0001b2b0   0x0000001c   Code   RO         5686    .text.get_attitude  MeasurementSystem.lib(ms_attitude.o)
+    0x0001b2cc   0x0001b2cc   0x0000000c   Code   RO         1135    .text.get_current_Mode  modes.o
     0x0001b2d8   0x0001b2d8   0x0000001c   Code   RO          308    .text.get_current_Receiver  receiver.o
     0x0001b2f4   0x0001b2f4   0x0000000c   Code   RO          306    .text.get_current_Receiver_Type  receiver.o
-    0x0001b300   0x0001b300   0x00000056   Code   RO         5691    .text.get_history_Airframe_attitude  MeasurementSystem.lib(ms_attitude.o)
+    0x0001b300   0x0001b300   0x00000056   Code   RO         5692    .text.get_history_Airframe_attitude  MeasurementSystem.lib(ms_attitude.o)
     0x0001b356   0x0001b356   0x00000002   PAD
-    0x0001b358   0x0001b358   0x000001c0   Code   RO         5683    .text.get_history_acceleration  MeasurementSystem.lib(ms_attitude.o)
-    0x0001b518   0x0001b518   0x00000128   Code   RO         5689    .text.get_history_attitude  MeasurementSystem.lib(ms_attitude.o)
-    0x0001b640   0x0001b640   0x0000000e   Code   RO         1356    .text.get_hover_throttle  ctrl_attitude.o
+    0x0001b358   0x0001b358   0x000001c0   Code   RO         5684    .text.get_history_acceleration  MeasurementSystem.lib(ms_attitude.o)
+    0x0001b518   0x0001b518   0x00000128   Code   RO         5690    .text.get_history_attitude  MeasurementSystem.lib(ms_attitude.o)
+    0x0001b640   0x0001b640   0x0000000e   Code   RO         1357    .text.get_hover_throttle  ctrl_attitude.o
     0x0001b64e   0x0001b64e   0x00000002   PAD
-    0x0001b650   0x0001b650   0x0000000c   Code   RO         1358    .text.get_is_inFlight  ctrl_attitude.o
+    0x0001b650   0x0001b650   0x0000000c   Code   RO         1359    .text.get_is_inFlight  ctrl_attitude.o
     0x0001b65c   0x0001b65c   0x00000024   Code   RO          869    .text.get_lean_angle_cosin  ms_main.o
-    0x0001b680   0x0001b680   0x00000012   Code   RO          997    .text.get_mav_mode  commulink.o
+    0x0001b680   0x0001b680   0x00000012   Code   RO          998    .text.get_mav_mode  commulink.o
     0x0001b692   0x0001b692   0x00000002   PAD
     0x0001b694   0x0001b694   0x000000d8   Code   RO          470    .text.get_pass_time  basic.o
     0x0001b76c   0x0001b76c   0x000000e8   Code   RO          474    .text.get_pass_time_st  basic.o
     0x0001b854   0x0001b854   0x000000d0   Code   RO           91    .text.i2c0ReadData  drv_sensors.o
     0x0001b924   0x0001b924   0x00000144   Code   RO          484    .text.init_Basic    basic.o
-    0x0001ba68   0x0001ba68   0x0000003c   Code   RO          999    .text.init_CommuLink  commulink.o
+    0x0001ba68   0x0001ba68   0x0000003c   Code   RO         1000    .text.init_CommuLink  commulink.o
     0x0001baa4   0x0001baa4   0x00000054   Code   RO          692    .text.init_Configurations  configurations.o
-    0x0001baf8   0x0001baf8   0x0000000e   Code   RO         1345    .text.init_ControlSystem  ctrl_main.o
+    0x0001baf8   0x0001baf8   0x0000000e   Code   RO         1346    .text.init_ControlSystem  ctrl_main.o
     0x0001bb06   0x0001bb06   0x00000002   PAD
-    0x0001bb08   0x0001bb08   0x00000018   Code   RO          956    .text.init_Debug    debug.o
+    0x0001bb08   0x0001bb08   0x00000018   Code   RO          957    .text.init_Debug    debug.o
     0x0001bb20   0x0001bb20   0x0000003e   Code   RO           62    .text.init_Drivers  drv_main.o
     0x0001bb5e   0x0001bb5e   0x00000002   PAD
     0x0001bb60   0x0001bb60   0x000001cc   Code   RO          875    .text.init_MS       ms_main.o
-    0x0001bd2c   0x0001bd2c   0x000006a8   Code   RO         5695    .text.init_MS_Attitude  MeasurementSystem.lib(ms_attitude.o)
-    0x0001c3d4   0x0001c3d4   0x000004e0   Code   RO         5783    .text.init_MS_Position  MeasurementSystem.lib(ms_position.o)
-    0x0001c8b4   0x0001c8b4   0x00000138   Code   RO         1136    .text.init_Modes    modes.o
-    0x0001c9ec   0x0001c9ec   0x00000244   Code   RO         1394    .text.init_ctrl_Attitude  ctrl_attitude.o
-    0x0001cc30   0x0001cc30   0x00000114   Code   RO         1451    .text.init_ctrl_Position  ctrl_position.o
+    0x0001bd2c   0x0001bd2c   0x000006a8   Code   RO         5696    .text.init_MS_Attitude  MeasurementSystem.lib(ms_attitude.o)
+    0x0001c3d4   0x0001c3d4   0x000004e0   Code   RO         5784    .text.init_MS_Position  MeasurementSystem.lib(ms_position.o)
+    0x0001c8b4   0x0001c8b4   0x00000138   Code   RO         1137    .text.init_Modes    modes.o
+    0x0001c9ec   0x0001c9ec   0x00000244   Code   RO         1395    .text.init_ctrl_Attitude  ctrl_attitude.o
+    0x0001cc30   0x0001cc30   0x00000114   Code   RO         1452    .text.init_ctrl_Position  ctrl_position.o
     0x0001cd44   0x0001cd44   0x00000070   Code   RO          437    .text.init_drv_ADC  drv_adc.o
     0x0001cdb4   0x0001cdb4   0x00000016   Code   RO          384    .text.init_drv_EEPROM  drv_eeprom.o
     0x0001cdca   0x0001cdca   0x00000002   PAD
@@ -11674,414 +11676,414 @@ Memory Map of the image
     0x0001e77e   0x0001e77e   0x00000002   PAD
     0x0001e780   0x0001e780   0x000003d8   Code   RO          154    .text.map_projection_init  sensors.o
     0x0001eb58   0x0001eb58   0x000002c0   Code   RO          156    .text.map_projection_project  sensors.o
-    0x0001ee18   0x0001ee18   0x000003ea   Code   RO         1011    .text.mavlink_finalize_message_chan  commulink.o
+    0x0001ee18   0x0001ee18   0x000003ea   Code   RO         1012    .text.mavlink_finalize_message_chan  commulink.o
     0x0001f202   0x0001f202   0x00000002   PAD
-    0x0001f204   0x0001f204   0x000003ea   Code   RO         1040    .text.mavlink_finalize_message_chan  mavlinksendfuncs.o
+    0x0001f204   0x0001f204   0x000003ea   Code   RO         1041    .text.mavlink_finalize_message_chan  mavlinksendfuncs.o
     0x0001f5ee   0x0001f5ee   0x00000002   PAD
-    0x0001f5f0   0x0001f5f0   0x000003ea   Code   RO         1075    .text.mavlink_finalize_message_chan  mavlinkcmdprocess.o
+    0x0001f5f0   0x0001f5f0   0x000003ea   Code   RO         1076    .text.mavlink_finalize_message_chan  mavlinkcmdprocess.o
     0x0001f9da   0x0001f9da   0x00000002   PAD
-    0x0001f9dc   0x0001f9dc   0x0000041c   Code   RO          960    .text.mavlink_msg_debug_vect_pack_chan  debug.o
-    0x0001fdf8   0x0001fdf8   0x000004e2   Code   RO         1110    .text.mavlink_msg_param_value_pack_chan  mavlinkrcprocess.o
+    0x0001f9dc   0x0001f9dc   0x0000041c   Code   RO          961    .text.mavlink_msg_debug_vect_pack_chan  debug.o
+    0x0001fdf8   0x0001fdf8   0x000004e2   Code   RO         1111    .text.mavlink_msg_param_value_pack_chan  mavlinkrcprocess.o
     0x000202da   0x000202da   0x00000002   PAD
-    0x000202dc   0x000202dc   0x000000fe   Code   RO          962    .text.mavlink_msg_to_send_buffer  debug.o
+    0x000202dc   0x000202dc   0x000000fe   Code   RO          963    .text.mavlink_msg_to_send_buffer  debug.o
     0x000203da   0x000203da   0x00000002   PAD
-    0x000203dc   0x000203dc   0x000000fe   Code   RO         1009    .text.mavlink_msg_to_send_buffer  commulink.o
+    0x000203dc   0x000203dc   0x000000fe   Code   RO         1010    .text.mavlink_msg_to_send_buffer  commulink.o
     0x000204da   0x000204da   0x00000002   PAD
-    0x000204dc   0x000204dc   0x000000fe   Code   RO         1073    .text.mavlink_msg_to_send_buffer  mavlinkcmdprocess.o
+    0x000204dc   0x000204dc   0x000000fe   Code   RO         1074    .text.mavlink_msg_to_send_buffer  mavlinkcmdprocess.o
     0x000205da   0x000205da   0x00000002   PAD
-    0x000205dc   0x000205dc   0x000000fe   Code   RO         1112    .text.mavlink_msg_to_send_buffer  mavlinkrcprocess.o
+    0x000205dc   0x000205dc   0x000000fe   Code   RO         1113    .text.mavlink_msg_to_send_buffer  mavlinkrcprocess.o
     0x000206da   0x000206da   0x00000002   PAD
-    0x000206dc   0x000206dc   0x00000482   Code   RO          964    .text.mavlink_sha256_update  debug.o
+    0x000206dc   0x000206dc   0x00000482   Code   RO          965    .text.mavlink_sha256_update  debug.o
     0x00020b5e   0x00020b5e   0x00000002   PAD
-    0x00020b60   0x00020b60   0x00000482   Code   RO         1007    .text.mavlink_sha256_update  commulink.o
+    0x00020b60   0x00020b60   0x00000482   Code   RO         1008    .text.mavlink_sha256_update  commulink.o
     0x00020fe2   0x00020fe2   0x00000002   PAD
-    0x00020fe4   0x00020fe4   0x00000482   Code   RO         1042    .text.mavlink_sha256_update  mavlinksendfuncs.o
+    0x00020fe4   0x00020fe4   0x00000482   Code   RO         1043    .text.mavlink_sha256_update  mavlinksendfuncs.o
     0x00021466   0x00021466   0x00000002   PAD
-    0x00021468   0x00021468   0x00000482   Code   RO         1077    .text.mavlink_sha256_update  mavlinkcmdprocess.o
+    0x00021468   0x00021468   0x00000482   Code   RO         1078    .text.mavlink_sha256_update  mavlinkcmdprocess.o
     0x000218ea   0x000218ea   0x00000002   PAD
-    0x000218ec   0x000218ec   0x00000482   Code   RO         1114    .text.mavlink_sha256_update  mavlinkrcprocess.o
+    0x000218ec   0x000218ec   0x00000482   Code   RO         1115    .text.mavlink_sha256_update  mavlinkrcprocess.o
     0x00021d6e   0x00021d6e   0x00000002   PAD
     0x00021d70   0x00021d70   0x00000080   Code   RO          421    .text.read_UART2    drv_uart2.o
     0x00021df0   0x00021df0   0x00000016   Code   RO          197    .text.read_UsbUart  drv_usb.o
     0x00021e06   0x00021e06   0x00000002   PAD
-    0x00021e08   0x00021e08   0x00000010   Code   RO          995    .text.set_mav_mode  commulink.o
-    0x00021e18   0x00021e18   0x00000414   Code   RO         1396    .text.throttle_nonlinear_compensation  ctrl_attitude.o
-    0x0002222c   0x0002222c   0x00000348   Code   RO         1392    .text.update_output_throttle  ctrl_attitude.o
+    0x00021e08   0x00021e08   0x00000010   Code   RO          996    .text.set_mav_mode  commulink.o
+    0x00021e18   0x00021e18   0x00000414   Code   RO         1397    .text.throttle_nonlinear_compensation  ctrl_attitude.o
+    0x0002222c   0x0002222c   0x00000348   Code   RO         1393    .text.update_output_throttle  ctrl_attitude.o
     0x00022574   0x00022574   0x00000072   Code   RO          845    .text.vector3_float_constrain  vector_3.o
     0x000225e6   0x000225e6   0x00000002   PAD
     0x000225e8   0x000225e8   0x00000010   Code   RO          199    .text.write_UsbUart  drv_usb.o
-    0x000225f8   0x000225f8   0x0000003e   Code   RO         8106    CL$$btod_d2e        c_w.l(btod.o)
-    0x00022636   0x00022636   0x00000046   Code   RO         8108    CL$$btod_d2e_denorm_low  c_w.l(btod.o)
-    0x0002267c   0x0002267c   0x00000060   Code   RO         8107    CL$$btod_d2e_norm_op1  c_w.l(btod.o)
-    0x000226dc   0x000226dc   0x00000338   Code   RO         8116    CL$$btod_div_common  c_w.l(btod.o)
-    0x00022a14   0x00022a14   0x000000dc   Code   RO         8113    CL$$btod_e2e        c_w.l(btod.o)
-    0x00022af0   0x00022af0   0x0000002a   Code   RO         8110    CL$$btod_ediv       c_w.l(btod.o)
-    0x00022b1a   0x00022b1a   0x0000002a   Code   RO         8109    CL$$btod_emul       c_w.l(btod.o)
-    0x00022b44   0x00022b44   0x00000244   Code   RO         8115    CL$$btod_mult_common  c_w.l(btod.o)
-    0x00022d88   0x00022d88   0x00000012   Code   RO         2549    i.ADCHardwareOversampleConfigure  driverlib.lib(adc.o)
-    0x00022d9a   0x00022d9a   0x0000001a   Code   RO         2562    i.ADCProcessorTrigger  driverlib.lib(adc.o)
-    0x00022db4   0x00022db4   0x00000060   Code   RO         2565    i.ADCSequenceConfigure  driverlib.lib(adc.o)
-    0x00022e14   0x00022e14   0x0000000e   Code   RO         2570    i.ADCSequenceEnable  driverlib.lib(adc.o)
-    0x00022e22   0x00022e22   0x0000009a   Code   RO         2573    i.ADCSequenceStepConfigure  driverlib.lib(adc.o)
-    0x00022ebc   0x00022ebc   0x000000ee   Code   RO         5361    i.CDCTickHandler    usblib.lib(usbdcdc.o)
-    0x00022faa   0x00022faa   0x00000040   Code   RO         7177    i.DMAUSBIntHandler  usblib.lib(usbdma.o)
-    0x00022fea   0x00022fea   0x0000000e   Code   RO         7178    i.DMAUSBIntStatusClear  usblib.lib(usbdma.o)
-    0x00022ff8   0x00022ff8   0x00000004   Code   RO         7179    i.DMAUSBStatus      usblib.lib(usbdma.o)
-    0x00022ffc   0x00022ffc   0x00000044   Code   RO         2825    i.EEPROMInit        driverlib.lib(eeprom.o)
-    0x00023040   0x00023040   0x00000164   Code   RO         2831    i.EEPROMProgram     driverlib.lib(eeprom.o)
-    0x000231a4   0x000231a4   0x00000034   Code   RO         2833    i.EEPROMRead        driverlib.lib(eeprom.o)
-    0x000231d8   0x000231d8   0x00000010   Code   RO         2948    i.FPUEnable         driverlib.lib(fpu.o)
-    0x000231e8   0x000231e8   0x00000010   Code   RO         2951    i.FPULazyStackingEnable  driverlib.lib(fpu.o)
-    0x000231f8   0x000231f8   0x00000028   Code   RO         3018    i.GPIODirModeSet    driverlib.lib(gpio.o)
-    0x00023220   0x00023220   0x00000138   Code   RO         3030    i.GPIOPadConfigSet  driverlib.lib(gpio.o)
-    0x00023358   0x00023358   0x00000044   Code   RO         3031    i.GPIOPinConfigure  driverlib.lib(gpio.o)
-    0x0002339c   0x0002339c   0x0000001c   Code   RO         3033    i.GPIOPinTypeADC    driverlib.lib(gpio.o)
-    0x000233b8   0x000233b8   0x0000001c   Code   RO         3042    i.GPIOPinTypeGPIOOutput  driverlib.lib(gpio.o)
-    0x000233d4   0x000233d4   0x0000001c   Code   RO         3045    i.GPIOPinTypeI2C    driverlib.lib(gpio.o)
-    0x000233f0   0x000233f0   0x0000001c   Code   RO         3046    i.GPIOPinTypeI2CSCL  driverlib.lib(gpio.o)
-    0x0002340c   0x0002340c   0x0000001c   Code   RO         3049    i.GPIOPinTypePWM    driverlib.lib(gpio.o)
-    0x00023428   0x00023428   0x0000001c   Code   RO         3051    i.GPIOPinTypeSSI    driverlib.lib(gpio.o)
-    0x00023444   0x00023444   0x0000001c   Code   RO         3052    i.GPIOPinTypeTimer  driverlib.lib(gpio.o)
-    0x00023460   0x00023460   0x0000001c   Code   RO         3054    i.GPIOPinTypeUART   driverlib.lib(gpio.o)
-    0x0002347c   0x0002347c   0x0000001c   Code   RO         3055    i.GPIOPinTypeUSBAnalog  driverlib.lib(gpio.o)
-    0x00023498   0x00023498   0x00000006   Code   RO         3060    i.GPIOPinWrite      driverlib.lib(gpio.o)
-    0x0002349e   0x0002349e   0x00000032   Code   RO         5362    i.HandleConfigChange  usblib.lib(usbdcdc.o)
-    0x000234d0   0x000234d0   0x000000c2   Code   RO         5363    i.HandleDevice      usblib.lib(usbdcdc.o)
-    0x00023592   0x00023592   0x00000022   Code   RO         5364    i.HandleDisconnect  usblib.lib(usbdcdc.o)
-    0x000235b4   0x000235b4   0x0000009a   Code   RO         5365    i.HandleEP0Data     usblib.lib(usbdcdc.o)
-    0x0002364e   0x0002364e   0x0000007e   Code   RO         5366    i.HandleEndpoints   usblib.lib(usbdcdc.o)
-    0x000236cc   0x000236cc   0x00000176   Code   RO         5367    i.HandleRequests    usblib.lib(usbdcdc.o)
-    0x00023842   0x00023842   0x0000000c   Code   RO         5368    i.HandleResume      usblib.lib(usbdcdc.o)
-    0x0002384e   0x0002384e   0x0000000c   Code   RO         5369    i.HandleSuspend     usblib.lib(usbdcdc.o)
+    0x000225f8   0x000225f8   0x0000003e   Code   RO         8107    CL$$btod_d2e        c_w.l(btod.o)
+    0x00022636   0x00022636   0x00000046   Code   RO         8109    CL$$btod_d2e_denorm_low  c_w.l(btod.o)
+    0x0002267c   0x0002267c   0x00000060   Code   RO         8108    CL$$btod_d2e_norm_op1  c_w.l(btod.o)
+    0x000226dc   0x000226dc   0x00000338   Code   RO         8117    CL$$btod_div_common  c_w.l(btod.o)
+    0x00022a14   0x00022a14   0x000000dc   Code   RO         8114    CL$$btod_e2e        c_w.l(btod.o)
+    0x00022af0   0x00022af0   0x0000002a   Code   RO         8111    CL$$btod_ediv       c_w.l(btod.o)
+    0x00022b1a   0x00022b1a   0x0000002a   Code   RO         8110    CL$$btod_emul       c_w.l(btod.o)
+    0x00022b44   0x00022b44   0x00000244   Code   RO         8116    CL$$btod_mult_common  c_w.l(btod.o)
+    0x00022d88   0x00022d88   0x00000012   Code   RO         2550    i.ADCHardwareOversampleConfigure  driverlib.lib(adc.o)
+    0x00022d9a   0x00022d9a   0x0000001a   Code   RO         2563    i.ADCProcessorTrigger  driverlib.lib(adc.o)
+    0x00022db4   0x00022db4   0x00000060   Code   RO         2566    i.ADCSequenceConfigure  driverlib.lib(adc.o)
+    0x00022e14   0x00022e14   0x0000000e   Code   RO         2571    i.ADCSequenceEnable  driverlib.lib(adc.o)
+    0x00022e22   0x00022e22   0x0000009a   Code   RO         2574    i.ADCSequenceStepConfigure  driverlib.lib(adc.o)
+    0x00022ebc   0x00022ebc   0x000000ee   Code   RO         5362    i.CDCTickHandler    usblib.lib(usbdcdc.o)
+    0x00022faa   0x00022faa   0x00000040   Code   RO         7178    i.DMAUSBIntHandler  usblib.lib(usbdma.o)
+    0x00022fea   0x00022fea   0x0000000e   Code   RO         7179    i.DMAUSBIntStatusClear  usblib.lib(usbdma.o)
+    0x00022ff8   0x00022ff8   0x00000004   Code   RO         7180    i.DMAUSBStatus      usblib.lib(usbdma.o)
+    0x00022ffc   0x00022ffc   0x00000044   Code   RO         2826    i.EEPROMInit        driverlib.lib(eeprom.o)
+    0x00023040   0x00023040   0x00000164   Code   RO         2832    i.EEPROMProgram     driverlib.lib(eeprom.o)
+    0x000231a4   0x000231a4   0x00000034   Code   RO         2834    i.EEPROMRead        driverlib.lib(eeprom.o)
+    0x000231d8   0x000231d8   0x00000010   Code   RO         2949    i.FPUEnable         driverlib.lib(fpu.o)
+    0x000231e8   0x000231e8   0x00000010   Code   RO         2952    i.FPULazyStackingEnable  driverlib.lib(fpu.o)
+    0x000231f8   0x000231f8   0x00000028   Code   RO         3019    i.GPIODirModeSet    driverlib.lib(gpio.o)
+    0x00023220   0x00023220   0x00000138   Code   RO         3031    i.GPIOPadConfigSet  driverlib.lib(gpio.o)
+    0x00023358   0x00023358   0x00000044   Code   RO         3032    i.GPIOPinConfigure  driverlib.lib(gpio.o)
+    0x0002339c   0x0002339c   0x0000001c   Code   RO         3034    i.GPIOPinTypeADC    driverlib.lib(gpio.o)
+    0x000233b8   0x000233b8   0x0000001c   Code   RO         3043    i.GPIOPinTypeGPIOOutput  driverlib.lib(gpio.o)
+    0x000233d4   0x000233d4   0x0000001c   Code   RO         3046    i.GPIOPinTypeI2C    driverlib.lib(gpio.o)
+    0x000233f0   0x000233f0   0x0000001c   Code   RO         3047    i.GPIOPinTypeI2CSCL  driverlib.lib(gpio.o)
+    0x0002340c   0x0002340c   0x0000001c   Code   RO         3050    i.GPIOPinTypePWM    driverlib.lib(gpio.o)
+    0x00023428   0x00023428   0x0000001c   Code   RO         3052    i.GPIOPinTypeSSI    driverlib.lib(gpio.o)
+    0x00023444   0x00023444   0x0000001c   Code   RO         3053    i.GPIOPinTypeTimer  driverlib.lib(gpio.o)
+    0x00023460   0x00023460   0x0000001c   Code   RO         3055    i.GPIOPinTypeUART   driverlib.lib(gpio.o)
+    0x0002347c   0x0002347c   0x0000001c   Code   RO         3056    i.GPIOPinTypeUSBAnalog  driverlib.lib(gpio.o)
+    0x00023498   0x00023498   0x00000006   Code   RO         3061    i.GPIOPinWrite      driverlib.lib(gpio.o)
+    0x0002349e   0x0002349e   0x00000032   Code   RO         5363    i.HandleConfigChange  usblib.lib(usbdcdc.o)
+    0x000234d0   0x000234d0   0x000000c2   Code   RO         5364    i.HandleDevice      usblib.lib(usbdcdc.o)
+    0x00023592   0x00023592   0x00000022   Code   RO         5365    i.HandleDisconnect  usblib.lib(usbdcdc.o)
+    0x000235b4   0x000235b4   0x0000009a   Code   RO         5366    i.HandleEP0Data     usblib.lib(usbdcdc.o)
+    0x0002364e   0x0002364e   0x0000007e   Code   RO         5367    i.HandleEndpoints   usblib.lib(usbdcdc.o)
+    0x000236cc   0x000236cc   0x00000176   Code   RO         5368    i.HandleRequests    usblib.lib(usbdcdc.o)
+    0x00023842   0x00023842   0x0000000c   Code   RO         5369    i.HandleResume      usblib.lib(usbdcdc.o)
+    0x0002384e   0x0002384e   0x0000000c   Code   RO         5370    i.HandleSuspend     usblib.lib(usbdcdc.o)
     0x0002385a   0x0002385a   0x00000002   PAD
-    0x0002385c   0x0002385c   0x00000060   Code   RO         3325    i.I2CIntRegister    driverlib.lib(i2c.o)
-    0x000238bc   0x000238bc   0x0000000c   Code   RO         3331    i.I2CMasterBusy     driverlib.lib(i2c.o)
-    0x000238c8   0x000238c8   0x00000004   Code   RO         3332    i.I2CMasterControl  driverlib.lib(i2c.o)
-    0x000238cc   0x000238cc   0x00000004   Code   RO         3333    i.I2CMasterDataGet  driverlib.lib(i2c.o)
-    0x000238d0   0x000238d0   0x00000004   Code   RO         3334    i.I2CMasterDataPut  driverlib.lib(i2c.o)
-    0x000238d4   0x000238d4   0x00000018   Code   RO         3337    i.I2CMasterErr      driverlib.lib(i2c.o)
-    0x000238ec   0x000238ec   0x00000054   Code   RO         3339    i.I2CMasterInitExpClk  driverlib.lib(i2c.o)
-    0x00023940   0x00023940   0x00000008   Code   RO         3340    i.I2CMasterIntClear  driverlib.lib(i2c.o)
-    0x00023948   0x00023948   0x00000006   Code   RO         3342    i.I2CMasterIntDisable  driverlib.lib(i2c.o)
-    0x0002394e   0x0002394e   0x00000006   Code   RO         3344    i.I2CMasterIntEnable  driverlib.lib(i2c.o)
-    0x00023954   0x00023954   0x00000008   Code   RO         3349    i.I2CMasterSlaveAddrSet  driverlib.lib(i2c.o)
-    0x0002395c   0x0002395c   0x00000064   Code   RO         3657    i.IntDisable        driverlib.lib(interrupt.o)
-    0x000239c0   0x000239c0   0x00000064   Code   RO         3658    i.IntEnable         driverlib.lib(interrupt.o)
-    0x00023a24   0x00023a24   0x00000060   Code   RO         3659    i.IntIsEnabled      driverlib.lib(interrupt.o)
-    0x00023a84   0x00023a84   0x0000000e   Code   RO         3660    i.IntMasterDisable  driverlib.lib(interrupt.o)
-    0x00023a92   0x00023a92   0x0000000e   Code   RO         3661    i.IntMasterEnable   driverlib.lib(interrupt.o)
-    0x00023aa0   0x00023aa0   0x00000028   Code   RO         3669    i.IntPrioritySet    driverlib.lib(interrupt.o)
-    0x00023ac8   0x00023ac8   0x00000034   Code   RO         3670    i.IntRegister       driverlib.lib(interrupt.o)
-    0x00023afc   0x00023afc   0x00000034   Code   RO         7040    i.InternalUSBRegisterTickHandler  usblib.lib(usbtick.o)
-    0x00023b30   0x00023b30   0x00000038   Code   RO         7041    i.InternalUSBStartOfFrameTick  usblib.lib(usbtick.o)
-    0x00023b68   0x00023b68   0x00000038   Code   RO         7042    i.InternalUSBTickInit  usblib.lib(usbtick.o)
-    0x00023ba0   0x00023ba0   0x00000026   Code   RO         3778    i.PWMGenConfigure   driverlib.lib(pwm.o)
-    0x00023bc6   0x00023bc6   0x0000000a   Code   RO         3780    i.PWMGenEnable      driverlib.lib(pwm.o)
-    0x00023bd0   0x00023bd0   0x00000012   Code   RO         3793    i.PWMGenPeriodSet   driverlib.lib(pwm.o)
-    0x00023be2   0x00023be2   0x00000010   Code   RO         3800    i.PWMOutputState    driverlib.lib(pwm.o)
-    0x00023bf2   0x00023bf2   0x00000020   Code   RO         3803    i.PWMPulseWidthSet  driverlib.lib(pwm.o)
-    0x00023c12   0x00023c12   0x00000086   Code   RO         5370    i.ProcessDataFromHost  usblib.lib(usbdcdc.o)
-    0x00023c98   0x00023c98   0x00000064   Code   RO         5371    i.ProcessDataToHost  usblib.lib(usbdcdc.o)
-    0x00023cfc   0x00023cfc   0x00000008   Code   RO         4008    i.SSIBusy           driverlib.lib(ssi.o)
-    0x00023d04   0x00023d04   0x0000003a   Code   RO         4011    i.SSIConfigSetExpClk  driverlib.lib(ssi.o)
-    0x00023d3e   0x00023d3e   0x00000008   Code   RO         4013    i.SSIDMAEnable      driverlib.lib(ssi.o)
-    0x00023d46   0x00023d46   0x0000000c   Code   RO         4016    i.SSIDataPut        driverlib.lib(ssi.o)
-    0x00023d52   0x00023d52   0x0000000a   Code   RO         4019    i.SSIEnable         driverlib.lib(ssi.o)
-    0x00023d5c   0x00023d5c   0x00000058   Code   RO         4023    i.SSIIntRegister    driverlib.lib(ssi.o)
-    0x00023db4   0x00023db4   0x000000a6   Code   RO         5265    i.ScheduleNextTransmission  usblib.lib(usbbuffer.o)
-    0x00023e5a   0x00023e5a   0x00000044   Code   RO         5373    i.SendBreak         usblib.lib(usbdcdc.o)
-    0x00023e9e   0x00023e9e   0x00000096   Code   RO         5374    i.SendSerialState   usblib.lib(usbdcdc.o)
-    0x00023f34   0x00023f34   0x00000154   Code   RO         4158    i.SysCtlClockGet    driverlib.lib(sysctl.o)
-    0x00024088   0x00024088   0x00000120   Code   RO         4160    i.SysCtlClockSet    driverlib.lib(sysctl.o)
-    0x000241a8   0x000241a8   0x00000014   Code   RO         4184    i.SysCtlPWMClockSet  driverlib.lib(sysctl.o)
-    0x000241bc   0x000241bc   0x00000028   Code   RO         4188    i.SysCtlPeripheralDisable  driverlib.lib(sysctl.o)
-    0x000241e4   0x000241e4   0x00000028   Code   RO         4189    i.SysCtlPeripheralEnable  driverlib.lib(sysctl.o)
-    0x0002420c   0x0002420c   0x0000003c   Code   RO         4194    i.SysCtlPeripheralReset  driverlib.lib(sysctl.o)
-    0x00024248   0x00024248   0x00000010   Code   RO         4206    i.SysCtlUSBPLLEnable  driverlib.lib(sysctl.o)
-    0x00024258   0x00024258   0x0000000e   Code   RO         4498    i.SysTickEnable     driverlib.lib(systick.o)
-    0x00024266   0x00024266   0x0000000e   Code   RO         4500    i.SysTickIntEnable  driverlib.lib(systick.o)
-    0x00024274   0x00024274   0x00000018   Code   RO         4501    i.SysTickIntRegister  driverlib.lib(systick.o)
-    0x0002428c   0x0002428c   0x0000000a   Code   RO         4504    i.SysTickPeriodSet  driverlib.lib(systick.o)
+    0x0002385c   0x0002385c   0x00000060   Code   RO         3326    i.I2CIntRegister    driverlib.lib(i2c.o)
+    0x000238bc   0x000238bc   0x0000000c   Code   RO         3332    i.I2CMasterBusy     driverlib.lib(i2c.o)
+    0x000238c8   0x000238c8   0x00000004   Code   RO         3333    i.I2CMasterControl  driverlib.lib(i2c.o)
+    0x000238cc   0x000238cc   0x00000004   Code   RO         3334    i.I2CMasterDataGet  driverlib.lib(i2c.o)
+    0x000238d0   0x000238d0   0x00000004   Code   RO         3335    i.I2CMasterDataPut  driverlib.lib(i2c.o)
+    0x000238d4   0x000238d4   0x00000018   Code   RO         3338    i.I2CMasterErr      driverlib.lib(i2c.o)
+    0x000238ec   0x000238ec   0x00000054   Code   RO         3340    i.I2CMasterInitExpClk  driverlib.lib(i2c.o)
+    0x00023940   0x00023940   0x00000008   Code   RO         3341    i.I2CMasterIntClear  driverlib.lib(i2c.o)
+    0x00023948   0x00023948   0x00000006   Code   RO         3343    i.I2CMasterIntDisable  driverlib.lib(i2c.o)
+    0x0002394e   0x0002394e   0x00000006   Code   RO         3345    i.I2CMasterIntEnable  driverlib.lib(i2c.o)
+    0x00023954   0x00023954   0x00000008   Code   RO         3350    i.I2CMasterSlaveAddrSet  driverlib.lib(i2c.o)
+    0x0002395c   0x0002395c   0x00000064   Code   RO         3658    i.IntDisable        driverlib.lib(interrupt.o)
+    0x000239c0   0x000239c0   0x00000064   Code   RO         3659    i.IntEnable         driverlib.lib(interrupt.o)
+    0x00023a24   0x00023a24   0x00000060   Code   RO         3660    i.IntIsEnabled      driverlib.lib(interrupt.o)
+    0x00023a84   0x00023a84   0x0000000e   Code   RO         3661    i.IntMasterDisable  driverlib.lib(interrupt.o)
+    0x00023a92   0x00023a92   0x0000000e   Code   RO         3662    i.IntMasterEnable   driverlib.lib(interrupt.o)
+    0x00023aa0   0x00023aa0   0x00000028   Code   RO         3670    i.IntPrioritySet    driverlib.lib(interrupt.o)
+    0x00023ac8   0x00023ac8   0x00000034   Code   RO         3671    i.IntRegister       driverlib.lib(interrupt.o)
+    0x00023afc   0x00023afc   0x00000034   Code   RO         7041    i.InternalUSBRegisterTickHandler  usblib.lib(usbtick.o)
+    0x00023b30   0x00023b30   0x00000038   Code   RO         7042    i.InternalUSBStartOfFrameTick  usblib.lib(usbtick.o)
+    0x00023b68   0x00023b68   0x00000038   Code   RO         7043    i.InternalUSBTickInit  usblib.lib(usbtick.o)
+    0x00023ba0   0x00023ba0   0x00000026   Code   RO         3779    i.PWMGenConfigure   driverlib.lib(pwm.o)
+    0x00023bc6   0x00023bc6   0x0000000a   Code   RO         3781    i.PWMGenEnable      driverlib.lib(pwm.o)
+    0x00023bd0   0x00023bd0   0x00000012   Code   RO         3794    i.PWMGenPeriodSet   driverlib.lib(pwm.o)
+    0x00023be2   0x00023be2   0x00000010   Code   RO         3801    i.PWMOutputState    driverlib.lib(pwm.o)
+    0x00023bf2   0x00023bf2   0x00000020   Code   RO         3804    i.PWMPulseWidthSet  driverlib.lib(pwm.o)
+    0x00023c12   0x00023c12   0x00000086   Code   RO         5371    i.ProcessDataFromHost  usblib.lib(usbdcdc.o)
+    0x00023c98   0x00023c98   0x00000064   Code   RO         5372    i.ProcessDataToHost  usblib.lib(usbdcdc.o)
+    0x00023cfc   0x00023cfc   0x00000008   Code   RO         4009    i.SSIBusy           driverlib.lib(ssi.o)
+    0x00023d04   0x00023d04   0x0000003a   Code   RO         4012    i.SSIConfigSetExpClk  driverlib.lib(ssi.o)
+    0x00023d3e   0x00023d3e   0x00000008   Code   RO         4014    i.SSIDMAEnable      driverlib.lib(ssi.o)
+    0x00023d46   0x00023d46   0x0000000c   Code   RO         4017    i.SSIDataPut        driverlib.lib(ssi.o)
+    0x00023d52   0x00023d52   0x0000000a   Code   RO         4020    i.SSIEnable         driverlib.lib(ssi.o)
+    0x00023d5c   0x00023d5c   0x00000058   Code   RO         4024    i.SSIIntRegister    driverlib.lib(ssi.o)
+    0x00023db4   0x00023db4   0x000000a6   Code   RO         5266    i.ScheduleNextTransmission  usblib.lib(usbbuffer.o)
+    0x00023e5a   0x00023e5a   0x00000044   Code   RO         5374    i.SendBreak         usblib.lib(usbdcdc.o)
+    0x00023e9e   0x00023e9e   0x00000096   Code   RO         5375    i.SendSerialState   usblib.lib(usbdcdc.o)
+    0x00023f34   0x00023f34   0x00000154   Code   RO         4159    i.SysCtlClockGet    driverlib.lib(sysctl.o)
+    0x00024088   0x00024088   0x00000120   Code   RO         4161    i.SysCtlClockSet    driverlib.lib(sysctl.o)
+    0x000241a8   0x000241a8   0x00000014   Code   RO         4185    i.SysCtlPWMClockSet  driverlib.lib(sysctl.o)
+    0x000241bc   0x000241bc   0x00000028   Code   RO         4189    i.SysCtlPeripheralDisable  driverlib.lib(sysctl.o)
+    0x000241e4   0x000241e4   0x00000028   Code   RO         4190    i.SysCtlPeripheralEnable  driverlib.lib(sysctl.o)
+    0x0002420c   0x0002420c   0x0000003c   Code   RO         4195    i.SysCtlPeripheralReset  driverlib.lib(sysctl.o)
+    0x00024248   0x00024248   0x00000010   Code   RO         4207    i.SysCtlUSBPLLEnable  driverlib.lib(sysctl.o)
+    0x00024258   0x00024258   0x0000000e   Code   RO         4499    i.SysTickEnable     driverlib.lib(systick.o)
+    0x00024266   0x00024266   0x0000000e   Code   RO         4501    i.SysTickIntEnable  driverlib.lib(systick.o)
+    0x00024274   0x00024274   0x00000018   Code   RO         4502    i.SysTickIntRegister  driverlib.lib(systick.o)
+    0x0002428c   0x0002428c   0x0000000a   Code   RO         4505    i.SysTickPeriodSet  driverlib.lib(systick.o)
     0x00024296   0x00024296   0x00000002   PAD
-    0x00024298   0x00024298   0x00000060   Code   RO         4564    i.TimerConfigure    driverlib.lib(timer.o)
-    0x000242f8   0x000242f8   0x00000012   Code   RO         4565    i.TimerControlEvent  driverlib.lib(timer.o)
-    0x0002430a   0x0002430a   0x0000000e   Code   RO         4573    i.TimerEnable       driverlib.lib(timer.o)
-    0x00024318   0x00024318   0x00000004   Code   RO         4574    i.TimerIntClear     driverlib.lib(timer.o)
-    0x0002431c   0x0002431c   0x00000008   Code   RO         4576    i.TimerIntEnable    driverlib.lib(timer.o)
-    0x00024324   0x00024324   0x00000068   Code   RO         4577    i.TimerIntRegister  driverlib.lib(timer.o)
-    0x0002438c   0x0002438c   0x00000012   Code   RO         4582    i.TimerLoadSet      driverlib.lib(timer.o)
-    0x0002439e   0x0002439e   0x00000012   Code   RO         4591    i.TimerPrescaleSet  driverlib.lib(timer.o)
-    0x000243b0   0x000243b0   0x0000000a   Code   RO         4596    i.TimerValueGet     driverlib.lib(timer.o)
-    0x000243ba   0x000243ba   0x0000006e   Code   RO         4816    i.UARTConfigSetExpClk  driverlib.lib(uart.o)
-    0x00024428   0x00024428   0x00000008   Code   RO         4818    i.UARTDMAEnable     driverlib.lib(uart.o)
-    0x00024430   0x00024430   0x00000014   Code   RO         4821    i.UARTEnable        driverlib.lib(uart.o)
-    0x00024444   0x00024444   0x0000000a   Code   RO         4824    i.UARTFIFOEnable    driverlib.lib(uart.o)
-    0x0002444e   0x0002444e   0x00000006   Code   RO         4826    i.UARTFIFOLevelSet  driverlib.lib(uart.o)
-    0x00024454   0x00024454   0x00000004   Code   RO         4829    i.UARTIntClear      driverlib.lib(uart.o)
-    0x00024458   0x00024458   0x00000008   Code   RO         4831    i.UARTIntEnable     driverlib.lib(uart.o)
-    0x00024460   0x00024460   0x00000058   Code   RO         4832    i.UARTIntRegister   driverlib.lib(uart.o)
-    0x000244b8   0x000244b8   0x00000006   Code   RO         4842    i.UARTRxErrorClear  driverlib.lib(uart.o)
-    0x000244be   0x000244be   0x00000008   Code   RO         4843    i.UARTRxErrorGet    driverlib.lib(uart.o)
-    0x000244c6   0x000244c6   0x0000005a   Code   RO         7418    i.ULPIConfigSet     usblib.lib(usbulpi.o)
-    0x00024520   0x00024520   0x00000018   Code   RO         5565    i.USB0DeviceIntHandler  usblib.lib(usbdhandler.o)
-    0x00024538   0x00024538   0x00000006   Code   RO         5267    i.USBBufferDataAvailable  usblib.lib(usbbuffer.o)
-    0x0002453e   0x0002453e   0x00000154   Code   RO         5270    i.USBBufferEventCallback  usblib.lib(usbbuffer.o)
-    0x00024692   0x00024692   0x00000006   Code   RO         5271    i.USBBufferFlush    usblib.lib(usbbuffer.o)
-    0x00024698   0x00024698   0x00000018   Code   RO         5273    i.USBBufferInit     usblib.lib(usbbuffer.o)
-    0x000246b0   0x000246b0   0x00000028   Code   RO         5274    i.USBBufferRead     usblib.lib(usbbuffer.o)
-    0x000246d8   0x000246d8   0x00000034   Code   RO         5276    i.USBBufferWrite    usblib.lib(usbbuffer.o)
-    0x0002470c   0x0002470c   0x0000000a   Code   RO         5845    i.USBClockEnable    driverlib.lib(usb.o)
-    0x00024716   0x00024716   0x0000000a   Code   RO         5846    i.USBControllerVersion  driverlib.lib(usb.o)
-    0x00024720   0x00024720   0x000000dc   Code   RO         5375    i.USBDCDCCompositeInit  usblib.lib(usbdcdc.o)
-    0x000247fc   0x000247fc   0x0000004c   Code   RO         5376    i.USBDCDCInit       usblib.lib(usbdcdc.o)
-    0x00024848   0x00024848   0x000000a4   Code   RO         5377    i.USBDCDCPacketRead  usblib.lib(usbdcdc.o)
-    0x000248ec   0x000248ec   0x00000058   Code   RO         5378    i.USBDCDCPacketWrite  usblib.lib(usbdcdc.o)
-    0x00024944   0x00024944   0x00000038   Code   RO         5381    i.USBDCDCRxPacketAvailable  usblib.lib(usbdcdc.o)
-    0x0002497c   0x0002497c   0x00000014   Code   RO         5387    i.USBDCDCTxPacketAvailable  usblib.lib(usbdcdc.o)
-    0x00024990   0x00024990   0x00000056   Code   RO         7081    i.USBDCDConfigDescGet  usblib.lib(usbdcdesc.o)
-    0x000249e6   0x000249e6   0x00000036   Code   RO         7082    i.USBDCDConfigDescGetNum  usblib.lib(usbdcdesc.o)
-    0x00024a1c   0x00024a1c   0x00000022   Code   RO         7083    i.USBDCDConfigDescGetSize  usblib.lib(usbdcdesc.o)
-    0x00024a3e   0x00024a3e   0x000000bc   Code   RO         7084    i.USBDCDConfigGetInterface  usblib.lib(usbdcdesc.o)
-    0x00024afa   0x00024afa   0x0000005e   Code   RO         7085    i.USBDCDConfigGetInterfaceEndpoint  usblib.lib(usbdcdesc.o)
-    0x00024b58   0x00024b58   0x00000044   Code   RO         6462    i.USBDCDDeviceInfoInit  usblib.lib(usbdenum.o)
-    0x00024b9c   0x00024b9c   0x00000018   Code   RO         6463    i.USBDCDFeatureGet  usblib.lib(usbdenum.o)
-    0x00024bb4   0x00024bb4   0x000001a8   Code   RO         6465    i.USBDCDInit        usblib.lib(usbdenum.o)
-    0x00024d5c   0x00024d5c   0x00000014   Code   RO         6469    i.USBDCDRequestDataEP0  usblib.lib(usbdenum.o)
-    0x00024d70   0x00024d70   0x00000014   Code   RO         6470    i.USBDCDSendDataEP0  usblib.lib(usbdenum.o)
-    0x00024d84   0x00024d84   0x0000001c   Code   RO         6472    i.USBDCDStallEP0    usblib.lib(usbdenum.o)
-    0x00024da0   0x00024da0   0x000000a4   Code   RO         6474    i.USBDClearFeature  usblib.lib(usbdenum.o)
-    0x00024e44   0x00024e44   0x00000074   Code   RO         6475    i.USBDEP0StateTx    usblib.lib(usbdenum.o)
-    0x00024eb8   0x00024eb8   0x00000174   Code   RO         6476    i.USBDEP0StateTxConfig  usblib.lib(usbdenum.o)
-    0x0002502c   0x0002502c   0x00000034   Code   RO         6477    i.USBDGetConfiguration  usblib.lib(usbdenum.o)
-    0x00025060   0x00025060   0x00000170   Code   RO         6478    i.USBDGetDescriptor  usblib.lib(usbdenum.o)
-    0x000251d0   0x000251d0   0x0000005c   Code   RO         6479    i.USBDGetInterface  usblib.lib(usbdenum.o)
-    0x0002522c   0x0002522c   0x00000084   Code   RO         6480    i.USBDGetStatus     usblib.lib(usbdenum.o)
-    0x000252b0   0x000252b0   0x0000000a   Code   RO         5848    i.USBDMAChannelAddressSet  driverlib.lib(usb.o)
-    0x000252ba   0x000252ba   0x00000016   Code   RO         5849    i.USBDMAChannelConfigSet  driverlib.lib(usb.o)
-    0x000252d0   0x000252d0   0x0000000a   Code   RO         5851    i.USBDMAChannelCountSet  driverlib.lib(usb.o)
-    0x000252da   0x000252da   0x00000012   Code   RO         5852    i.USBDMAChannelDisable  driverlib.lib(usb.o)
-    0x000252ec   0x000252ec   0x00000012   Code   RO         5853    i.USBDMAChannelEnable  driverlib.lib(usb.o)
-    0x000252fe   0x000252fe   0x00000012   Code   RO         5854    i.USBDMAChannelIntDisable  driverlib.lib(usb.o)
-    0x00025310   0x00025310   0x00000012   Code   RO         5855    i.USBDMAChannelIntEnable  driverlib.lib(usb.o)
-    0x00025322   0x00025322   0x00000006   Code   RO         5856    i.USBDMAChannelIntStatus  driverlib.lib(usb.o)
-    0x00025328   0x00025328   0x0000000e   Code   RO         5857    i.USBDMAChannelStatus  driverlib.lib(usb.o)
+    0x00024298   0x00024298   0x00000060   Code   RO         4565    i.TimerConfigure    driverlib.lib(timer.o)
+    0x000242f8   0x000242f8   0x00000012   Code   RO         4566    i.TimerControlEvent  driverlib.lib(timer.o)
+    0x0002430a   0x0002430a   0x0000000e   Code   RO         4574    i.TimerEnable       driverlib.lib(timer.o)
+    0x00024318   0x00024318   0x00000004   Code   RO         4575    i.TimerIntClear     driverlib.lib(timer.o)
+    0x0002431c   0x0002431c   0x00000008   Code   RO         4577    i.TimerIntEnable    driverlib.lib(timer.o)
+    0x00024324   0x00024324   0x00000068   Code   RO         4578    i.TimerIntRegister  driverlib.lib(timer.o)
+    0x0002438c   0x0002438c   0x00000012   Code   RO         4583    i.TimerLoadSet      driverlib.lib(timer.o)
+    0x0002439e   0x0002439e   0x00000012   Code   RO         4592    i.TimerPrescaleSet  driverlib.lib(timer.o)
+    0x000243b0   0x000243b0   0x0000000a   Code   RO         4597    i.TimerValueGet     driverlib.lib(timer.o)
+    0x000243ba   0x000243ba   0x0000006e   Code   RO         4817    i.UARTConfigSetExpClk  driverlib.lib(uart.o)
+    0x00024428   0x00024428   0x00000008   Code   RO         4819    i.UARTDMAEnable     driverlib.lib(uart.o)
+    0x00024430   0x00024430   0x00000014   Code   RO         4822    i.UARTEnable        driverlib.lib(uart.o)
+    0x00024444   0x00024444   0x0000000a   Code   RO         4825    i.UARTFIFOEnable    driverlib.lib(uart.o)
+    0x0002444e   0x0002444e   0x00000006   Code   RO         4827    i.UARTFIFOLevelSet  driverlib.lib(uart.o)
+    0x00024454   0x00024454   0x00000004   Code   RO         4830    i.UARTIntClear      driverlib.lib(uart.o)
+    0x00024458   0x00024458   0x00000008   Code   RO         4832    i.UARTIntEnable     driverlib.lib(uart.o)
+    0x00024460   0x00024460   0x00000058   Code   RO         4833    i.UARTIntRegister   driverlib.lib(uart.o)
+    0x000244b8   0x000244b8   0x00000006   Code   RO         4843    i.UARTRxErrorClear  driverlib.lib(uart.o)
+    0x000244be   0x000244be   0x00000008   Code   RO         4844    i.UARTRxErrorGet    driverlib.lib(uart.o)
+    0x000244c6   0x000244c6   0x0000005a   Code   RO         7419    i.ULPIConfigSet     usblib.lib(usbulpi.o)
+    0x00024520   0x00024520   0x00000018   Code   RO         5566    i.USB0DeviceIntHandler  usblib.lib(usbdhandler.o)
+    0x00024538   0x00024538   0x00000006   Code   RO         5268    i.USBBufferDataAvailable  usblib.lib(usbbuffer.o)
+    0x0002453e   0x0002453e   0x00000154   Code   RO         5271    i.USBBufferEventCallback  usblib.lib(usbbuffer.o)
+    0x00024692   0x00024692   0x00000006   Code   RO         5272    i.USBBufferFlush    usblib.lib(usbbuffer.o)
+    0x00024698   0x00024698   0x00000018   Code   RO         5274    i.USBBufferInit     usblib.lib(usbbuffer.o)
+    0x000246b0   0x000246b0   0x00000028   Code   RO         5275    i.USBBufferRead     usblib.lib(usbbuffer.o)
+    0x000246d8   0x000246d8   0x00000034   Code   RO         5277    i.USBBufferWrite    usblib.lib(usbbuffer.o)
+    0x0002470c   0x0002470c   0x0000000a   Code   RO         5846    i.USBClockEnable    driverlib.lib(usb.o)
+    0x00024716   0x00024716   0x0000000a   Code   RO         5847    i.USBControllerVersion  driverlib.lib(usb.o)
+    0x00024720   0x00024720   0x000000dc   Code   RO         5376    i.USBDCDCCompositeInit  usblib.lib(usbdcdc.o)
+    0x000247fc   0x000247fc   0x0000004c   Code   RO         5377    i.USBDCDCInit       usblib.lib(usbdcdc.o)
+    0x00024848   0x00024848   0x000000a4   Code   RO         5378    i.USBDCDCPacketRead  usblib.lib(usbdcdc.o)
+    0x000248ec   0x000248ec   0x00000058   Code   RO         5379    i.USBDCDCPacketWrite  usblib.lib(usbdcdc.o)
+    0x00024944   0x00024944   0x00000038   Code   RO         5382    i.USBDCDCRxPacketAvailable  usblib.lib(usbdcdc.o)
+    0x0002497c   0x0002497c   0x00000014   Code   RO         5388    i.USBDCDCTxPacketAvailable  usblib.lib(usbdcdc.o)
+    0x00024990   0x00024990   0x00000056   Code   RO         7082    i.USBDCDConfigDescGet  usblib.lib(usbdcdesc.o)
+    0x000249e6   0x000249e6   0x00000036   Code   RO         7083    i.USBDCDConfigDescGetNum  usblib.lib(usbdcdesc.o)
+    0x00024a1c   0x00024a1c   0x00000022   Code   RO         7084    i.USBDCDConfigDescGetSize  usblib.lib(usbdcdesc.o)
+    0x00024a3e   0x00024a3e   0x000000bc   Code   RO         7085    i.USBDCDConfigGetInterface  usblib.lib(usbdcdesc.o)
+    0x00024afa   0x00024afa   0x0000005e   Code   RO         7086    i.USBDCDConfigGetInterfaceEndpoint  usblib.lib(usbdcdesc.o)
+    0x00024b58   0x00024b58   0x00000044   Code   RO         6463    i.USBDCDDeviceInfoInit  usblib.lib(usbdenum.o)
+    0x00024b9c   0x00024b9c   0x00000018   Code   RO         6464    i.USBDCDFeatureGet  usblib.lib(usbdenum.o)
+    0x00024bb4   0x00024bb4   0x000001a8   Code   RO         6466    i.USBDCDInit        usblib.lib(usbdenum.o)
+    0x00024d5c   0x00024d5c   0x00000014   Code   RO         6470    i.USBDCDRequestDataEP0  usblib.lib(usbdenum.o)
+    0x00024d70   0x00024d70   0x00000014   Code   RO         6471    i.USBDCDSendDataEP0  usblib.lib(usbdenum.o)
+    0x00024d84   0x00024d84   0x0000001c   Code   RO         6473    i.USBDCDStallEP0    usblib.lib(usbdenum.o)
+    0x00024da0   0x00024da0   0x000000a4   Code   RO         6475    i.USBDClearFeature  usblib.lib(usbdenum.o)
+    0x00024e44   0x00024e44   0x00000074   Code   RO         6476    i.USBDEP0StateTx    usblib.lib(usbdenum.o)
+    0x00024eb8   0x00024eb8   0x00000174   Code   RO         6477    i.USBDEP0StateTxConfig  usblib.lib(usbdenum.o)
+    0x0002502c   0x0002502c   0x00000034   Code   RO         6478    i.USBDGetConfiguration  usblib.lib(usbdenum.o)
+    0x00025060   0x00025060   0x00000170   Code   RO         6479    i.USBDGetDescriptor  usblib.lib(usbdenum.o)
+    0x000251d0   0x000251d0   0x0000005c   Code   RO         6480    i.USBDGetInterface  usblib.lib(usbdenum.o)
+    0x0002522c   0x0002522c   0x00000084   Code   RO         6481    i.USBDGetStatus     usblib.lib(usbdenum.o)
+    0x000252b0   0x000252b0   0x0000000a   Code   RO         5849    i.USBDMAChannelAddressSet  driverlib.lib(usb.o)
+    0x000252ba   0x000252ba   0x00000016   Code   RO         5850    i.USBDMAChannelConfigSet  driverlib.lib(usb.o)
+    0x000252d0   0x000252d0   0x0000000a   Code   RO         5852    i.USBDMAChannelCountSet  driverlib.lib(usb.o)
+    0x000252da   0x000252da   0x00000012   Code   RO         5853    i.USBDMAChannelDisable  driverlib.lib(usb.o)
+    0x000252ec   0x000252ec   0x00000012   Code   RO         5854    i.USBDMAChannelEnable  driverlib.lib(usb.o)
+    0x000252fe   0x000252fe   0x00000012   Code   RO         5855    i.USBDMAChannelIntDisable  driverlib.lib(usb.o)
+    0x00025310   0x00025310   0x00000012   Code   RO         5856    i.USBDMAChannelIntEnable  driverlib.lib(usb.o)
+    0x00025322   0x00025322   0x00000006   Code   RO         5857    i.USBDMAChannelIntStatus  driverlib.lib(usb.o)
+    0x00025328   0x00025328   0x0000000e   Code   RO         5858    i.USBDMAChannelStatus  driverlib.lib(usb.o)
     0x00025336   0x00025336   0x00000002   PAD
-    0x00025338   0x00025338   0x0000007c   Code   RO         6481    i.USBDReadAndDispatchRequest  usblib.lib(usbdenum.o)
-    0x000253b4   0x000253b4   0x00000024   Code   RO         6482    i.USBDSetAddress    usblib.lib(usbdenum.o)
-    0x000253d8   0x000253d8   0x000000a4   Code   RO         6483    i.USBDSetConfiguration  usblib.lib(usbdenum.o)
-    0x0002547c   0x0002547c   0x00000028   Code   RO         6484    i.USBDSetDescriptor  usblib.lib(usbdenum.o)
-    0x000254a4   0x000254a4   0x00000084   Code   RO         6485    i.USBDSetFeature    usblib.lib(usbdenum.o)
-    0x00025528   0x00025528   0x000000bc   Code   RO         6486    i.USBDSetInterface  usblib.lib(usbdenum.o)
-    0x000255e4   0x000255e4   0x00000028   Code   RO         6487    i.USBDSyncFrame     usblib.lib(usbdenum.o)
-    0x0002560c   0x0002560c   0x00000036   Code   RO         7141    i.USBDescGet        usblib.lib(usbdesc.o)
-    0x00025642   0x00025642   0x0000002e   Code   RO         7144    i.USBDescGetNum     usblib.lib(usbdesc.o)
-    0x00025670   0x00025670   0x00000004   Code   RO         5861    i.USBDevAddrSet     driverlib.lib(usb.o)
-    0x00025674   0x00025674   0x0000000a   Code   RO         5862    i.USBDevConnect     driverlib.lib(usb.o)
-    0x0002567e   0x0002567e   0x0000000a   Code   RO         5863    i.USBDevDisconnect  driverlib.lib(usb.o)
-    0x00025688   0x00025688   0x00000088   Code   RO         5865    i.USBDevEndpointConfigSet  driverlib.lib(usb.o)
-    0x00025710   0x00025710   0x00000024   Code   RO         5866    i.USBDevEndpointDataAck  driverlib.lib(usb.o)
-    0x00025734   0x00025734   0x00000034   Code   RO         5867    i.USBDevEndpointStall  driverlib.lib(usb.o)
-    0x00025768   0x00025768   0x0000004a   Code   RO         5868    i.USBDevEndpointStallClear  driverlib.lib(usb.o)
-    0x000257b2   0x000257b2   0x0000005e   Code   RO         5869    i.USBDevEndpointStatusClear  driverlib.lib(usb.o)
-    0x00025810   0x00025810   0x00000006   Code   RO         5870    i.USBDevLPMConfig   driverlib.lib(usb.o)
-    0x00025816   0x00025816   0x0000000e   Code   RO         5871    i.USBDevLPMDisable  driverlib.lib(usb.o)
-    0x00025824   0x00025824   0x0000000e   Code   RO         5872    i.USBDevLPMEnable   driverlib.lib(usb.o)
-    0x00025832   0x00025832   0x00000008   Code   RO         5874    i.USBDevMode        driverlib.lib(usb.o)
+    0x00025338   0x00025338   0x0000007c   Code   RO         6482    i.USBDReadAndDispatchRequest  usblib.lib(usbdenum.o)
+    0x000253b4   0x000253b4   0x00000024   Code   RO         6483    i.USBDSetAddress    usblib.lib(usbdenum.o)
+    0x000253d8   0x000253d8   0x000000a4   Code   RO         6484    i.USBDSetConfiguration  usblib.lib(usbdenum.o)
+    0x0002547c   0x0002547c   0x00000028   Code   RO         6485    i.USBDSetDescriptor  usblib.lib(usbdenum.o)
+    0x000254a4   0x000254a4   0x00000084   Code   RO         6486    i.USBDSetFeature    usblib.lib(usbdenum.o)
+    0x00025528   0x00025528   0x000000bc   Code   RO         6487    i.USBDSetInterface  usblib.lib(usbdenum.o)
+    0x000255e4   0x000255e4   0x00000028   Code   RO         6488    i.USBDSyncFrame     usblib.lib(usbdenum.o)
+    0x0002560c   0x0002560c   0x00000036   Code   RO         7142    i.USBDescGet        usblib.lib(usbdesc.o)
+    0x00025642   0x00025642   0x0000002e   Code   RO         7145    i.USBDescGetNum     usblib.lib(usbdesc.o)
+    0x00025670   0x00025670   0x00000004   Code   RO         5862    i.USBDevAddrSet     driverlib.lib(usb.o)
+    0x00025674   0x00025674   0x0000000a   Code   RO         5863    i.USBDevConnect     driverlib.lib(usb.o)
+    0x0002567e   0x0002567e   0x0000000a   Code   RO         5864    i.USBDevDisconnect  driverlib.lib(usb.o)
+    0x00025688   0x00025688   0x00000088   Code   RO         5866    i.USBDevEndpointConfigSet  driverlib.lib(usb.o)
+    0x00025710   0x00025710   0x00000024   Code   RO         5867    i.USBDevEndpointDataAck  driverlib.lib(usb.o)
+    0x00025734   0x00025734   0x00000034   Code   RO         5868    i.USBDevEndpointStall  driverlib.lib(usb.o)
+    0x00025768   0x00025768   0x0000004a   Code   RO         5869    i.USBDevEndpointStallClear  driverlib.lib(usb.o)
+    0x000257b2   0x000257b2   0x0000005e   Code   RO         5870    i.USBDevEndpointStatusClear  driverlib.lib(usb.o)
+    0x00025810   0x00025810   0x00000006   Code   RO         5871    i.USBDevLPMConfig   driverlib.lib(usb.o)
+    0x00025816   0x00025816   0x0000000e   Code   RO         5872    i.USBDevLPMDisable  driverlib.lib(usb.o)
+    0x00025824   0x00025824   0x0000000e   Code   RO         5873    i.USBDevLPMEnable   driverlib.lib(usb.o)
+    0x00025832   0x00025832   0x00000008   Code   RO         5875    i.USBDevMode        driverlib.lib(usb.o)
     0x0002583a   0x0002583a   0x00000002   PAD
-    0x0002583c   0x0002583c   0x000001a0   Code   RO         7123    i.USBDeviceConfig   usblib.lib(usbdconfig.o)
-    0x000259dc   0x000259dc   0x000000c8   Code   RO         7124    i.USBDeviceConfigAlternate  usblib.lib(usbdconfig.o)
-    0x00025aa4   0x00025aa4   0x000000ec   Code   RO         6488    i.USBDeviceEnumHandler  usblib.lib(usbdenum.o)
-    0x00025b90   0x00025b90   0x00000198   Code   RO         6490    i.USBDeviceIntHandlerInternal  usblib.lib(usbdenum.o)
-    0x00025d28   0x00025d28   0x00000058   Code   RO         6491    i.USBDeviceResumeTickHandler  usblib.lib(usbdenum.o)
-    0x00025d80   0x00025d80   0x0000001a   Code   RO         5876    i.USBEndpointDMAChannel  driverlib.lib(usb.o)
-    0x00025d9a   0x00025d9a   0x00000056   Code   RO         5877    i.USBEndpointDMAConfigSet  driverlib.lib(usb.o)
-    0x00025df0   0x00025df0   0x00000024   Code   RO         5878    i.USBEndpointDMADisable  driverlib.lib(usb.o)
-    0x00025e14   0x00025e14   0x00000024   Code   RO         5879    i.USBEndpointDMAEnable  driverlib.lib(usb.o)
-    0x00025e38   0x00025e38   0x0000001e   Code   RO         5880    i.USBEndpointDataAvail  driverlib.lib(usb.o)
-    0x00025e56   0x00025e56   0x00000054   Code   RO         5881    i.USBEndpointDataGet  driverlib.lib(usb.o)
-    0x00025eaa   0x00025eaa   0x0000003a   Code   RO         5882    i.USBEndpointDataPut  driverlib.lib(usb.o)
-    0x00025ee4   0x00025ee4   0x00000030   Code   RO         5883    i.USBEndpointDataSend  driverlib.lib(usb.o)
-    0x00025f14   0x00025f14   0x0000000c   Code   RO         5885    i.USBEndpointPacketCountSet  driverlib.lib(usb.o)
-    0x00025f20   0x00025f20   0x00000010   Code   RO         5886    i.USBEndpointStatus  driverlib.lib(usb.o)
-    0x00025f30   0x00025f30   0x00000008   Code   RO         5887    i.USBFIFOAddrGet    driverlib.lib(usb.o)
-    0x00025f38   0x00025f38   0x00000040   Code   RO         5889    i.USBFIFOConfigSet  driverlib.lib(usb.o)
-    0x00025f78   0x00025f78   0x00000012   Code   RO         5916    i.USBHostResume     driverlib.lib(usb.o)
+    0x0002583c   0x0002583c   0x000001a0   Code   RO         7124    i.USBDeviceConfig   usblib.lib(usbdconfig.o)
+    0x000259dc   0x000259dc   0x000000c8   Code   RO         7125    i.USBDeviceConfigAlternate  usblib.lib(usbdconfig.o)
+    0x00025aa4   0x00025aa4   0x000000ec   Code   RO         6489    i.USBDeviceEnumHandler  usblib.lib(usbdenum.o)
+    0x00025b90   0x00025b90   0x00000198   Code   RO         6491    i.USBDeviceIntHandlerInternal  usblib.lib(usbdenum.o)
+    0x00025d28   0x00025d28   0x00000058   Code   RO         6492    i.USBDeviceResumeTickHandler  usblib.lib(usbdenum.o)
+    0x00025d80   0x00025d80   0x0000001a   Code   RO         5877    i.USBEndpointDMAChannel  driverlib.lib(usb.o)
+    0x00025d9a   0x00025d9a   0x00000056   Code   RO         5878    i.USBEndpointDMAConfigSet  driverlib.lib(usb.o)
+    0x00025df0   0x00025df0   0x00000024   Code   RO         5879    i.USBEndpointDMADisable  driverlib.lib(usb.o)
+    0x00025e14   0x00025e14   0x00000024   Code   RO         5880    i.USBEndpointDMAEnable  driverlib.lib(usb.o)
+    0x00025e38   0x00025e38   0x0000001e   Code   RO         5881    i.USBEndpointDataAvail  driverlib.lib(usb.o)
+    0x00025e56   0x00025e56   0x00000054   Code   RO         5882    i.USBEndpointDataGet  driverlib.lib(usb.o)
+    0x00025eaa   0x00025eaa   0x0000003a   Code   RO         5883    i.USBEndpointDataPut  driverlib.lib(usb.o)
+    0x00025ee4   0x00025ee4   0x00000030   Code   RO         5884    i.USBEndpointDataSend  driverlib.lib(usb.o)
+    0x00025f14   0x00025f14   0x0000000c   Code   RO         5886    i.USBEndpointPacketCountSet  driverlib.lib(usb.o)
+    0x00025f20   0x00025f20   0x00000010   Code   RO         5887    i.USBEndpointStatus  driverlib.lib(usb.o)
+    0x00025f30   0x00025f30   0x00000008   Code   RO         5888    i.USBFIFOAddrGet    driverlib.lib(usb.o)
+    0x00025f38   0x00025f38   0x00000040   Code   RO         5890    i.USBFIFOConfigSet  driverlib.lib(usb.o)
+    0x00025f78   0x00025f78   0x00000012   Code   RO         5917    i.USBHostResume     driverlib.lib(usb.o)
     0x00025f8a   0x00025f8a   0x00000002   PAD
-    0x00025f8c   0x00025f8c   0x0000002c   Code   RO         5921    i.USBIntEnableControl  driverlib.lib(usb.o)
-    0x00025fb8   0x00025fb8   0x00000016   Code   RO         5922    i.USBIntEnableEndpoint  driverlib.lib(usb.o)
+    0x00025f8c   0x00025f8c   0x0000002c   Code   RO         5922    i.USBIntEnableControl  driverlib.lib(usb.o)
+    0x00025fb8   0x00025fb8   0x00000016   Code   RO         5923    i.USBIntEnableEndpoint  driverlib.lib(usb.o)
     0x00025fce   0x00025fce   0x00000002   PAD
-    0x00025fd0   0x00025fd0   0x0000003c   Code   RO         5924    i.USBIntStatusControl  driverlib.lib(usb.o)
-    0x0002600c   0x0002600c   0x0000000a   Code   RO         5925    i.USBIntStatusEndpoint  driverlib.lib(usb.o)
-    0x00026016   0x00026016   0x0000000c   Code   RO         5929    i.USBLPMIntEnable   driverlib.lib(usb.o)
-    0x00026022   0x00026022   0x00000006   Code   RO         5930    i.USBLPMIntStatus   driverlib.lib(usb.o)
-    0x00026028   0x00026028   0x0000015c   Code   RO         7181    i.USBLibDMAInit     usblib.lib(usbdma.o)
-    0x00026184   0x00026184   0x00000008   Code   RO         5936    i.USBOTGMode        driverlib.lib(usb.o)
-    0x0002618c   0x0002618c   0x00000046   Code   RO         6944    i.USBRingBufAdvanceRead  usblib.lib(usbringbuf.o)
-    0x000261d2   0x000261d2   0x00000054   Code   RO         6945    i.USBRingBufAdvanceWrite  usblib.lib(usbringbuf.o)
-    0x00026226   0x00026226   0x0000001e   Code   RO         6946    i.USBRingBufContigFree  usblib.lib(usbringbuf.o)
-    0x00026244   0x00026244   0x00000010   Code   RO         6947    i.USBRingBufContigUsed  usblib.lib(usbringbuf.o)
-    0x00026254   0x00026254   0x0000001a   Code   RO         6949    i.USBRingBufFlush   usblib.lib(usbringbuf.o)
-    0x0002626e   0x0002626e   0x00000016   Code   RO         6950    i.USBRingBufFree    usblib.lib(usbringbuf.o)
-    0x00026284   0x00026284   0x0000000c   Code   RO         6952    i.USBRingBufInit    usblib.lib(usbringbuf.o)
-    0x00026290   0x00026290   0x00000052   Code   RO         6953    i.USBRingBufRead    usblib.lib(usbringbuf.o)
-    0x000262e2   0x000262e2   0x00000014   Code   RO         6956    i.USBRingBufUsed    usblib.lib(usbringbuf.o)
-    0x000262f6   0x000262f6   0x00000050   Code   RO         6957    i.USBRingBufWrite   usblib.lib(usbringbuf.o)
+    0x00025fd0   0x00025fd0   0x0000003c   Code   RO         5925    i.USBIntStatusControl  driverlib.lib(usb.o)
+    0x0002600c   0x0002600c   0x0000000a   Code   RO         5926    i.USBIntStatusEndpoint  driverlib.lib(usb.o)
+    0x00026016   0x00026016   0x0000000c   Code   RO         5930    i.USBLPMIntEnable   driverlib.lib(usb.o)
+    0x00026022   0x00026022   0x00000006   Code   RO         5931    i.USBLPMIntStatus   driverlib.lib(usb.o)
+    0x00026028   0x00026028   0x0000015c   Code   RO         7182    i.USBLibDMAInit     usblib.lib(usbdma.o)
+    0x00026184   0x00026184   0x00000008   Code   RO         5937    i.USBOTGMode        driverlib.lib(usb.o)
+    0x0002618c   0x0002618c   0x00000046   Code   RO         6945    i.USBRingBufAdvanceRead  usblib.lib(usbringbuf.o)
+    0x000261d2   0x000261d2   0x00000054   Code   RO         6946    i.USBRingBufAdvanceWrite  usblib.lib(usbringbuf.o)
+    0x00026226   0x00026226   0x0000001e   Code   RO         6947    i.USBRingBufContigFree  usblib.lib(usbringbuf.o)
+    0x00026244   0x00026244   0x00000010   Code   RO         6948    i.USBRingBufContigUsed  usblib.lib(usbringbuf.o)
+    0x00026254   0x00026254   0x0000001a   Code   RO         6950    i.USBRingBufFlush   usblib.lib(usbringbuf.o)
+    0x0002626e   0x0002626e   0x00000016   Code   RO         6951    i.USBRingBufFree    usblib.lib(usbringbuf.o)
+    0x00026284   0x00026284   0x0000000c   Code   RO         6953    i.USBRingBufInit    usblib.lib(usbringbuf.o)
+    0x00026290   0x00026290   0x00000052   Code   RO         6954    i.USBRingBufRead    usblib.lib(usbringbuf.o)
+    0x000262e2   0x000262e2   0x00000014   Code   RO         6957    i.USBRingBufUsed    usblib.lib(usbringbuf.o)
+    0x000262f6   0x000262f6   0x00000050   Code   RO         6958    i.USBRingBufWrite   usblib.lib(usbringbuf.o)
     0x00026346   0x00026346   0x00000002   PAD
-    0x00026348   0x00026348   0x0000001c   Code   RO         5588    i.USBStackModeSet   usblib.lib(usbmode.o)
-    0x00026364   0x00026364   0x0000000e   Code   RO         5941    i.USBULPIDisable    driverlib.lib(usb.o)
-    0x00026372   0x00026372   0x0000000e   Code   RO         5942    i.USBULPIEnable     driverlib.lib(usb.o)
-    0x00026380   0x00026380   0x00000020   Code   RO         5943    i.USBULPIRegRead    driverlib.lib(usb.o)
-    0x000263a0   0x000263a0   0x00000020   Code   RO         5944    i.USBULPIRegWrite   driverlib.lib(usb.o)
-    0x000263c0   0x000263c0   0x00000030   Code   RO         8018    i.__ARM_fpclassify  m_wm.l(fpclassify.o)
-    0x000263f0   0x000263f0   0x00000026   Code   RO         8020    i.__ARM_fpclassifyf  m_wm.l(fpclassifyf.o)
-    0x00026416   0x00026416   0x0000000e   Code   RO         7718    i.__hardfp__fabsf   m_wm.l(fabsf.o)
+    0x00026348   0x00026348   0x0000001c   Code   RO         5589    i.USBStackModeSet   usblib.lib(usbmode.o)
+    0x00026364   0x00026364   0x0000000e   Code   RO         5942    i.USBULPIDisable    driverlib.lib(usb.o)
+    0x00026372   0x00026372   0x0000000e   Code   RO         5943    i.USBULPIEnable     driverlib.lib(usb.o)
+    0x00026380   0x00026380   0x00000020   Code   RO         5944    i.USBULPIRegRead    driverlib.lib(usb.o)
+    0x000263a0   0x000263a0   0x00000020   Code   RO         5945    i.USBULPIRegWrite   driverlib.lib(usb.o)
+    0x000263c0   0x000263c0   0x00000030   Code   RO         8019    i.__ARM_fpclassify  m_wm.l(fpclassify.o)
+    0x000263f0   0x000263f0   0x00000026   Code   RO         8021    i.__ARM_fpclassifyf  m_wm.l(fpclassifyf.o)
+    0x00026416   0x00026416   0x0000000e   Code   RO         7719    i.__hardfp__fabsf   m_wm.l(fabsf.o)
     0x00026424   0x00026424   0x00000004   PAD
-    0x00026428   0x00026428   0x00000358   Code   RO         7598    i.__hardfp_acos     m_wm.l(acos.o)
-    0x00026780   0x00026780   0x00000118   Code   RO         7612    i.__hardfp_acosf    m_wm.l(acosf.o)
-    0x00026898   0x00026898   0x00000360   Code   RO         7624    i.__hardfp_asin     m_wm.l(asin.o)
-    0x00026bf8   0x00026bf8   0x0000012c   Code   RO         7638    i.__hardfp_asinf    m_wm.l(asinf.o)
+    0x00026428   0x00026428   0x00000358   Code   RO         7599    i.__hardfp_acos     m_wm.l(acos.o)
+    0x00026780   0x00026780   0x00000118   Code   RO         7613    i.__hardfp_acosf    m_wm.l(acosf.o)
+    0x00026898   0x00026898   0x00000360   Code   RO         7625    i.__hardfp_asin     m_wm.l(asin.o)
+    0x00026bf8   0x00026bf8   0x0000012c   Code   RO         7639    i.__hardfp_asinf    m_wm.l(asinf.o)
     0x00026d24   0x00026d24   0x00000004   PAD
-    0x00026d28   0x00026d28   0x000002d8   Code   RO         7981    i.__hardfp_atan     m_wm.l(atan.o)
-    0x00027000   0x00027000   0x00000200   Code   RO         7650    i.__hardfp_atan2    m_wm.l(atan2.o)
-    0x00027200   0x00027200   0x000002ac   Code   RO         7662    i.__hardfp_atan2f   m_wm.l(atan2f.o)
-    0x000274ac   0x000274ac   0x0000006c   Code   RO         7674    i.__hardfp_ceilf    m_wm.l(ceilf.o)
-    0x00027518   0x00027518   0x000000c8   Code   RO         7680    i.__hardfp_cos      m_wm.l(cos.o)
-    0x000275e0   0x000275e0   0x00000150   Code   RO         7692    i.__hardfp_cosf     m_wm.l(cosf.o)
-    0x00027730   0x00027730   0x00000c50   Code   RO         7752    i.__hardfp_pow      m_wm.l(pow.o)
-    0x00028380   0x00028380   0x00000664   Code   RO         7766    i.__hardfp_powf     m_wm.l(powf.o)
+    0x00026d28   0x00026d28   0x000002d8   Code   RO         7982    i.__hardfp_atan     m_wm.l(atan.o)
+    0x00027000   0x00027000   0x00000200   Code   RO         7651    i.__hardfp_atan2    m_wm.l(atan2.o)
+    0x00027200   0x00027200   0x000002ac   Code   RO         7663    i.__hardfp_atan2f   m_wm.l(atan2f.o)
+    0x000274ac   0x000274ac   0x0000006c   Code   RO         7675    i.__hardfp_ceilf    m_wm.l(ceilf.o)
+    0x00027518   0x00027518   0x000000c8   Code   RO         7681    i.__hardfp_cos      m_wm.l(cos.o)
+    0x000275e0   0x000275e0   0x00000150   Code   RO         7693    i.__hardfp_cosf     m_wm.l(cosf.o)
+    0x00027730   0x00027730   0x00000c50   Code   RO         7753    i.__hardfp_pow      m_wm.l(pow.o)
+    0x00028380   0x00028380   0x00000664   Code   RO         7767    i.__hardfp_powf     m_wm.l(powf.o)
     0x000289e4   0x000289e4   0x00000004   PAD
-    0x000289e8   0x000289e8   0x000000c8   Code   RO         7780    i.__hardfp_sin      m_wm.l(sin.o)
-    0x00028ab0   0x00028ab0   0x00000190   Code   RO         7792    i.__hardfp_sinf     m_wm.l(sinf.o)
-    0x00028c40   0x00028c40   0x0000007a   Code   RO         7804    i.__hardfp_sqrt     m_wm.l(sqrt.o)
-    0x00028cba   0x00028cba   0x0000003a   Code   RO         7816    i.__hardfp_sqrtf    m_wm.l(sqrtf.o)
-    0x00028cf4   0x00028cf4   0x0000017c   Code   RO         7840    i.__hardfp_tanf     m_wm.l(tanf.o)
-    0x00028e70   0x00028e70   0x00000438   Code   RO         8039    i.__ieee754_rem_pio2  m_wm.l(rred.o)
-    0x000292a8   0x000292a8   0x00000170   Code   RO         7995    i.__kernel_cos      m_wm.l(cos_i.o)
-    0x00029418   0x00029418   0x000000f8   Code   RO         8036    i.__kernel_poly     m_wm.l(poly.o)
-    0x00029510   0x00029510   0x00000130   Code   RO         8047    i.__kernel_sin      m_wm.l(sin_i.o)
-    0x00029640   0x00029640   0x00000030   Code   RO         7998    i.__mathlib_dbl_divzero  m_wm.l(dunder.o)
-    0x00029670   0x00029670   0x00000014   Code   RO         7999    i.__mathlib_dbl_infnan  m_wm.l(dunder.o)
-    0x00029684   0x00029684   0x00000014   Code   RO         8000    i.__mathlib_dbl_infnan2  m_wm.l(dunder.o)
-    0x00029698   0x00029698   0x00000020   Code   RO         8001    i.__mathlib_dbl_invalid  m_wm.l(dunder.o)
-    0x000296b8   0x000296b8   0x00000020   Code   RO         8002    i.__mathlib_dbl_overflow  m_wm.l(dunder.o)
-    0x000296d8   0x000296d8   0x00000020   Code   RO         8004    i.__mathlib_dbl_underflow  m_wm.l(dunder.o)
-    0x000296f8   0x000296f8   0x00000014   Code   RO         8022    i.__mathlib_flt_divzero  m_wm.l(funder.o)
-    0x0002970c   0x0002970c   0x00000006   Code   RO         8023    i.__mathlib_flt_infnan  m_wm.l(funder.o)
-    0x00029712   0x00029712   0x00000006   Code   RO         8024    i.__mathlib_flt_infnan2  m_wm.l(funder.o)
-    0x00029718   0x00029718   0x00000010   Code   RO         8025    i.__mathlib_flt_invalid  m_wm.l(funder.o)
-    0x00029728   0x00029728   0x00000010   Code   RO         8026    i.__mathlib_flt_overflow  m_wm.l(funder.o)
-    0x00029738   0x00029738   0x00000010   Code   RO         8028    i.__mathlib_flt_underflow  m_wm.l(funder.o)
-    0x00029748   0x00029748   0x00000154   Code   RO         8044    i.__mathlib_rredf2  m_wm.l(rredf.o)
-    0x0002989c   0x0002989c   0x0000000e   Code   RO         7529    i._is_digit         c_w.l(__printf_wp.o)
-    0x000298aa   0x000298aa   0x00000010   Code   RO         7983    i.atan              m_wm.l(atan.o)
-    0x000298ba   0x000298ba   0x00000018   Code   RO         8014    i.fabs              m_wm.l(fabs.o)
-    0x000298d2   0x000298d2   0x00000002   Code   RO         7183    i.iDMAUSBArbSizeSet  usblib.lib(usbdma.o)
-    0x000298d4   0x000298d4   0x00000084   Code   RO         7184    i.iDMAUSBChannelAllocate  usblib.lib(usbdma.o)
-    0x00029958   0x00029958   0x00000034   Code   RO         7185    i.iDMAUSBChannelDisable  usblib.lib(usbdma.o)
-    0x0002998c   0x0002998c   0x00000052   Code   RO         7186    i.iDMAUSBChannelEnable  usblib.lib(usbdma.o)
-    0x000299de   0x000299de   0x00000008   Code   RO         7187    i.iDMAUSBChannelIntDisable  usblib.lib(usbdma.o)
-    0x000299e6   0x000299e6   0x00000008   Code   RO         7188    i.iDMAUSBChannelIntEnable  usblib.lib(usbdma.o)
-    0x000299ee   0x000299ee   0x0000003e   Code   RO         7189    i.iDMAUSBChannelRelease  usblib.lib(usbdma.o)
-    0x00029a2c   0x00029a2c   0x00000038   Code   RO         7190    i.iDMAUSBChannelStatus  usblib.lib(usbdma.o)
-    0x00029a64   0x00029a64   0x00000006   Code   RO         7191    i.iDMAUSBIntStatus  usblib.lib(usbdma.o)
-    0x00029a6a   0x00029a6a   0x000000f4   Code   RO         7192    i.iDMAUSBTransfer   usblib.lib(usbdma.o)
-    0x00029b5e   0x00029b5e   0x00000002   Code   RO         7193    i.iDMAUSBUnitSizeSet  usblib.lib(usbdma.o)
-    0x00029b60   0x00029b60   0x0000006e   Code   RO         7806    i.sqrt              m_wm.l(sqrt.o)
-    0x00029bce   0x00029bce   0x0000003e   Code   RO         7818    i.sqrtf             m_wm.l(sqrtf.o)
-    0x00029c0c   0x00029c0c   0x0000002c   Code   RO         5097    i.uDMAChannelAssign  driverlib.lib(udma.o)
-    0x00029c38   0x00029c38   0x00000048   Code   RO         5098    i.uDMAChannelAttributeDisable  driverlib.lib(udma.o)
-    0x00029c80   0x00029c80   0x00000020   Code   RO         5101    i.uDMAChannelControlSet  driverlib.lib(udma.o)
-    0x00029ca0   0x00029ca0   0x00000014   Code   RO         5102    i.uDMAChannelDisable  driverlib.lib(udma.o)
-    0x00029cb4   0x00029cb4   0x00000014   Code   RO         5103    i.uDMAChannelEnable  driverlib.lib(udma.o)
-    0x00029cc8   0x00029cc8   0x0000001c   Code   RO         5104    i.uDMAChannelIsEnabled  driverlib.lib(udma.o)
-    0x00029ce4   0x00029ce4   0x00000028   Code   RO         5105    i.uDMAChannelModeGet  driverlib.lib(udma.o)
-    0x00029d0c   0x00029d0c   0x00000080   Code   RO         5111    i.uDMAChannelTransferSet  driverlib.lib(udma.o)
-    0x00029d8c   0x00029d8c   0x0000000c   Code   RO         5114    i.uDMAControlBaseSet  driverlib.lib(udma.o)
-    0x00029d98   0x00029d98   0x0000000c   Code   RO         5116    i.uDMAEnable        driverlib.lib(udma.o)
-    0x00029da4   0x00029da4   0x00000068   Code   RO         7194    i.uDMAUSBArbSizeSet  usblib.lib(usbdma.o)
-    0x00029e0c   0x00029e0c   0x000000c0   Code   RO         7195    i.uDMAUSBChannelAllocate  usblib.lib(usbdma.o)
-    0x00029ecc   0x00029ecc   0x00000058   Code   RO         7196    i.uDMAUSBChannelDisable  usblib.lib(usbdma.o)
-    0x00029f24   0x00029f24   0x0000006a   Code   RO         7197    i.uDMAUSBChannelEnable  usblib.lib(usbdma.o)
-    0x00029f8e   0x00029f8e   0x00000002   Code   RO         7198    i.uDMAUSBChannelIntDisable  usblib.lib(usbdma.o)
-    0x00029f90   0x00029f90   0x00000002   Code   RO         7199    i.uDMAUSBChannelIntEnable  usblib.lib(usbdma.o)
-    0x00029f92   0x00029f92   0x0000005a   Code   RO         7200    i.uDMAUSBChannelRelease  usblib.lib(usbdma.o)
-    0x00029fec   0x00029fec   0x00000026   Code   RO         7201    i.uDMAUSBChannelStatus  usblib.lib(usbdma.o)
-    0x0002a012   0x0002a012   0x00000034   Code   RO         7202    i.uDMAUSBIntStatus  usblib.lib(usbdma.o)
-    0x0002a046   0x0002a046   0x000000c8   Code   RO         7203    i.uDMAUSBTransfer   usblib.lib(usbdma.o)
-    0x0002a10e   0x0002a10e   0x00000054   Code   RO         7204    i.uDMAUSBUnitSizeSet  usblib.lib(usbdma.o)
+    0x000289e8   0x000289e8   0x000000c8   Code   RO         7781    i.__hardfp_sin      m_wm.l(sin.o)
+    0x00028ab0   0x00028ab0   0x00000190   Code   RO         7793    i.__hardfp_sinf     m_wm.l(sinf.o)
+    0x00028c40   0x00028c40   0x0000007a   Code   RO         7805    i.__hardfp_sqrt     m_wm.l(sqrt.o)
+    0x00028cba   0x00028cba   0x0000003a   Code   RO         7817    i.__hardfp_sqrtf    m_wm.l(sqrtf.o)
+    0x00028cf4   0x00028cf4   0x0000017c   Code   RO         7841    i.__hardfp_tanf     m_wm.l(tanf.o)
+    0x00028e70   0x00028e70   0x00000438   Code   RO         8040    i.__ieee754_rem_pio2  m_wm.l(rred.o)
+    0x000292a8   0x000292a8   0x00000170   Code   RO         7996    i.__kernel_cos      m_wm.l(cos_i.o)
+    0x00029418   0x00029418   0x000000f8   Code   RO         8037    i.__kernel_poly     m_wm.l(poly.o)
+    0x00029510   0x00029510   0x00000130   Code   RO         8048    i.__kernel_sin      m_wm.l(sin_i.o)
+    0x00029640   0x00029640   0x00000030   Code   RO         7999    i.__mathlib_dbl_divzero  m_wm.l(dunder.o)
+    0x00029670   0x00029670   0x00000014   Code   RO         8000    i.__mathlib_dbl_infnan  m_wm.l(dunder.o)
+    0x00029684   0x00029684   0x00000014   Code   RO         8001    i.__mathlib_dbl_infnan2  m_wm.l(dunder.o)
+    0x00029698   0x00029698   0x00000020   Code   RO         8002    i.__mathlib_dbl_invalid  m_wm.l(dunder.o)
+    0x000296b8   0x000296b8   0x00000020   Code   RO         8003    i.__mathlib_dbl_overflow  m_wm.l(dunder.o)
+    0x000296d8   0x000296d8   0x00000020   Code   RO         8005    i.__mathlib_dbl_underflow  m_wm.l(dunder.o)
+    0x000296f8   0x000296f8   0x00000014   Code   RO         8023    i.__mathlib_flt_divzero  m_wm.l(funder.o)
+    0x0002970c   0x0002970c   0x00000006   Code   RO         8024    i.__mathlib_flt_infnan  m_wm.l(funder.o)
+    0x00029712   0x00029712   0x00000006   Code   RO         8025    i.__mathlib_flt_infnan2  m_wm.l(funder.o)
+    0x00029718   0x00029718   0x00000010   Code   RO         8026    i.__mathlib_flt_invalid  m_wm.l(funder.o)
+    0x00029728   0x00029728   0x00000010   Code   RO         8027    i.__mathlib_flt_overflow  m_wm.l(funder.o)
+    0x00029738   0x00029738   0x00000010   Code   RO         8029    i.__mathlib_flt_underflow  m_wm.l(funder.o)
+    0x00029748   0x00029748   0x00000154   Code   RO         8045    i.__mathlib_rredf2  m_wm.l(rredf.o)
+    0x0002989c   0x0002989c   0x0000000e   Code   RO         7530    i._is_digit         c_w.l(__printf_wp.o)
+    0x000298aa   0x000298aa   0x00000010   Code   RO         7984    i.atan              m_wm.l(atan.o)
+    0x000298ba   0x000298ba   0x00000018   Code   RO         8015    i.fabs              m_wm.l(fabs.o)
+    0x000298d2   0x000298d2   0x00000002   Code   RO         7184    i.iDMAUSBArbSizeSet  usblib.lib(usbdma.o)
+    0x000298d4   0x000298d4   0x00000084   Code   RO         7185    i.iDMAUSBChannelAllocate  usblib.lib(usbdma.o)
+    0x00029958   0x00029958   0x00000034   Code   RO         7186    i.iDMAUSBChannelDisable  usblib.lib(usbdma.o)
+    0x0002998c   0x0002998c   0x00000052   Code   RO         7187    i.iDMAUSBChannelEnable  usblib.lib(usbdma.o)
+    0x000299de   0x000299de   0x00000008   Code   RO         7188    i.iDMAUSBChannelIntDisable  usblib.lib(usbdma.o)
+    0x000299e6   0x000299e6   0x00000008   Code   RO         7189    i.iDMAUSBChannelIntEnable  usblib.lib(usbdma.o)
+    0x000299ee   0x000299ee   0x0000003e   Code   RO         7190    i.iDMAUSBChannelRelease  usblib.lib(usbdma.o)
+    0x00029a2c   0x00029a2c   0x00000038   Code   RO         7191    i.iDMAUSBChannelStatus  usblib.lib(usbdma.o)
+    0x00029a64   0x00029a64   0x00000006   Code   RO         7192    i.iDMAUSBIntStatus  usblib.lib(usbdma.o)
+    0x00029a6a   0x00029a6a   0x000000f4   Code   RO         7193    i.iDMAUSBTransfer   usblib.lib(usbdma.o)
+    0x00029b5e   0x00029b5e   0x00000002   Code   RO         7194    i.iDMAUSBUnitSizeSet  usblib.lib(usbdma.o)
+    0x00029b60   0x00029b60   0x0000006e   Code   RO         7807    i.sqrt              m_wm.l(sqrt.o)
+    0x00029bce   0x00029bce   0x0000003e   Code   RO         7819    i.sqrtf             m_wm.l(sqrtf.o)
+    0x00029c0c   0x00029c0c   0x0000002c   Code   RO         5098    i.uDMAChannelAssign  driverlib.lib(udma.o)
+    0x00029c38   0x00029c38   0x00000048   Code   RO         5099    i.uDMAChannelAttributeDisable  driverlib.lib(udma.o)
+    0x00029c80   0x00029c80   0x00000020   Code   RO         5102    i.uDMAChannelControlSet  driverlib.lib(udma.o)
+    0x00029ca0   0x00029ca0   0x00000014   Code   RO         5103    i.uDMAChannelDisable  driverlib.lib(udma.o)
+    0x00029cb4   0x00029cb4   0x00000014   Code   RO         5104    i.uDMAChannelEnable  driverlib.lib(udma.o)
+    0x00029cc8   0x00029cc8   0x0000001c   Code   RO         5105    i.uDMAChannelIsEnabled  driverlib.lib(udma.o)
+    0x00029ce4   0x00029ce4   0x00000028   Code   RO         5106    i.uDMAChannelModeGet  driverlib.lib(udma.o)
+    0x00029d0c   0x00029d0c   0x00000080   Code   RO         5112    i.uDMAChannelTransferSet  driverlib.lib(udma.o)
+    0x00029d8c   0x00029d8c   0x0000000c   Code   RO         5115    i.uDMAControlBaseSet  driverlib.lib(udma.o)
+    0x00029d98   0x00029d98   0x0000000c   Code   RO         5117    i.uDMAEnable        driverlib.lib(udma.o)
+    0x00029da4   0x00029da4   0x00000068   Code   RO         7195    i.uDMAUSBArbSizeSet  usblib.lib(usbdma.o)
+    0x00029e0c   0x00029e0c   0x000000c0   Code   RO         7196    i.uDMAUSBChannelAllocate  usblib.lib(usbdma.o)
+    0x00029ecc   0x00029ecc   0x00000058   Code   RO         7197    i.uDMAUSBChannelDisable  usblib.lib(usbdma.o)
+    0x00029f24   0x00029f24   0x0000006a   Code   RO         7198    i.uDMAUSBChannelEnable  usblib.lib(usbdma.o)
+    0x00029f8e   0x00029f8e   0x00000002   Code   RO         7199    i.uDMAUSBChannelIntDisable  usblib.lib(usbdma.o)
+    0x00029f90   0x00029f90   0x00000002   Code   RO         7200    i.uDMAUSBChannelIntEnable  usblib.lib(usbdma.o)
+    0x00029f92   0x00029f92   0x0000005a   Code   RO         7201    i.uDMAUSBChannelRelease  usblib.lib(usbdma.o)
+    0x00029fec   0x00029fec   0x00000026   Code   RO         7202    i.uDMAUSBChannelStatus  usblib.lib(usbdma.o)
+    0x0002a012   0x0002a012   0x00000034   Code   RO         7203    i.uDMAUSBIntStatus  usblib.lib(usbdma.o)
+    0x0002a046   0x0002a046   0x000000c8   Code   RO         7204    i.uDMAUSBTransfer   usblib.lib(usbdma.o)
+    0x0002a10e   0x0002a10e   0x00000054   Code   RO         7205    i.uDMAUSBUnitSizeSet  usblib.lib(usbdma.o)
     0x0002a162   0x0002a162   0x00000002   PAD
-    0x0002a164   0x0002a164   0x0000002c   Code   RO         8131    locale$$code        c_w.l(lc_numeric_c.o)
-    0x0002a190   0x0002a190   0x00000018   Code   RO         7956    x$fpl$basic         fz_wm.l(basic.o)
-    0x0002a1a8   0x0002a1a8   0x00000062   Code   RO         7560    x$fpl$d2f           fz_wm.l(d2f.o)
+    0x0002a164   0x0002a164   0x0000002c   Code   RO         8132    locale$$code        c_w.l(lc_numeric_c.o)
+    0x0002a190   0x0002a190   0x00000018   Code   RO         7957    x$fpl$basic         fz_wm.l(basic.o)
+    0x0002a1a8   0x0002a1a8   0x00000062   Code   RO         7561    x$fpl$d2f           fz_wm.l(d2f.o)
     0x0002a20a   0x0002a20a   0x00000002   PAD
-    0x0002a20c   0x0002a20c   0x00000150   Code   RO         7562    x$fpl$dadd          fz_wm.l(daddsub_clz.o)
-    0x0002a35c   0x0002a35c   0x00000010   Code   RO         8142    x$fpl$dcheck1       fz_wm.l(dcheck1.o)
-    0x0002a36c   0x0002a36c   0x00000018   Code   RO         8144    x$fpl$dcmpinf       fz_wm.l(dcmpi.o)
-    0x0002a384   0x0002a384   0x000002b0   Code   RO         7571    x$fpl$ddiv          fz_wm.l(ddiv.o)
-    0x0002a634   0x0002a634   0x00000078   Code   RO         7958    x$fpl$deqf          fz_wm.l(deqf.o)
-    0x0002a6ac   0x0002a6ac   0x0000005e   Code   RO         8146    x$fpl$dfix          fz_wm.l(dfix.o)
-    0x0002a70a   0x0002a70a   0x0000002e   Code   RO         7583    x$fpl$dflt          fz_wm.l(dflt_clz.o)
-    0x0002a738   0x0002a738   0x00000026   Code   RO         7582    x$fpl$dfltu         fz_wm.l(dflt_clz.o)
+    0x0002a20c   0x0002a20c   0x00000150   Code   RO         7563    x$fpl$dadd          fz_wm.l(daddsub_clz.o)
+    0x0002a35c   0x0002a35c   0x00000010   Code   RO         8143    x$fpl$dcheck1       fz_wm.l(dcheck1.o)
+    0x0002a36c   0x0002a36c   0x00000018   Code   RO         8145    x$fpl$dcmpinf       fz_wm.l(dcmpi.o)
+    0x0002a384   0x0002a384   0x000002b0   Code   RO         7572    x$fpl$ddiv          fz_wm.l(ddiv.o)
+    0x0002a634   0x0002a634   0x00000078   Code   RO         7959    x$fpl$deqf          fz_wm.l(deqf.o)
+    0x0002a6ac   0x0002a6ac   0x0000005e   Code   RO         8147    x$fpl$dfix          fz_wm.l(dfix.o)
+    0x0002a70a   0x0002a70a   0x0000002e   Code   RO         7584    x$fpl$dflt          fz_wm.l(dflt_clz.o)
+    0x0002a738   0x0002a738   0x00000026   Code   RO         7583    x$fpl$dfltu         fz_wm.l(dflt_clz.o)
     0x0002a75e   0x0002a75e   0x00000002   PAD
-    0x0002a760   0x0002a760   0x00000078   Code   RO         7960    x$fpl$dgeqf         fz_wm.l(dgeqf.o)
-    0x0002a7d8   0x0002a7d8   0x00000078   Code   RO         7962    x$fpl$dleqf         fz_wm.l(dleqf.o)
-    0x0002a850   0x0002a850   0x00000154   Code   RO         7588    x$fpl$dmul          fz_wm.l(dmul.o)
-    0x0002a9a4   0x0002a9a4   0x0000009c   Code   RO         7964    x$fpl$dnaninf       fz_wm.l(dnaninf.o)
-    0x0002aa40   0x0002aa40   0x0000000c   Code   RO         7966    x$fpl$dretinf       fz_wm.l(dretinf.o)
-    0x0002aa4c   0x0002aa4c   0x0000006c   Code   RO         7968    x$fpl$drleqf        fz_wm.l(drleqf.o)
-    0x0002aab8   0x0002aab8   0x00000016   Code   RO         7563    x$fpl$drsb          fz_wm.l(daddsub_clz.o)
+    0x0002a760   0x0002a760   0x00000078   Code   RO         7961    x$fpl$dgeqf         fz_wm.l(dgeqf.o)
+    0x0002a7d8   0x0002a7d8   0x00000078   Code   RO         7963    x$fpl$dleqf         fz_wm.l(dleqf.o)
+    0x0002a850   0x0002a850   0x00000154   Code   RO         7589    x$fpl$dmul          fz_wm.l(dmul.o)
+    0x0002a9a4   0x0002a9a4   0x0000009c   Code   RO         7965    x$fpl$dnaninf       fz_wm.l(dnaninf.o)
+    0x0002aa40   0x0002aa40   0x0000000c   Code   RO         7967    x$fpl$dretinf       fz_wm.l(dretinf.o)
+    0x0002aa4c   0x0002aa4c   0x0000006c   Code   RO         7969    x$fpl$drleqf        fz_wm.l(drleqf.o)
+    0x0002aab8   0x0002aab8   0x00000016   Code   RO         7564    x$fpl$drsb          fz_wm.l(daddsub_clz.o)
     0x0002aace   0x0002aace   0x00000002   PAD
-    0x0002aad0   0x0002aad0   0x00000198   Code   RO         7970    x$fpl$dsqrt         fz_wm.l(dsqrt_umaal.o)
-    0x0002ac68   0x0002ac68   0x000001d4   Code   RO         7564    x$fpl$dsub          fz_wm.l(daddsub_clz.o)
-    0x0002ae3c   0x0002ae3c   0x00000056   Code   RO         7590    x$fpl$f2d           fz_wm.l(f2d.o)
-    0x0002ae92   0x0002ae92   0x00000054   Code   RO         7568    x$fpl$fcmp          fz_wm.l(dcmp.o)
-    0x0002aee6   0x0002aee6   0x0000008c   Code   RO         7972    x$fpl$fnaninf       fz_wm.l(fnaninf.o)
-    0x0002af72   0x0002af72   0x0000001a   Code   RO         8150    x$fpl$fpinit        fz_wm.l(fpinit.o)
-    0x0002af8c   0x0002af8c   0x0000000a   Code   RO         7974    x$fpl$fretinf       fz_wm.l(fretinf.o)
+    0x0002aad0   0x0002aad0   0x00000198   Code   RO         7971    x$fpl$dsqrt         fz_wm.l(dsqrt_umaal.o)
+    0x0002ac68   0x0002ac68   0x000001d4   Code   RO         7565    x$fpl$dsub          fz_wm.l(daddsub_clz.o)
+    0x0002ae3c   0x0002ae3c   0x00000056   Code   RO         7591    x$fpl$f2d           fz_wm.l(f2d.o)
+    0x0002ae92   0x0002ae92   0x00000054   Code   RO         7569    x$fpl$fcmp          fz_wm.l(dcmp.o)
+    0x0002aee6   0x0002aee6   0x0000008c   Code   RO         7973    x$fpl$fnaninf       fz_wm.l(fnaninf.o)
+    0x0002af72   0x0002af72   0x0000001a   Code   RO         8151    x$fpl$fpinit        fz_wm.l(fpinit.o)
+    0x0002af8c   0x0002af8c   0x0000000a   Code   RO         7975    x$fpl$fretinf       fz_wm.l(fretinf.o)
     0x0002af96   0x0002af96   0x00000002   PAD
-    0x0002af98   0x0002af98   0x00000078   Code   RO         7578    x$fpl$llufromd      fz_wm.l(dfixull.o)
-    0x0002b010   0x0002b010   0x00000004   Code   RO         7596    x$fpl$printf1       fz_wm.l(printf1.o)
-    0x0002b014   0x0002b014   0x00000064   Code   RO         8180    x$fpl$retnan        fz_wm.l(retnan.o)
-    0x0002b078   0x0002b078   0x0000005c   Code   RO         7978    x$fpl$scalbn        fz_wm.l(scalbn.o)
-    0x0002b0d4   0x0002b0d4   0x00000030   Code   RO         8212    x$fpl$trapveneer    fz_wm.l(trapv.o)
-    0x0002b104   0x0002b104   0x00000000   Code   RO         7980    x$fpl$usenofp       fz_wm.l(usenofp.o)
-    0x0002b104   0x0002b104   0x00000228   Data   RO         3062    .constdata          driverlib.lib(gpio.o)
-    0x0002b32c   0x0002b32c   0x00000080   Data   RO         3374    .constdata          driverlib.lib(i2c.o)
-    0x0002b3ac   0x0002b3ac   0x0000010c   Data   RO         3674    .constdata          driverlib.lib(interrupt.o)
-    0x0002b4b8   0x0002b4b8   0x00000040   Data   RO         4026    .constdata          driverlib.lib(ssi.o)
-    0x0002b4f8   0x0002b4f8   0x00000254   Data   RO         4211    .constdata          driverlib.lib(sysctl.o)
-    0x0002b74c   0x0002b74c   0x000000a0   Data   RO         4598    .constdata          driverlib.lib(timer.o)
-    0x0002b7ec   0x0002b7ec   0x00000080   Data   RO         4849    .constdata          driverlib.lib(uart.o)
-    0x0002b86c   0x0002b86c   0x00000008   Data   RO         5388    .constdata          usblib.lib(usbdcdc.o)
-    0x0002b874   0x0002b874   0x00000008   Data   RO         5389    .constdata          usblib.lib(usbdcdc.o)
-    0x0002b87c   0x0002b87c   0x00000023   Data   RO         5390    .constdata          usblib.lib(usbdcdc.o)
+    0x0002af98   0x0002af98   0x00000078   Code   RO         7579    x$fpl$llufromd      fz_wm.l(dfixull.o)
+    0x0002b010   0x0002b010   0x00000004   Code   RO         7597    x$fpl$printf1       fz_wm.l(printf1.o)
+    0x0002b014   0x0002b014   0x00000064   Code   RO         8181    x$fpl$retnan        fz_wm.l(retnan.o)
+    0x0002b078   0x0002b078   0x0000005c   Code   RO         7979    x$fpl$scalbn        fz_wm.l(scalbn.o)
+    0x0002b0d4   0x0002b0d4   0x00000030   Code   RO         8213    x$fpl$trapveneer    fz_wm.l(trapv.o)
+    0x0002b104   0x0002b104   0x00000000   Code   RO         7981    x$fpl$usenofp       fz_wm.l(usenofp.o)
+    0x0002b104   0x0002b104   0x00000228   Data   RO         3063    .constdata          driverlib.lib(gpio.o)
+    0x0002b32c   0x0002b32c   0x00000080   Data   RO         3375    .constdata          driverlib.lib(i2c.o)
+    0x0002b3ac   0x0002b3ac   0x0000010c   Data   RO         3675    .constdata          driverlib.lib(interrupt.o)
+    0x0002b4b8   0x0002b4b8   0x00000040   Data   RO         4027    .constdata          driverlib.lib(ssi.o)
+    0x0002b4f8   0x0002b4f8   0x00000254   Data   RO         4212    .constdata          driverlib.lib(sysctl.o)
+    0x0002b74c   0x0002b74c   0x000000a0   Data   RO         4599    .constdata          driverlib.lib(timer.o)
+    0x0002b7ec   0x0002b7ec   0x00000080   Data   RO         4850    .constdata          driverlib.lib(uart.o)
+    0x0002b86c   0x0002b86c   0x00000008   Data   RO         5389    .constdata          usblib.lib(usbdcdc.o)
+    0x0002b874   0x0002b874   0x00000008   Data   RO         5390    .constdata          usblib.lib(usbdcdc.o)
+    0x0002b87c   0x0002b87c   0x00000023   Data   RO         5391    .constdata          usblib.lib(usbdcdc.o)
     0x0002b89f   0x0002b89f   0x00000001   PAD
-    0x0002b8a0   0x0002b8a0   0x00000008   Data   RO         5391    .constdata          usblib.lib(usbdcdc.o)
-    0x0002b8a8   0x0002b8a8   0x00000017   Data   RO         5392    .constdata          usblib.lib(usbdcdc.o)
+    0x0002b8a0   0x0002b8a0   0x00000008   Data   RO         5392    .constdata          usblib.lib(usbdcdc.o)
+    0x0002b8a8   0x0002b8a8   0x00000017   Data   RO         5393    .constdata          usblib.lib(usbdcdc.o)
     0x0002b8bf   0x0002b8bf   0x00000001   PAD
-    0x0002b8c0   0x0002b8c0   0x00000008   Data   RO         5393    .constdata          usblib.lib(usbdcdc.o)
-    0x0002b8c8   0x0002b8c8   0x00000017   Data   RO         5394    .constdata          usblib.lib(usbdcdc.o)
+    0x0002b8c0   0x0002b8c0   0x00000008   Data   RO         5394    .constdata          usblib.lib(usbdcdc.o)
+    0x0002b8c8   0x0002b8c8   0x00000017   Data   RO         5395    .constdata          usblib.lib(usbdcdc.o)
     0x0002b8df   0x0002b8df   0x00000001   PAD
-    0x0002b8e0   0x0002b8e0   0x00000008   Data   RO         5395    .constdata          usblib.lib(usbdcdc.o)
-    0x0002b8e8   0x0002b8e8   0x00000008   Data   RO         5396    .constdata          usblib.lib(usbdcdc.o)
-    0x0002b8f0   0x0002b8f0   0x00000008   Data   RO         5397    .constdata          usblib.lib(usbdcdc.o)
-    0x0002b8f8   0x0002b8f8   0x00000008   Data   RO         5398    .constdata          usblib.lib(usbdcdc.o)
-    0x0002b900   0x0002b900   0x00000008   Data   RO         5399    .constdata          usblib.lib(usbdcdc.o)
-    0x0002b908   0x0002b908   0x00000040   Data   RO         5400    .constdata          usblib.lib(usbdcdc.o)
-    0x0002b948   0x0002b948   0x00000034   Data   RO         6493    .constdata          usblib.lib(usbdenum.o)
+    0x0002b8e0   0x0002b8e0   0x00000008   Data   RO         5396    .constdata          usblib.lib(usbdcdc.o)
+    0x0002b8e8   0x0002b8e8   0x00000008   Data   RO         5397    .constdata          usblib.lib(usbdcdc.o)
+    0x0002b8f0   0x0002b8f0   0x00000008   Data   RO         5398    .constdata          usblib.lib(usbdcdc.o)
+    0x0002b8f8   0x0002b8f8   0x00000008   Data   RO         5399    .constdata          usblib.lib(usbdcdc.o)
+    0x0002b900   0x0002b900   0x00000008   Data   RO         5400    .constdata          usblib.lib(usbdcdc.o)
+    0x0002b908   0x0002b908   0x00000040   Data   RO         5401    .constdata          usblib.lib(usbdcdc.o)
+    0x0002b948   0x0002b948   0x00000034   Data   RO         6494    .constdata          usblib.lib(usbdenum.o)
     0x0002b97c   0x0002b97c   0x00000004   PAD
-    0x0002b980   0x0002b980   0x00000050   Data   RO         7601    .constdata          m_wm.l(acos.o)
-    0x0002b9d0   0x0002b9d0   0x00000050   Data   RO         7627    .constdata          m_wm.l(asin.o)
-    0x0002ba20   0x0002ba20   0x00000088   Data   RO         7755    .constdata          m_wm.l(pow.o)
-    0x0002baa8   0x0002baa8   0x00000140   Data   RO         7769    .constdata          m_wm.l(powf.o)
-    0x0002bbe8   0x0002bbe8   0x00000098   Data   RO         7984    .constdata          m_wm.l(atan.o)
-    0x0002bc80   0x0002bc80   0x00000030   Data   RO         7996    .constdata          m_wm.l(cos_i.o)
-    0x0002bcb0   0x0002bcb0   0x00000008   Data   RO         8038    .constdata          m_wm.l(qnan.o)
-    0x0002bcb8   0x0002bcb8   0x000000cc   Data   RO         8041    .constdata          m_wm.l(rred.o)
-    0x0002bd84   0x0002bd84   0x00000020   Data   RO         8045    .constdata          m_wm.l(rredf.o)
+    0x0002b980   0x0002b980   0x00000050   Data   RO         7602    .constdata          m_wm.l(acos.o)
+    0x0002b9d0   0x0002b9d0   0x00000050   Data   RO         7628    .constdata          m_wm.l(asin.o)
+    0x0002ba20   0x0002ba20   0x00000088   Data   RO         7756    .constdata          m_wm.l(pow.o)
+    0x0002baa8   0x0002baa8   0x00000140   Data   RO         7770    .constdata          m_wm.l(powf.o)
+    0x0002bbe8   0x0002bbe8   0x00000098   Data   RO         7985    .constdata          m_wm.l(atan.o)
+    0x0002bc80   0x0002bc80   0x00000030   Data   RO         7997    .constdata          m_wm.l(cos_i.o)
+    0x0002bcb0   0x0002bcb0   0x00000008   Data   RO         8039    .constdata          m_wm.l(qnan.o)
+    0x0002bcb8   0x0002bcb8   0x000000cc   Data   RO         8042    .constdata          m_wm.l(rred.o)
+    0x0002bd84   0x0002bd84   0x00000020   Data   RO         8046    .constdata          m_wm.l(rredf.o)
     0x0002bda4   0x0002bda4   0x00000004   PAD
-    0x0002bda8   0x0002bda8   0x00000028   Data   RO         8048    .constdata          m_wm.l(sin_i.o)
-    0x0002bdd0   0x0002bdd0   0x00000094   Data   RO         8104    .constdata          c_w.l(bigflt0.o)
+    0x0002bda8   0x0002bda8   0x00000028   Data   RO         8049    .constdata          m_wm.l(sin_i.o)
+    0x0002bdd0   0x0002bdd0   0x00000094   Data   RO         8105    .constdata          c_w.l(bigflt0.o)
     0x0002be64   0x0002be64   0x0000008c   Data   RO          103    .rodata.External_MagnetoMeters  drv_sensors.o
     0x0002bef0   0x0002bef0   0x00000001   Data   RO          168    .rodata.External_Magnetometer_Index  sensors.o
     0x0002bef1   0x0002bef1   0x000005f0   Data   RO          260    .rodata.Font_16x8   oledfont.o
@@ -12090,27 +12092,27 @@ Memory Map of the image
     0x0002c704   0x0002c704   0x00000200   Data   RO          264    .rodata.Font_Logo   oledfont.o
     0x0002c904   0x0002c904   0x00000001   Data   RO          169    .rodata.Internal_Magnetometer_Index  sensors.o
     0x0002c905   0x0002c905   0x00000003   PAD
-    0x0002c908   0x0002c908   0x00000010   Data   RO         1157    .rodata.M00_init    m00_init.o
-    0x0002c918   0x0002c918   0x00000010   Data   RO         1172    .rodata.M01_Ground  m01_ground.o
-    0x0002c928   0x0002c928   0x00000010   Data   RO         1188    .rodata.M10_RCCalib  m10_rccalib.o
-    0x0002c938   0x0002c938   0x00000010   Data   RO         1204    .rodata.M12_AccCalib  m12_acccalib.o
-    0x0002c948   0x0002c948   0x00000010   Data   RO         1220    .rodata.M13_MagCalib  m13_magcalib.o
-    0x0002c958   0x0002c958   0x00000010   Data   RO         1236    .rodata.M15_HorizontalCalib  m15_horizontalcalib.o
-    0x0002c968   0x0002c968   0x00000010   Data   RO         1252    .rodata.M30_Att     m30_att.o
-    0x0002c978   0x0002c978   0x00000010   Data   RO         1268    .rodata.M32_PosCtrl  m32_posctrl.o
-    0x0002c988   0x0002c988   0x00000010   Data   RO         1284    .rodata.M35_Auto1   m35_auto1.o
-    0x0002c998   0x0002c998   0x00000010   Data   RO         1308    .rodata.M36_MAVLINK  m36_mavlink.o
-    0x0002c9a8   0x0002c9a8   0x00000009   Data   RO         5703    .rodata.MS_Attitude.key  MeasurementSystem.lib(ms_attitude.o)
-    0x0002c9b1   0x0002c9b1   0x00000009   Data   RO         5786    .rodata.MS_Position.key  MeasurementSystem.lib(ms_position.o)
+    0x0002c908   0x0002c908   0x00000010   Data   RO         1158    .rodata.M00_init    m00_init.o
+    0x0002c918   0x0002c918   0x00000010   Data   RO         1173    .rodata.M01_Ground  m01_ground.o
+    0x0002c928   0x0002c928   0x00000010   Data   RO         1189    .rodata.M10_RCCalib  m10_rccalib.o
+    0x0002c938   0x0002c938   0x00000010   Data   RO         1205    .rodata.M12_AccCalib  m12_acccalib.o
+    0x0002c948   0x0002c948   0x00000010   Data   RO         1221    .rodata.M13_MagCalib  m13_magcalib.o
+    0x0002c958   0x0002c958   0x00000010   Data   RO         1237    .rodata.M15_HorizontalCalib  m15_horizontalcalib.o
+    0x0002c968   0x0002c968   0x00000010   Data   RO         1253    .rodata.M30_Att     m30_att.o
+    0x0002c978   0x0002c978   0x00000010   Data   RO         1269    .rodata.M32_PosCtrl  m32_posctrl.o
+    0x0002c988   0x0002c988   0x00000010   Data   RO         1285    .rodata.M35_Auto1   m35_auto1.o
+    0x0002c998   0x0002c998   0x00000010   Data   RO         1309    .rodata.M36_MAVLINK  m36_mavlink.o
+    0x0002c9a8   0x0002c9a8   0x00000009   Data   RO         5704    .rodata.MS_Attitude.key  MeasurementSystem.lib(ms_attitude.o)
+    0x0002c9b1   0x0002c9b1   0x00000009   Data   RO         5787    .rodata.MS_Position.key  MeasurementSystem.lib(ms_position.o)
     0x0002c9ba   0x0002c9ba   0x00000002   PAD
-    0x0002c9bc   0x0002c9bc   0x00000960   Data   RO         1079    .rodata.Mavlink_CMD_Process  mavlinkcmdprocess.o
-    0x0002d31c   0x0002d31c   0x00000002   Data   RO         1080    .rodata.Mavlink_CMD_Process_Count  mavlinkcmdprocess.o
+    0x0002c9bc   0x0002c9bc   0x00000960   Data   RO         1080    .rodata.Mavlink_CMD_Process  mavlinkcmdprocess.o
+    0x0002d31c   0x0002d31c   0x00000002   Data   RO         1081    .rodata.Mavlink_CMD_Process_Count  mavlinkcmdprocess.o
     0x0002d31e   0x0002d31e   0x00000002   PAD
-    0x0002d320   0x0002d320   0x00000488   Data   RO         1116    .rodata.Mavlink_RC_Process  mavlinkrcprocess.o
-    0x0002d7a8   0x0002d7a8   0x00000002   Data   RO         1117    .rodata.Mavlink_RC_Process_Count  mavlinkrcprocess.o
+    0x0002d320   0x0002d320   0x00000488   Data   RO         1117    .rodata.Mavlink_RC_Process  mavlinkrcprocess.o
+    0x0002d7a8   0x0002d7a8   0x00000002   Data   RO         1118    .rodata.Mavlink_RC_Process_Count  mavlinkrcprocess.o
     0x0002d7aa   0x0002d7aa   0x00000002   PAD
-    0x0002d7ac   0x0002d7ac   0x00000488   Data   RO         1044    .rodata.Mavlink_Send_Funcs  mavlinksendfuncs.o
-    0x0002dc34   0x0002dc34   0x00000002   Data   RO         1045    .rodata.Mavlink_Send_Funcs_Count  mavlinksendfuncs.o
+    0x0002d7ac   0x0002d7ac   0x00000488   Data   RO         1045    .rodata.Mavlink_Send_Funcs  mavlinksendfuncs.o
+    0x0002dc34   0x0002dc34   0x00000002   Data   RO         1046    .rodata.Mavlink_Send_Funcs_Count  mavlinksendfuncs.o
     0x0002dc36   0x0002dc36   0x00000002   PAD
     0x0002dc38   0x0002dc38   0x000003b8   Data   RO          763    .rodata.Params      configurations.o
     0x0002dff0   0x0002dff0   0x00000002   Data   RO          764    .rodata.Params_Count  configurations.o
@@ -12130,40 +12132,40 @@ Memory Map of the image
     0x0002e1da   0x0002e1da   0x00000012   Data   RO           48    .rodata.g_pui8SerialNumberString  usb_def.o
     0x0002e1ec   0x0002e1ec   0x00000001   Data   RO          177    .rodata.internal_baro_sensor_index  sensors.o
     0x0002e1ed   0x0002e1ed   0x00000003   PAD
-    0x0002e1f0   0x0002e1f0   0x000007e0   Data   RO         1014    .rodata.mavlink_get_msg_entry.mavlink_message_crcs  commulink.o
-    0x0002e9d0   0x0002e9d0   0x00000100   Data   RO          967    .rodata.mavlink_sha256_constant_256  debug.o
-    0x0002ead0   0x0002ead0   0x00000100   Data   RO         1015    .rodata.mavlink_sha256_constant_256  commulink.o
-    0x0002ebd0   0x0002ebd0   0x00000100   Data   RO         1046    .rodata.mavlink_sha256_constant_256  mavlinksendfuncs.o
-    0x0002ecd0   0x0002ecd0   0x00000100   Data   RO         1081    .rodata.mavlink_sha256_constant_256  mavlinkcmdprocess.o
-    0x0002edd0   0x0002edd0   0x00000100   Data   RO         1118    .rodata.mavlink_sha256_constant_256  mavlinkrcprocess.o
-    0x0002eed0   0x0002eed0   0x00000804   Data   RO         1688    .rodata.sinTable_f32  commontables.o
+    0x0002e1f0   0x0002e1f0   0x000007e0   Data   RO         1015    .rodata.mavlink_get_msg_entry.mavlink_message_crcs  commulink.o
+    0x0002e9d0   0x0002e9d0   0x00000100   Data   RO          968    .rodata.mavlink_sha256_constant_256  debug.o
+    0x0002ead0   0x0002ead0   0x00000100   Data   RO         1016    .rodata.mavlink_sha256_constant_256  commulink.o
+    0x0002ebd0   0x0002ebd0   0x00000100   Data   RO         1047    .rodata.mavlink_sha256_constant_256  mavlinksendfuncs.o
+    0x0002ecd0   0x0002ecd0   0x00000100   Data   RO         1082    .rodata.mavlink_sha256_constant_256  mavlinkcmdprocess.o
+    0x0002edd0   0x0002edd0   0x00000100   Data   RO         1119    .rodata.mavlink_sha256_constant_256  mavlinkrcprocess.o
+    0x0002eed0   0x0002eed0   0x00000804   Data   RO         1689    .rodata.sinTable_f32  commontables.o
     0x0002f6d4   0x0002f6d4   0x000003ca   Data   RO          372    .rodata.ubloxInit   drv_gps.o
     0x0002fa9e   0x0002fa9e   0x00000002   PAD
-    0x0002faa0   0x0002faa0   0x00000020   Data   RO         8241    Region$$Table       anon$$obj.o
-    0x0002fac0   0x0002fac0   0x0000001c   Data   RO         8130    locale$$data        c_w.l(lc_numeric_c.o)
+    0x0002faa0   0x0002faa0   0x00000020   Data   RO         8242    Region$$Table       anon$$obj.o
+    0x0002fac0   0x0002fac0   0x0000001c   Data   RO         8131    locale$$data        c_w.l(lc_numeric_c.o)
 
 
     Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x0002fc00, Size: 0x00007d00, Max: 0x00008000, ABSOLUTE, COMPRESSED[0x00000400])
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   COMPRESSED   0x0000001d   Data   RW         5401    .data               usblib.lib(usbdcdc.o)
-    0x2000001d   COMPRESSED   0x00000008   Data   RW         5402    .data               usblib.lib(usbdcdc.o)
+    0x20000000   COMPRESSED   0x0000001d   Data   RW         5402    .data               usblib.lib(usbdcdc.o)
+    0x2000001d   COMPRESSED   0x00000008   Data   RW         5403    .data               usblib.lib(usbdcdc.o)
     0x20000025   COMPRESSED   0x00000003   PAD
-    0x20000028   COMPRESSED   0x0000000c   Data   RW         5403    .data               usblib.lib(usbdcdc.o)
-    0x20000034   COMPRESSED   0x0000000c   Data   RW         5404    .data               usblib.lib(usbdcdc.o)
-    0x20000040   COMPRESSED   0x00000010   Data   RW         5405    .data               usblib.lib(usbdcdc.o)
-    0x20000050   COMPRESSED   0x00000010   Data   RW         5406    .data               usblib.lib(usbdcdc.o)
-    0x20000060   COMPRESSED   0x00000010   Data   RW         5589    .data               usblib.lib(usbmode.o)
-    0x20000070   COMPRESSED   0x00000010   Data   RW         6494    .data               usblib.lib(usbdenum.o)
-    0x20000080   COMPRESSED   0x00000008   Data   RW         7045    .data               usblib.lib(usbtick.o)
-    0x20000088   COMPRESSED   0x00000004   Data   RW         7046    .data               usblib.lib(usbtick.o)
+    0x20000028   COMPRESSED   0x0000000c   Data   RW         5404    .data               usblib.lib(usbdcdc.o)
+    0x20000034   COMPRESSED   0x0000000c   Data   RW         5405    .data               usblib.lib(usbdcdc.o)
+    0x20000040   COMPRESSED   0x00000010   Data   RW         5406    .data               usblib.lib(usbdcdc.o)
+    0x20000050   COMPRESSED   0x00000010   Data   RW         5407    .data               usblib.lib(usbdcdc.o)
+    0x20000060   COMPRESSED   0x00000010   Data   RW         5590    .data               usblib.lib(usbmode.o)
+    0x20000070   COMPRESSED   0x00000010   Data   RW         6495    .data               usblib.lib(usbdenum.o)
+    0x20000080   COMPRESSED   0x00000008   Data   RW         7046    .data               usblib.lib(usbtick.o)
+    0x20000088   COMPRESSED   0x00000004   Data   RW         7047    .data               usblib.lib(usbtick.o)
     0x2000008c   COMPRESSED   0x00000008   Data   RW          374    .data..L_MergedGlobals  drv_gps.o
-    0x20000094   COMPRESSED   0x00000004   Data   RW         1016    .data..L_MergedGlobals  commulink.o
-    0x20000098   COMPRESSED   0x0000000c   Data   RW         1455    .data..L_MergedGlobals  ctrl_position.o
+    0x20000094   COMPRESSED   0x00000004   Data   RW         1017    .data..L_MergedGlobals  commulink.o
+    0x20000098   COMPRESSED   0x0000000c   Data   RW         1456    .data..L_MergedGlobals  ctrl_position.o
     0x200000a4   COMPRESSED   0x0000000c   PAD
-    0x200000b0   COMPRESSED   0x00000024   Data   RW         5736    .data..L_MergedGlobals  MeasurementSystem.lib(ms_attitude.o)
-    0x200000d4   COMPRESSED   0x0000000c   Data   RW         5815    .data..L_MergedGlobals  MeasurementSystem.lib(ms_position.o)
+    0x200000b0   COMPRESSED   0x00000024   Data   RW         5737    .data..L_MergedGlobals  MeasurementSystem.lib(ms_attitude.o)
+    0x200000d4   COMPRESSED   0x0000000c   Data   RW         5816    .data..L_MergedGlobals  MeasurementSystem.lib(ms_position.o)
     0x200000e0   COMPRESSED   0x00000001   Data   RW          102    .data.Current_External_Magnetometer  drv_sensors.o
     0x200000e1   COMPRESSED   0x00000001   Data   RW          290    .data.PPM_Receive_Handler.current_RC_channel  drv_receiver.o
     0x200000e2   COMPRESSED   0x00000002   Data   RW          908    .data.STS_last_task  sts.o
@@ -12173,15 +12175,15 @@ Memory Map of the image
     0x200000e8   COMPRESSED   0x00000060   Data   RW           52    .data.g_sCDCDevice  usb_def.o
     0x20000148   COMPRESSED   0x00000038   Data   RW           53    .data.g_sRxBuffer   usb_def.o
     0x20000180   COMPRESSED   0x00000038   Data   RW           54    .data.g_sTxBuffer   usb_def.o
-    0x200001b8   COMPRESSED   0x00000001   Data   RW         1307    .data.pos_enabled   m36_mavlink.o
+    0x200001b8   COMPRESSED   0x00000001   Data   RW         1308    .data.pos_enabled   m36_mavlink.o
     0x200001b9   COMPRESSED   0x00000007   Data   RW          203    .data.usb_linecoding  drv_usb.o
     0x200001c0   COMPRESSED   0x00000240   PAD
-    0x20000400   COMPRESSED   0x0000026c   Data   RW         3675    vtable              driverlib.lib(interrupt.o)
+    0x20000400   COMPRESSED   0x0000026c   Data   RW         3676    vtable              driverlib.lib(interrupt.o)
     0x2000066c   COMPRESSED   0x00000194   PAD
-    0x20000800        -       0x00000090   Zero   RW         6492    .bss                usblib.lib(usbdenum.o)
-    0x20000890        -       0x00000030   Zero   RW         7044    .bss                usblib.lib(usbtick.o)
-    0x200008c0        -       0x00000110   Zero   RW         7205    .bss                usblib.lib(usbdma.o)
-    0x200009d0        -       0x00000060   Zero   RW         8060    .bss                c_w.l(libspace.o)
+    0x20000800        -       0x00000090   Zero   RW         6493    .bss                usblib.lib(usbdenum.o)
+    0x20000890        -       0x00000030   Zero   RW         7045    .bss                usblib.lib(usbtick.o)
+    0x200008c0        -       0x00000110   Zero   RW         7206    .bss                usblib.lib(usbdma.o)
+    0x200009d0        -       0x00000060   Zero   RW         8061    .bss                c_w.l(libspace.o)
     0x20000a30        -       0x00000010   Zero   RW           80    .bss..L_MergedGlobals  drv_led.o
     0x20000a40        -       0x00000060   Zero   RW          105    .bss..L_MergedGlobals  drv_sensors.o
     0x20000aa0        -       0x0000000b   Zero   RW          234    .bss..L_MergedGlobals  drv_oled.o
@@ -12193,39 +12195,39 @@ Memory Map of the image
     0x20000b98        -       0x00000038   Zero   RW          428    .bss..L_MergedGlobals  drv_uart2.o
     0x20000bd0        -       0x00000028   Zero   RW          459    .bss..L_MergedGlobals  drv_sdi2.o
     0x20000bf8        -       0x00000030   Zero   RW          884    .bss..L_MergedGlobals  ms_main.o
-    0x20000c28        -       0x00000040   Zero   RW         1048    .bss..L_MergedGlobals  mavlinksendfuncs.o
-    0x20000c68        -       0x0000002c   Zero   RW         1119    .bss..L_MergedGlobals  mavlinkrcprocess.o
-    0x20000c94        -       0x00000008   Zero   RW         1142    .bss..L_MergedGlobals  modes.o
-    0x20000c9c        -       0x00000008   Zero   RW         1286    .bss..L_MergedGlobals  m35_auto1.o
-    0x20000ca4        -       0x00000008   Zero   RW         1309    .bss..L_MergedGlobals  m36_mavlink.o
-    0x20000cac        -       0x00000034   Zero   RW         1402    .bss..L_MergedGlobals  ctrl_attitude.o
+    0x20000c28        -       0x00000040   Zero   RW         1049    .bss..L_MergedGlobals  mavlinksendfuncs.o
+    0x20000c68        -       0x0000002c   Zero   RW         1120    .bss..L_MergedGlobals  mavlinkrcprocess.o
+    0x20000c94        -       0x00000008   Zero   RW         1143    .bss..L_MergedGlobals  modes.o
+    0x20000c9c        -       0x00000008   Zero   RW         1287    .bss..L_MergedGlobals  m35_auto1.o
+    0x20000ca4        -       0x00000008   Zero   RW         1310    .bss..L_MergedGlobals  m36_mavlink.o
+    0x20000cac        -       0x00000034   Zero   RW         1403    .bss..L_MergedGlobals  ctrl_attitude.o
     0x20000ce0        -       0x00000018   Zero   RW          375    .bss..L_MergedGlobals.1  drv_gps.o
-    0x20000cf8        -       0x00000034   Zero   RW         1017    .bss..L_MergedGlobals.1  commulink.o
-    0x20000d2c        -       0x00000030   Zero   RW         1456    .bss..L_MergedGlobals.1  ctrl_position.o
+    0x20000cf8        -       0x00000034   Zero   RW         1018    .bss..L_MergedGlobals.1  commulink.o
+    0x20000d2c        -       0x00000030   Zero   RW         1457    .bss..L_MergedGlobals.1  ctrl_position.o
     0x20000d5c   COMPRESSED   0x00000004   PAD
-    0x20000d60        -       0x00000058   Zero   RW         5822    .bss..L_MergedGlobals.10  MeasurementSystem.lib(ms_position.o)
+    0x20000d60        -       0x00000058   Zero   RW         5823    .bss..L_MergedGlobals.10  MeasurementSystem.lib(ms_position.o)
     0x20000db8   COMPRESSED   0x00000008   PAD
-    0x20000dc0        -       0x00000060   Zero   RW         5823    .bss..L_MergedGlobals.11  MeasurementSystem.lib(ms_position.o)
-    0x20000e20        -       0x0000007c   Zero   RW         5737    .bss..L_MergedGlobals.3  MeasurementSystem.lib(ms_attitude.o)
+    0x20000dc0        -       0x00000060   Zero   RW         5824    .bss..L_MergedGlobals.11  MeasurementSystem.lib(ms_position.o)
+    0x20000e20        -       0x0000007c   Zero   RW         5738    .bss..L_MergedGlobals.3  MeasurementSystem.lib(ms_attitude.o)
     0x20000e9c   COMPRESSED   0x00000004   PAD
-    0x20000ea0        -       0x00000080   Zero   RW         5738    .bss..L_MergedGlobals.4  MeasurementSystem.lib(ms_attitude.o)
-    0x20000f20        -       0x00000078   Zero   RW         5816    .bss..L_MergedGlobals.4  MeasurementSystem.lib(ms_position.o)
+    0x20000ea0        -       0x00000080   Zero   RW         5739    .bss..L_MergedGlobals.4  MeasurementSystem.lib(ms_attitude.o)
+    0x20000f20        -       0x00000078   Zero   RW         5817    .bss..L_MergedGlobals.4  MeasurementSystem.lib(ms_position.o)
     0x20000f98   COMPRESSED   0x00000008   PAD
-    0x20000fa0        -       0x00000078   Zero   RW         5739    .bss..L_MergedGlobals.5  MeasurementSystem.lib(ms_attitude.o)
+    0x20000fa0        -       0x00000078   Zero   RW         5740    .bss..L_MergedGlobals.5  MeasurementSystem.lib(ms_attitude.o)
     0x20001018   COMPRESSED   0x00000008   PAD
-    0x20001020        -       0x00000070   Zero   RW         5817    .bss..L_MergedGlobals.5  MeasurementSystem.lib(ms_position.o)
-    0x20001090        -       0x00000068   Zero   RW         5740    .bss..L_MergedGlobals.6  MeasurementSystem.lib(ms_attitude.o)
+    0x20001020        -       0x00000070   Zero   RW         5818    .bss..L_MergedGlobals.5  MeasurementSystem.lib(ms_position.o)
+    0x20001090        -       0x00000068   Zero   RW         5741    .bss..L_MergedGlobals.6  MeasurementSystem.lib(ms_attitude.o)
     0x200010f8   COMPRESSED   0x00000008   PAD
-    0x20001100        -       0x00000060   Zero   RW         5818    .bss..L_MergedGlobals.6  MeasurementSystem.lib(ms_position.o)
-    0x20001160        -       0x00000060   Zero   RW         5741    .bss..L_MergedGlobals.7  MeasurementSystem.lib(ms_attitude.o)
-    0x200011c0        -       0x0000007c   Zero   RW         5819    .bss..L_MergedGlobals.7  MeasurementSystem.lib(ms_position.o)
+    0x20001100        -       0x00000060   Zero   RW         5819    .bss..L_MergedGlobals.6  MeasurementSystem.lib(ms_position.o)
+    0x20001160        -       0x00000060   Zero   RW         5742    .bss..L_MergedGlobals.7  MeasurementSystem.lib(ms_attitude.o)
+    0x200011c0        -       0x0000007c   Zero   RW         5820    .bss..L_MergedGlobals.7  MeasurementSystem.lib(ms_position.o)
     0x2000123c   COMPRESSED   0x00000004   PAD
-    0x20001240        -       0x00000078   Zero   RW         5742    .bss..L_MergedGlobals.8  MeasurementSystem.lib(ms_attitude.o)
+    0x20001240        -       0x00000078   Zero   RW         5743    .bss..L_MergedGlobals.8  MeasurementSystem.lib(ms_attitude.o)
     0x200012b8   COMPRESSED   0x00000008   PAD
-    0x200012c0        -       0x00000040   Zero   RW         5820    .bss..L_MergedGlobals.8  MeasurementSystem.lib(ms_position.o)
-    0x20001300        -       0x00000078   Zero   RW         5743    .bss..L_MergedGlobals.9  MeasurementSystem.lib(ms_attitude.o)
+    0x200012c0        -       0x00000040   Zero   RW         5821    .bss..L_MergedGlobals.8  MeasurementSystem.lib(ms_position.o)
+    0x20001300        -       0x00000078   Zero   RW         5744    .bss..L_MergedGlobals.9  MeasurementSystem.lib(ms_attitude.o)
     0x20001378   COMPRESSED   0x00000008   PAD
-    0x20001380        -       0x00000058   Zero   RW         5821    .bss..L_MergedGlobals.9  MeasurementSystem.lib(ms_position.o)
+    0x20001380        -       0x00000058   Zero   RW         5822    .bss..L_MergedGlobals.9  MeasurementSystem.lib(ms_position.o)
     0x200013d8        -       0x000000b4   Zero   RW          882    .bss.AccelerationCtrl_Filters  ms_main.o
     0x2000148c        -       0x000000b4   Zero   RW          881    .bss.Acceleration_Filters  ms_main.o
     0x20001540        -       0x00000090   Zero   RW          170    .bss.Accelerometer  sensors.o
@@ -12235,154 +12237,154 @@ Memory Map of the image
     0x20001730        -       0x000000b4   Zero   RW          880    .bss.AngularRateLP_Filters  ms_main.o
     0x200017e4        -       0x00000001   Zero   RW          877    .bss.Attitude_Measurement_System_Status  ms_main.o
     0x200017e5   COMPRESSED   0x00000003   PAD
-    0x200017e8        -       0x000000e4   Zero   RW         1399    .bss.ESO            ctrl_attitude.o
-    0x200018cc        -       0x00000054   Zero   RW         1401    .bss.ESO_height     ctrl_attitude.o
+    0x200017e8        -       0x000000e4   Zero   RW         1400    .bss.ESO            ctrl_attitude.o
+    0x200018cc        -       0x00000054   Zero   RW         1402    .bss.ESO_height     ctrl_attitude.o
     0x20001920        -       0x00000096   Zero   RW          373    .bss.GPS_Handler.frame_datas  drv_gps.o
     0x200019b6   COMPRESSED   0x00000002   PAD
     0x200019b8        -       0x00000090   Zero   RW          171    .bss.Gyroscope      sensors.o
     0x20001a48        -       0x00000028   Zero   RW          167    .bss.MP             sensors.o
     0x20001a70        -       0x00000001   Zero   RW          166    .bss.MP_Available   sensors.o
     0x20001a71   COMPRESSED   0x00000003   PAD
-    0x20001a74        -       0x000000b4   Zero   RW         5706    .bss.Mag_Mid_filter  MeasurementSystem.lib(ms_attitude.o)
-    0x20001b28        -       0x0000021c   Zero   RW         5714    .bss.Mag_filter     MeasurementSystem.lib(ms_attitude.o)
+    0x20001a74        -       0x000000b4   Zero   RW         5707    .bss.Mag_Mid_filter  MeasurementSystem.lib(ms_attitude.o)
+    0x20001b28        -       0x0000021c   Zero   RW         5715    .bss.Mag_filter     MeasurementSystem.lib(ms_attitude.o)
     0x20001d44   COMPRESSED   0x00000004   PAD
     0x20001d48        -       0x00000090   Zero   RW          172    .bss.Magnetometer   sensors.o
     0x20001dd8        -       0x00000004   Zero   RW          443    .bss.MainBatteryVoltage  drv_adc.o
     0x20001ddc        -       0x00000002   Zero   RW          104    .bss.MainMCHandler.Ctrl_Counter  drv_sensors.o
     0x20001dde   COMPRESSED   0x00000002   PAD
-    0x20001de0        -       0x00000004   Zero   RW         1158    .bss.Mode_Inf       m00_init.o
-    0x20001de4        -       0x00000004   Zero   RW         1173    .bss.Mode_Inf       m01_ground.o
-    0x20001de8        -       0x00000004   Zero   RW         1189    .bss.Mode_Inf       m10_rccalib.o
-    0x20001dec        -       0x00000004   Zero   RW         1205    .bss.Mode_Inf       m12_acccalib.o
-    0x20001df0        -       0x00000004   Zero   RW         1221    .bss.Mode_Inf       m13_magcalib.o
-    0x20001df4        -       0x00000004   Zero   RW         1237    .bss.Mode_Inf       m15_horizontalcalib.o
-    0x20001df8        -       0x00000004   Zero   RW         1253    .bss.Mode_Inf       m30_att.o
-    0x20001dfc        -       0x00000004   Zero   RW         1269    .bss.Mode_Inf       m32_posctrl.o
-    0x20001e00        -       0x00000320   Zero   RW         1141    .bss.Modes          modes.o
+    0x20001de0        -       0x00000004   Zero   RW         1159    .bss.Mode_Inf       m00_init.o
+    0x20001de4        -       0x00000004   Zero   RW         1174    .bss.Mode_Inf       m01_ground.o
+    0x20001de8        -       0x00000004   Zero   RW         1190    .bss.Mode_Inf       m10_rccalib.o
+    0x20001dec        -       0x00000004   Zero   RW         1206    .bss.Mode_Inf       m12_acccalib.o
+    0x20001df0        -       0x00000004   Zero   RW         1222    .bss.Mode_Inf       m13_magcalib.o
+    0x20001df4        -       0x00000004   Zero   RW         1238    .bss.Mode_Inf       m15_horizontalcalib.o
+    0x20001df8        -       0x00000004   Zero   RW         1254    .bss.Mode_Inf       m30_att.o
+    0x20001dfc        -       0x00000004   Zero   RW         1270    .bss.Mode_Inf       m32_posctrl.o
+    0x20001e00        -       0x00000320   Zero   RW         1142    .bss.Modes          modes.o
     0x20002120        -       0x00000400   Zero   RW          232    .bss.OLED_Image     drv_oled.o
-    0x20002520        -       0x000001e0   Zero   RW         5789    .bss.PositionErrorFilters  MeasurementSystem.lib(ms_position.o)
-    0x20002700        -       0x000001e0   Zero   RW         5787    .bss.Position_Filter_x  MeasurementSystem.lib(ms_position.o)
-    0x200028e0        -       0x000001e0   Zero   RW         5788    .bss.Position_Filter_y  MeasurementSystem.lib(ms_position.o)
-    0x20002ac0        -       0x000001e0   Zero   RW         5785    .bss.Position_Filter_z  MeasurementSystem.lib(ms_position.o)
+    0x20002520        -       0x000001e0   Zero   RW         5790    .bss.PositionErrorFilters  MeasurementSystem.lib(ms_position.o)
+    0x20002700        -       0x000001e0   Zero   RW         5788    .bss.Position_Filter_x  MeasurementSystem.lib(ms_position.o)
+    0x200028e0        -       0x000001e0   Zero   RW         5789    .bss.Position_Filter_y  MeasurementSystem.lib(ms_position.o)
+    0x20002ac0        -       0x000001e0   Zero   RW         5786    .bss.Position_Filter_z  MeasurementSystem.lib(ms_position.o)
     0x20002ca0        -       0x00000001   Zero   RW          879    .bss.Position_Measurement_System_Status  ms_main.o
     0x20002ca1   COMPRESSED   0x00000007   PAD
     0x20002ca8        -       0x000002c0   Zero   RW          180    .bss.Position_Sensors  sensors.o
     0x20002f68        -       0x00000168   Zero   RW          310    .bss.Receivers      receiver.o
     0x200030d0        -       0x00000080   Zero   RW          458    .bss.SDI2_Point     drv_sdi2.o
-    0x20003150        -       0x000000a0   Zero   RW         1013    .bss.SendMsgs       commulink.o
-    0x200031f0        -       0x000002a0   Zero   RW         5790    .bss.Stabilization_Chks  MeasurementSystem.lib(ms_position.o)
-    0x20003490        -       0x000000b4   Zero   RW         1454    .bss.TargetVelocityFilter  ctrl_position.o
-    0x20003544        -       0x000000b4   Zero   RW         1398    .bss.Target_tracker  ctrl_attitude.o
-    0x200035f8        -       0x000000b4   Zero   RW         1453    .bss.Target_tracker  ctrl_position.o
+    0x20003150        -       0x000000a0   Zero   RW         1014    .bss.SendMsgs       commulink.o
+    0x200031f0        -       0x000002a0   Zero   RW         5791    .bss.Stabilization_Chks  MeasurementSystem.lib(ms_position.o)
+    0x20003490        -       0x000000b4   Zero   RW         1455    .bss.TargetVelocityFilter  ctrl_position.o
+    0x20003544        -       0x000000b4   Zero   RW         1399    .bss.Target_tracker  ctrl_attitude.o
+    0x200035f8        -       0x000000b4   Zero   RW         1454    .bss.Target_tracker  ctrl_position.o
     0x200036ac        -       0x00000004   Zero   RW          343    .bss.Ultrasonic_Handler.last_value  drv_ultrasonic.o
     0x200036b0        -       0x00000800   Zero   RW          762    .bss.configurations  configurations.o
     0x20003eb0        -       0x00000001   Zero   RW          311    .bss.current_Receiver  receiver.o
     0x20003eb1   COMPRESSED   0x00000003   PAD
     0x20003eb4        -       0x00000004   Zero   RW          489    .bss.current_time_part_1  basic.o
-    0x20003eb8        -       0x00000028   Zero   RW          966    .bss.debug_test     debug.o
-    0x20003ee0        -       0x00000060   Zero   RW         1400    .bss.disturbance_filter  ctrl_attitude.o
+    0x20003eb8        -       0x00000028   Zero   RW          967    .bss.debug_test     debug.o
+    0x20003ee0        -       0x00000060   Zero   RW         1401    .bss.disturbance_filter  ctrl_attitude.o
     0x20003f40        -       0x00000100   Zero   RW           55    .bss.g_pui8USBRxBuffer  usb_def.o
     0x20004040        -       0x00000100   Zero   RW           56    .bss.g_pui8USBTxBuffer  usb_def.o
-    0x20004140        -       0x000000b4   Zero   RW         5705    .bss.headingAcc_Filter  MeasurementSystem.lib(ms_attitude.o)
-    0x200041f4        -       0x00000001   Zero   RW         5715    .bss.history_acceleration_x.1  MeasurementSystem.lib(ms_attitude.o)
+    0x20004140        -       0x000000b4   Zero   RW         5706    .bss.headingAcc_Filter  MeasurementSystem.lib(ms_attitude.o)
+    0x200041f4        -       0x00000001   Zero   RW         5716    .bss.history_acceleration_x.1  MeasurementSystem.lib(ms_attitude.o)
     0x200041f5   COMPRESSED   0x00000003   PAD
-    0x200041f8        -       0x00000002   Zero   RW         5716    .bss.history_acceleration_x.2  MeasurementSystem.lib(ms_attitude.o)
+    0x200041f8        -       0x00000002   Zero   RW         5717    .bss.history_acceleration_x.2  MeasurementSystem.lib(ms_attitude.o)
     0x200041fa   COMPRESSED   0x00000002   PAD
-    0x200041fc        -       0x00000002   Zero   RW         5717    .bss.history_acceleration_x.3  MeasurementSystem.lib(ms_attitude.o)
+    0x200041fc        -       0x00000002   Zero   RW         5718    .bss.history_acceleration_x.3  MeasurementSystem.lib(ms_attitude.o)
     0x200041fe   COMPRESSED   0x00000002   PAD
-    0x20004200        -       0x00000258   Zero   RW         5707    .bss.history_acceleration_x_buffer  MeasurementSystem.lib(ms_attitude.o)
-    0x20004458        -       0x00000001   Zero   RW         5718    .bss.history_acceleration_y.1  MeasurementSystem.lib(ms_attitude.o)
+    0x20004200        -       0x00000258   Zero   RW         5708    .bss.history_acceleration_x_buffer  MeasurementSystem.lib(ms_attitude.o)
+    0x20004458        -       0x00000001   Zero   RW         5719    .bss.history_acceleration_y.1  MeasurementSystem.lib(ms_attitude.o)
     0x20004459   COMPRESSED   0x00000003   PAD
-    0x2000445c        -       0x00000002   Zero   RW         5719    .bss.history_acceleration_y.2  MeasurementSystem.lib(ms_attitude.o)
+    0x2000445c        -       0x00000002   Zero   RW         5720    .bss.history_acceleration_y.2  MeasurementSystem.lib(ms_attitude.o)
     0x2000445e   COMPRESSED   0x00000002   PAD
-    0x20004460        -       0x00000002   Zero   RW         5720    .bss.history_acceleration_y.3  MeasurementSystem.lib(ms_attitude.o)
+    0x20004460        -       0x00000002   Zero   RW         5721    .bss.history_acceleration_y.3  MeasurementSystem.lib(ms_attitude.o)
     0x20004462   COMPRESSED   0x00000002   PAD
-    0x20004464        -       0x00000258   Zero   RW         5708    .bss.history_acceleration_y_buffer  MeasurementSystem.lib(ms_attitude.o)
-    0x200046bc        -       0x00000001   Zero   RW         5721    .bss.history_acceleration_z.1  MeasurementSystem.lib(ms_attitude.o)
+    0x20004464        -       0x00000258   Zero   RW         5709    .bss.history_acceleration_y_buffer  MeasurementSystem.lib(ms_attitude.o)
+    0x200046bc        -       0x00000001   Zero   RW         5722    .bss.history_acceleration_z.1  MeasurementSystem.lib(ms_attitude.o)
     0x200046bd   COMPRESSED   0x00000003   PAD
-    0x200046c0        -       0x00000002   Zero   RW         5722    .bss.history_acceleration_z.2  MeasurementSystem.lib(ms_attitude.o)
+    0x200046c0        -       0x00000002   Zero   RW         5723    .bss.history_acceleration_z.2  MeasurementSystem.lib(ms_attitude.o)
     0x200046c2   COMPRESSED   0x00000002   PAD
-    0x200046c4        -       0x00000002   Zero   RW         5723    .bss.history_acceleration_z.3  MeasurementSystem.lib(ms_attitude.o)
+    0x200046c4        -       0x00000002   Zero   RW         5724    .bss.history_acceleration_z.3  MeasurementSystem.lib(ms_attitude.o)
     0x200046c6   COMPRESSED   0x00000002   PAD
-    0x200046c8        -       0x00000258   Zero   RW         5709    .bss.history_acceleration_z_buffer  MeasurementSystem.lib(ms_attitude.o)
-    0x20004920        -       0x00000001   Zero   RW         5797    .bss.history_position_x.1  MeasurementSystem.lib(ms_position.o)
+    0x200046c8        -       0x00000258   Zero   RW         5710    .bss.history_acceleration_z_buffer  MeasurementSystem.lib(ms_attitude.o)
+    0x20004920        -       0x00000001   Zero   RW         5798    .bss.history_position_x.1  MeasurementSystem.lib(ms_position.o)
     0x20004921   COMPRESSED   0x00000003   PAD
-    0x20004924        -       0x00000002   Zero   RW         5798    .bss.history_position_x.2  MeasurementSystem.lib(ms_position.o)
+    0x20004924        -       0x00000002   Zero   RW         5799    .bss.history_position_x.2  MeasurementSystem.lib(ms_position.o)
     0x20004926   COMPRESSED   0x00000002   PAD
-    0x20004928        -       0x00000002   Zero   RW         5799    .bss.history_position_x.3  MeasurementSystem.lib(ms_position.o)
+    0x20004928        -       0x00000002   Zero   RW         5800    .bss.history_position_x.3  MeasurementSystem.lib(ms_position.o)
     0x2000492a   COMPRESSED   0x00000002   PAD
-    0x2000492c        -       0x00000140   Zero   RW         5791    .bss.history_position_x_buffer  MeasurementSystem.lib(ms_position.o)
-    0x20004a6c        -       0x00000001   Zero   RW         5800    .bss.history_position_y.1  MeasurementSystem.lib(ms_position.o)
+    0x2000492c        -       0x00000140   Zero   RW         5792    .bss.history_position_x_buffer  MeasurementSystem.lib(ms_position.o)
+    0x20004a6c        -       0x00000001   Zero   RW         5801    .bss.history_position_y.1  MeasurementSystem.lib(ms_position.o)
     0x20004a6d   COMPRESSED   0x00000003   PAD
-    0x20004a70        -       0x00000002   Zero   RW         5801    .bss.history_position_y.2  MeasurementSystem.lib(ms_position.o)
+    0x20004a70        -       0x00000002   Zero   RW         5802    .bss.history_position_y.2  MeasurementSystem.lib(ms_position.o)
     0x20004a72   COMPRESSED   0x00000002   PAD
-    0x20004a74        -       0x00000002   Zero   RW         5802    .bss.history_position_y.3  MeasurementSystem.lib(ms_position.o)
+    0x20004a74        -       0x00000002   Zero   RW         5803    .bss.history_position_y.3  MeasurementSystem.lib(ms_position.o)
     0x20004a76   COMPRESSED   0x00000002   PAD
-    0x20004a78        -       0x00000140   Zero   RW         5792    .bss.history_position_y_buffer  MeasurementSystem.lib(ms_position.o)
-    0x20004bb8        -       0x00000001   Zero   RW         5803    .bss.history_position_z.1  MeasurementSystem.lib(ms_position.o)
+    0x20004a78        -       0x00000140   Zero   RW         5793    .bss.history_position_y_buffer  MeasurementSystem.lib(ms_position.o)
+    0x20004bb8        -       0x00000001   Zero   RW         5804    .bss.history_position_z.1  MeasurementSystem.lib(ms_position.o)
     0x20004bb9   COMPRESSED   0x00000003   PAD
-    0x20004bbc        -       0x00000002   Zero   RW         5804    .bss.history_position_z.2  MeasurementSystem.lib(ms_position.o)
+    0x20004bbc        -       0x00000002   Zero   RW         5805    .bss.history_position_z.2  MeasurementSystem.lib(ms_position.o)
     0x20004bbe   COMPRESSED   0x00000002   PAD
-    0x20004bc0        -       0x00000002   Zero   RW         5805    .bss.history_position_z.3  MeasurementSystem.lib(ms_position.o)
+    0x20004bc0        -       0x00000002   Zero   RW         5806    .bss.history_position_z.3  MeasurementSystem.lib(ms_position.o)
     0x20004bc2   COMPRESSED   0x00000002   PAD
-    0x20004bc4        -       0x00000140   Zero   RW         5793    .bss.history_position_z_buffer  MeasurementSystem.lib(ms_position.o)
-    0x20004d04        -       0x00000001   Zero   RW         5724    .bss.history_quat_qw.1  MeasurementSystem.lib(ms_attitude.o)
+    0x20004bc4        -       0x00000140   Zero   RW         5794    .bss.history_position_z_buffer  MeasurementSystem.lib(ms_position.o)
+    0x20004d04        -       0x00000001   Zero   RW         5725    .bss.history_quat_qw.1  MeasurementSystem.lib(ms_attitude.o)
     0x20004d05   COMPRESSED   0x00000003   PAD
-    0x20004d08        -       0x00000002   Zero   RW         5725    .bss.history_quat_qw.2  MeasurementSystem.lib(ms_attitude.o)
+    0x20004d08        -       0x00000002   Zero   RW         5726    .bss.history_quat_qw.2  MeasurementSystem.lib(ms_attitude.o)
     0x20004d0a   COMPRESSED   0x00000002   PAD
-    0x20004d0c        -       0x00000002   Zero   RW         5726    .bss.history_quat_qw.3  MeasurementSystem.lib(ms_attitude.o)
+    0x20004d0c        -       0x00000002   Zero   RW         5727    .bss.history_quat_qw.3  MeasurementSystem.lib(ms_attitude.o)
     0x20004d0e   COMPRESSED   0x00000002   PAD
-    0x20004d10        -       0x00000258   Zero   RW         5710    .bss.history_quat_qw_buffer  MeasurementSystem.lib(ms_attitude.o)
-    0x20004f68        -       0x00000001   Zero   RW         5727    .bss.history_quat_qx.1  MeasurementSystem.lib(ms_attitude.o)
+    0x20004d10        -       0x00000258   Zero   RW         5711    .bss.history_quat_qw_buffer  MeasurementSystem.lib(ms_attitude.o)
+    0x20004f68        -       0x00000001   Zero   RW         5728    .bss.history_quat_qx.1  MeasurementSystem.lib(ms_attitude.o)
     0x20004f69   COMPRESSED   0x00000003   PAD
-    0x20004f6c        -       0x00000002   Zero   RW         5728    .bss.history_quat_qx.2  MeasurementSystem.lib(ms_attitude.o)
+    0x20004f6c        -       0x00000002   Zero   RW         5729    .bss.history_quat_qx.2  MeasurementSystem.lib(ms_attitude.o)
     0x20004f6e   COMPRESSED   0x00000002   PAD
-    0x20004f70        -       0x00000002   Zero   RW         5729    .bss.history_quat_qx.3  MeasurementSystem.lib(ms_attitude.o)
+    0x20004f70        -       0x00000002   Zero   RW         5730    .bss.history_quat_qx.3  MeasurementSystem.lib(ms_attitude.o)
     0x20004f72   COMPRESSED   0x00000002   PAD
-    0x20004f74        -       0x00000258   Zero   RW         5711    .bss.history_quat_qx_buffer  MeasurementSystem.lib(ms_attitude.o)
-    0x200051cc        -       0x00000001   Zero   RW         5730    .bss.history_quat_qy.1  MeasurementSystem.lib(ms_attitude.o)
+    0x20004f74        -       0x00000258   Zero   RW         5712    .bss.history_quat_qx_buffer  MeasurementSystem.lib(ms_attitude.o)
+    0x200051cc        -       0x00000001   Zero   RW         5731    .bss.history_quat_qy.1  MeasurementSystem.lib(ms_attitude.o)
     0x200051cd   COMPRESSED   0x00000003   PAD
-    0x200051d0        -       0x00000002   Zero   RW         5731    .bss.history_quat_qy.2  MeasurementSystem.lib(ms_attitude.o)
+    0x200051d0        -       0x00000002   Zero   RW         5732    .bss.history_quat_qy.2  MeasurementSystem.lib(ms_attitude.o)
     0x200051d2   COMPRESSED   0x00000002   PAD
-    0x200051d4        -       0x00000002   Zero   RW         5732    .bss.history_quat_qy.3  MeasurementSystem.lib(ms_attitude.o)
+    0x200051d4        -       0x00000002   Zero   RW         5733    .bss.history_quat_qy.3  MeasurementSystem.lib(ms_attitude.o)
     0x200051d6   COMPRESSED   0x00000002   PAD
-    0x200051d8        -       0x00000258   Zero   RW         5712    .bss.history_quat_qy_buffer  MeasurementSystem.lib(ms_attitude.o)
-    0x20005430        -       0x00000001   Zero   RW         5733    .bss.history_quat_qz.1  MeasurementSystem.lib(ms_attitude.o)
+    0x200051d8        -       0x00000258   Zero   RW         5713    .bss.history_quat_qy_buffer  MeasurementSystem.lib(ms_attitude.o)
+    0x20005430        -       0x00000001   Zero   RW         5734    .bss.history_quat_qz.1  MeasurementSystem.lib(ms_attitude.o)
     0x20005431   COMPRESSED   0x00000003   PAD
-    0x20005434        -       0x00000002   Zero   RW         5734    .bss.history_quat_qz.2  MeasurementSystem.lib(ms_attitude.o)
+    0x20005434        -       0x00000002   Zero   RW         5735    .bss.history_quat_qz.2  MeasurementSystem.lib(ms_attitude.o)
     0x20005436   COMPRESSED   0x00000002   PAD
-    0x20005438        -       0x00000002   Zero   RW         5735    .bss.history_quat_qz.3  MeasurementSystem.lib(ms_attitude.o)
+    0x20005438        -       0x00000002   Zero   RW         5736    .bss.history_quat_qz.3  MeasurementSystem.lib(ms_attitude.o)
     0x2000543a   COMPRESSED   0x00000002   PAD
-    0x2000543c        -       0x00000258   Zero   RW         5713    .bss.history_quat_qz_buffer  MeasurementSystem.lib(ms_attitude.o)
-    0x20005694        -       0x00000001   Zero   RW         5806    .bss.history_velocityENU_x.1  MeasurementSystem.lib(ms_position.o)
+    0x2000543c        -       0x00000258   Zero   RW         5714    .bss.history_quat_qz_buffer  MeasurementSystem.lib(ms_attitude.o)
+    0x20005694        -       0x00000001   Zero   RW         5807    .bss.history_velocityENU_x.1  MeasurementSystem.lib(ms_position.o)
     0x20005695   COMPRESSED   0x00000003   PAD
-    0x20005698        -       0x00000002   Zero   RW         5807    .bss.history_velocityENU_x.2  MeasurementSystem.lib(ms_position.o)
+    0x20005698        -       0x00000002   Zero   RW         5808    .bss.history_velocityENU_x.2  MeasurementSystem.lib(ms_position.o)
     0x2000569a   COMPRESSED   0x00000002   PAD
-    0x2000569c        -       0x00000002   Zero   RW         5808    .bss.history_velocityENU_x.3  MeasurementSystem.lib(ms_position.o)
+    0x2000569c        -       0x00000002   Zero   RW         5809    .bss.history_velocityENU_x.3  MeasurementSystem.lib(ms_position.o)
     0x2000569e   COMPRESSED   0x00000002   PAD
-    0x200056a0        -       0x00000140   Zero   RW         5794    .bss.history_velocityENU_x_buffer  MeasurementSystem.lib(ms_position.o)
-    0x200057e0        -       0x00000001   Zero   RW         5809    .bss.history_velocityENU_y.1  MeasurementSystem.lib(ms_position.o)
+    0x200056a0        -       0x00000140   Zero   RW         5795    .bss.history_velocityENU_x_buffer  MeasurementSystem.lib(ms_position.o)
+    0x200057e0        -       0x00000001   Zero   RW         5810    .bss.history_velocityENU_y.1  MeasurementSystem.lib(ms_position.o)
     0x200057e1   COMPRESSED   0x00000003   PAD
-    0x200057e4        -       0x00000002   Zero   RW         5810    .bss.history_velocityENU_y.2  MeasurementSystem.lib(ms_position.o)
+    0x200057e4        -       0x00000002   Zero   RW         5811    .bss.history_velocityENU_y.2  MeasurementSystem.lib(ms_position.o)
     0x200057e6   COMPRESSED   0x00000002   PAD
-    0x200057e8        -       0x00000002   Zero   RW         5811    .bss.history_velocityENU_y.3  MeasurementSystem.lib(ms_position.o)
+    0x200057e8        -       0x00000002   Zero   RW         5812    .bss.history_velocityENU_y.3  MeasurementSystem.lib(ms_position.o)
     0x200057ea   COMPRESSED   0x00000002   PAD
-    0x200057ec        -       0x00000140   Zero   RW         5795    .bss.history_velocityENU_y_buffer  MeasurementSystem.lib(ms_position.o)
-    0x2000592c        -       0x00000001   Zero   RW         5812    .bss.history_velocityENU_z.1  MeasurementSystem.lib(ms_position.o)
+    0x200057ec        -       0x00000140   Zero   RW         5796    .bss.history_velocityENU_y_buffer  MeasurementSystem.lib(ms_position.o)
+    0x2000592c        -       0x00000001   Zero   RW         5813    .bss.history_velocityENU_z.1  MeasurementSystem.lib(ms_position.o)
     0x2000592d   COMPRESSED   0x00000003   PAD
-    0x20005930        -       0x00000002   Zero   RW         5813    .bss.history_velocityENU_z.2  MeasurementSystem.lib(ms_position.o)
+    0x20005930        -       0x00000002   Zero   RW         5814    .bss.history_velocityENU_z.2  MeasurementSystem.lib(ms_position.o)
     0x20005932   COMPRESSED   0x00000002   PAD
-    0x20005934        -       0x00000002   Zero   RW         5814    .bss.history_velocityENU_z.3  MeasurementSystem.lib(ms_position.o)
+    0x20005934        -       0x00000002   Zero   RW         5815    .bss.history_velocityENU_z.3  MeasurementSystem.lib(ms_position.o)
     0x20005936   COMPRESSED   0x00000002   PAD
-    0x20005938        -       0x00000140   Zero   RW         5796    .bss.history_velocityENU_z_buffer  MeasurementSystem.lib(ms_position.o)
+    0x20005938        -       0x00000140   Zero   RW         5797    .bss.history_velocityENU_z_buffer  MeasurementSystem.lib(ms_position.o)
     0x20005a78        -       0x00000024   Zero   RW          101    .bss.init_drv_Sensors.buf  drv_sensors.o
-    0x20005a9c        -       0x00000490   Zero   RW          977    .bss.m_mavlink_buffer  mavlink.o
-    0x20005f2c        -       0x00000060   Zero   RW          976    .bss.m_mavlink_status  mavlink.o
+    0x20005a9c        -       0x00000490   Zero   RW          978    .bss.m_mavlink_buffer  mavlink.o
+    0x20005f2c        -       0x00000060   Zero   RW          977    .bss.m_mavlink_status  mavlink.o
     0x20005f8c   COMPRESSED   0x00000004   PAD
-    0x20005f90        -       0x000005a0   Zero   RW         1140    .bss.message_queue  modes.o
-    0x20006530        -       0x000000b4   Zero   RW         5704    .bss.motionAcc_Filter  MeasurementSystem.lib(ms_attitude.o)
+    0x20005f90        -       0x000005a0   Zero   RW         1141    .bss.message_queue  modes.o
+    0x20006530        -       0x000000b4   Zero   RW         5705    .bss.motionAcc_Filter  MeasurementSystem.lib(ms_attitude.o)
     0x200065e4   COMPRESSED   0x00000004   PAD
-    0x200065e8        -       0x00000088   Zero   RW         1285    .bss.navInf         m35_auto1.o
+    0x200065e8        -       0x00000088   Zero   RW         1286    .bss.navInf         m35_auto1.o
     0x20006670        -       0x00000040   Zero   RW          407    .bss.rx_buffer      drv_sdi.o
     0x200066b0        -       0x00000280   Zero   RW          907    .bss.tasks          sts.o
     0x20006930        -       0x00000040   Zero   RW          406    .bss.tx_buffer      drv_sdi.o

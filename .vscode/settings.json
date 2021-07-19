@@ -1,6 +1,20 @@
 {
     "files.associations": {
         "__node_handle": "c",
-        "cmath": "c"
+        "cmath": "c",
+        "atomic": "cpp",
+        "bit": "cpp",
+        "compare": "cpp",
+        "cstddef": "cpp",
+        "limits": "cpp",
+        "memory": "cpp",
+        "new": "cpp",
+        "type_traits": "cpp",
+        "array": "cpp",
+        "functional": "cpp",
+        "vector": "cpp",
+        "xhash": "cpp",
+        "xutility": "cpp",
+        "cstdio": "cpp"
     }
 }

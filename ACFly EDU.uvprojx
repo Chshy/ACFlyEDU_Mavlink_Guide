@@ -470,9 +470,9 @@
               <FilePath>.\Drivers\drv_PWMOut.c</FilePath>
             </File>
             <File>
-              <FileName>drv_Ultrasonic.c</FileName>
+              <FileName>drv_TFmini.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Drivers\drv_Ultrasonic.c</FilePath>
+              <FilePath>.\Drivers\drv_TFmini.c</FilePath>
             </File>
             <File>
               <FileName>drv_OpticalFlow.c</FileName>

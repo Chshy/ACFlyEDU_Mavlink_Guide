@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\ACFly EDU.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\ACFly EDU.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6140002: Last Updated: Mon Jul 19 12:25:06 2021
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6140002: Last Updated: Mon Jul 19 20:59:28 2021
 <BR><P>
 <H3>Maximum Stack Usage =       1072 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1685,8 +1685,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sputc
 <LI><a href="#[186]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_char_common
 </UL>
-<BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART7_Handler
-<LI><a href="#[25d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lprintf
+<BR>[Called By]<UL><LI><a href="#[25d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lprintf
+<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART7_Handler
 <LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Msg102_VISION_POSITION_ESTIMATE
 <LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Msg32_LOCAL_POSITION_NED
 </UL>
@@ -3663,12 +3663,12 @@ Global Symbols
 <LI><a href="#[212]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IMUGyroscopeRegister
 <LI><a href="#[20d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IMUAccelerometerRegister
 <LI><a href="#[27c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;STS_Run
+<LI><a href="#[25d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lprintf
 <LI><a href="#[24d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PositionSensorSetInavailable
 <LI><a href="#[208]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PositionSensorUpdatePosition
 <LI><a href="#[251]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PositionSensorRegister
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDI_Server
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDI_Server
-<LI><a href="#[25d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lprintf
 <LI><a href="#[245]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MS_Position
 <LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;M13_MagCalib_MainFunc
 </UL>
@@ -4216,7 +4216,8 @@ Global Symbols
 <LI><a href="#[187]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 <LI><a href="#[185]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vsnprintf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Msg32_LOCAL_POSITION_NED
+<BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART7_Handler
+<LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Msg32_LOCAL_POSITION_NED
 </UL>
 
 <P><STRONG><a name="[17a]"></a>main</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, main.o(.text.main))
@@ -6706,11 +6707,12 @@ Local Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> drv_receiver.o(.text.init_drv_Receiver)
 </UL>
-<P><STRONG><a name="[99]"></a>UART7_Handler</STRONG> (Thumb, 428 bytes, Stack size 80 bytes, drv_tfmini.o(.text.UART7_Handler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 216 + Unknown Stack Size
-<LI>Call Chain = UART7_Handler &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
+<P><STRONG><a name="[99]"></a>UART7_Handler</STRONG> (Thumb, 472 bytes, Stack size 88 bytes, drv_tfmini.o(.text.UART7_Handler))
+<BR><BR>[Stack]<UL><LI>Max Depth = 264 + Unknown Stack Size
+<LI>Call Chain = UART7_Handler &rArr; lprintf &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[282]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_lean_angle_cosin
+<BR>[Calls]<UL><LI><a href="#[25d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lprintf
+<LI><a href="#[282]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_lean_angle_cosin
 <LI><a href="#[27f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UARTRxErrorClear
 <LI><a href="#[27e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UARTIntClear
 <LI><a href="#[21a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Update
@@ -7286,16 +7288,16 @@ Local Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> mavlinksendfuncs.o(.rodata.Mavlink_Send_Funcs)
 </UL>
-<P><STRONG><a name="[100]"></a>Msg32_LOCAL_POSITION_NED</STRONG> (Thumb, 604 bytes, Stack size 88 bytes, mavlinksendfuncs.o(.text.Msg32_LOCAL_POSITION_NED))
+<P><STRONG><a name="[100]"></a>Msg32_LOCAL_POSITION_NED</STRONG> (Thumb, 628 bytes, Stack size 88 bytes, mavlinksendfuncs.o(.text.Msg32_LOCAL_POSITION_NED))
 <BR><BR>[Stack]<UL><LI>Max Depth = 728 + Unknown Stack Size
 <LI>Call Chain = Msg32_LOCAL_POSITION_NED &rArr; mavlink_finalize_message_chan &rArr; mavlink_sha256_update
 </UL>
 <BR>[Calls]<UL><LI><a href="#[25c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_Estimated_Sensor_Position_z
+<LI><a href="#[25d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lprintf
 <LI><a href="#[21a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Update
 <LI><a href="#[21d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Draw_Str8x6
 <LI><a href="#[1c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetPositionSensor
 <LI><a href="#[258]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_System_Run_Time
-<LI><a href="#[25d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lprintf
 <LI><a href="#[25b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_VelocityENU
 <LI><a href="#[1b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_Altitude_Measurement_System_Status
 <LI><a href="#[238]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_Position

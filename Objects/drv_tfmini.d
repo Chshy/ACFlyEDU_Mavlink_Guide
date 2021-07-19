@@ -26,4 +26,5 @@
   driverlib\interrupt.h driverlib\inc\hw_ints.h driverlib\inc\hw_gpio.h \
   driverlib\Timer.h driverlib\udma.h \
   InteractiveInterface\InteractiveInterface.h \
-  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdio.h
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdio.h \
+  InteractiveInterface\LogSystem.h

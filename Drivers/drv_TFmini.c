@@ -22,6 +22,9 @@
 
 #include "InteractiveInterface.h"
 #include "stdio.h"
+
+#include "LogSystem.h"
+
 char strtf[18];
 
 typedef struct
@@ -178,6 +181,7 @@ static void UART7_Handler()
 					OLED_Update();
 
 					PositionSensorUpdatePosition(default_laser_sensor_index, position, true, -1);
+					lprintf(LOG_INFO,"SensorUpdate:%f",position.z);
 				}
 				else
 					PositionSensorSetInavailable(default_laser_sensor_index);

@@ -118,7 +118,7 @@ bool PortRegister(Port port)
 	CommuPorts[p_index] = port;
 	mavlink_set_proto_version(p_index, 1);
 	SetMsgRate(p_index, MAVLINK_MSG_ID_ATTITUDE_QUATERNION, 50);
-	SetMsgRate(p_index, MAVLINK_MSG_ID_LOCAL_POSITION_NED, 50);
+	SetMsgRate(p_index, MAVLINK_MSG_ID_LOCAL_POSITION_NED, 10);
 	return true;
 }
 

@@ -286,13 +286,17 @@ static bool Msg32_LOCAL_POSITION_NED( uint8_t port, mavlink_message_t* msg_sd )
     {
         float TFData;
         get_Estimated_Sensor_Position_z(&TFData,default_laser_sensor_index);
-		lprintf(LOG_DEBUG,"TOF Sensor:%f",TFData);
+		lprintf(LOG_DEBUG,"                         TOF Sensor:%f",TFData);
 		
     }
 	else
 	{
 		lprintf(LOG_WARNING,"TOF Sensor NOT present.");
 	}
+
+
+	vector3_float pos = get_Position();
+	lprintf(LOG_WARNING,"                                                  Pos z=%f",pos.z);
 	
 	
     return true;

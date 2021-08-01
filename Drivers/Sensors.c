@@ -197,8 +197,8 @@ Position_Sensor Position_Sensors[ Position_Sensors_Count ];
 		
 /*位置传感器*/
 		
-	const unsigned char default_vision_height_sensor_index = 0;
-	const unsigned char default_vision_sensor_index = 1;
+	const unsigned char default_vision_height_sensor_index = 0;//高度位置信息
+	const unsigned char default_vision_sensor_index = 1;//水平速度信息
 	const unsigned char default_laser_sensor_index = 2;
 	const unsigned char default_ultrasonic_sensor_index = 4;
 	const unsigned char internal_baro_sensor_index = 3;

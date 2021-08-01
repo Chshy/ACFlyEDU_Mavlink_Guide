@@ -17,6 +17,8 @@
 #include "Sensors_Backend.h"//
 #include "ControlSystem.h"
 
+char str[32];
+
 static void Msg0_HEARTBEAT( uint8_t Port_index , const mavlink_message_t* msg )
 {
 	//对方是mavlink1就用mavlink1协议
@@ -387,23 +389,10 @@ static void Msg102_VISION_POSITION_ESTIMATE( uint8_t Port_index , const mavlink_
 {//BY
 	const mavlink_vision_position_estimate_t* msg_rd = (mavlink_vision_position_estimate_t*)msg->payload64;
 
-
     vector3_float position;
-
-    static float yaw_at_vision_boot;
-    static float Yaw_sin , Yaw_cos;
-    
-
-
-    //Debug用
-	static bool DEBUG_REGIST_SUCESS1 = false;
-    static bool DEBUG_REGIST_SUCESS2 = false;
-	
-    
     //高度信息处理
     if( GetPositionSensor(default_vision_height_sensor_index)->present == false )
     {
-        DEBUG_REGIST_SUCESS1 = \
         PositionSensorRegister( default_vision_height_sensor_index , \
 								Position_Sensor_Type_RelativePositioning , \
 								Position_Sensor_DataType_s_z , \
@@ -417,54 +406,14 @@ static void Msg102_VISION_POSITION_ESTIMATE( uint8_t Port_index , const mavlink_
         position.y =  0;
         position.z = -100 * mavlink_msg_vision_position_estimate_get_z(msg);
         PositionSensorUpdatePosition( default_vision_height_sensor_index , position , true , -1 );
-    }
 
-    static char str[32];
-    sprintf(str,"U:%4.3lf",position.z);
-	OLED_Draw_Str8x6(str,3,0);
-    
-    //位置信息处理
-    if( GetPositionSensor(default_vision_sensor_index)->present == false )
-    {
-        DEBUG_REGIST_SUCESS2 = \
-        PositionSensorRegister( default_vision_sensor_index , \
-								Position_Sensor_Type_RelativePositioning , \
-								Position_Sensor_DataType_s_xy , \
-								Position_Sensor_frame_ENU , \
-								0.05f , \
-								true );  
-        
-        yaw_at_vision_boot = rad2degree( Quaternion_getYaw( get_Airframe_attitude() ));
-        
-	    arm_sin_cos_f32( yaw_at_vision_boot , &Yaw_sin , &Yaw_cos );
-		
-    }
-    else
-    {
-        float posx_ENU = map_BodyHeading2ENU_x((msg_rd->x)*100.0,-(msg_rd->y)*100.0,Yaw_sin , Yaw_cos );
-		float posy_ENU = map_BodyHeading2ENU_y((msg_rd->x)*100.0,-(msg_rd->y)*100.0,Yaw_sin , Yaw_cos );
-
-		position.x = posx_ENU;
-		position.y = posy_ENU;
-        //未做转换！
-        // position.x =  100 * mavlink_msg_vision_position_estimate_get_y(msg);
-	    // position.y =  100 * mavlink_msg_vision_position_estimate_get_x(msg);
-        position.z =  0;
-        PositionSensorUpdatePosition( default_vision_sensor_index , position , true , -1 );
+		// /* 屏幕打印
+		sprintf(str,"Z =%5.3lf",position.z);
+		OLED_Draw_Str8x6(str,0,0);	
+		OLED_Update();
+		// */
     }
     
-    
-    // /* 屏幕打印
-	
-	sprintf(str,"Reg:%d %d",DEBUG_REGIST_SUCESS1,DEBUG_REGIST_SUCESS2);
-	OLED_Draw_Str8x6(str,0,0);
-	sprintf(str,"E:%4.3lf",position.x);
-	OLED_Draw_Str8x6(str,1,0);
-	sprintf(str,"N:%4.3lf",position.y);
-	OLED_Draw_Str8x6(str,2,0);
-	
-	OLED_Update();
-    // */
 }
 
 
@@ -472,44 +421,37 @@ static void Msg102_VISION_POSITION_ESTIMATE( uint8_t Port_index , const mavlink_
 
 
 
-// static void Msg103_VISION_SPEED_ESTIMATE ( uint8_t Port_index, const mavlink_message_t* msg )
-// {
-//     const mavlink_vision_speed_estimate_t* msg_rd = (mavlink_vision_speed_estimate_t*)msg->payload64;
-//     static bool DEBUG_REGIST_SUCESS = false;
-// 	if(!vision_present)
-// 	{
-//         DEBUG_REGIST_SUCESS = \
-// 		    PositionSensorRegister( 1, \
-//                            Position_Sensor_Type_RelativePositioning, \
-//                            Position_Sensor_DataType_v_xyz, \
-//                            Position_Sensor_frame_ENU, \
-//                            0.1f, \
-//                            true ); 
-// 				vision_present=true;
-// 	}
-// 	else
-// 	{
-// 			vel_vision.x=(msg_rd->y)*100.0;
-// 			vel_vision.y=(msg_rd->x)*100.0;
-// 			vel_vision.z=(msg_rd->x)*-100.0;
-// 			PositionSensorUpdateVel(default_vision_sensor_index,vel_vision,true,-1,0,0);
-// 		    //PositionSensorUpdatePosition(default_vision_height_sensor_index,pos_vision,true,-1,0,0);
-// 	}
+static void Msg103_VISION_SPEED_ESTIMATE ( uint8_t Port_index, const mavlink_message_t* msg )
+{
+    const mavlink_vision_speed_estimate_t* msg_rd = (mavlink_vision_speed_estimate_t*)msg->payload64;
+    if( GetPositionSensor(default_vision_sensor_index)->present == false )
+    {
+        PositionSensorRegister( default_vision_sensor_index , \
+								Position_Sensor_Type_RelativePositioning , \
+								Position_Sensor_DataType_v_xy , \
+								Position_Sensor_frame_BodyHeading , \
+								0.05f , \
+								true );  
+    }
+    else
+    {
+		vector3_float vel;
+		//BodyHeading为 前左上
+		//这部分是安按照T265朝后写的
+		//修改T265朝向要修改注释！
+		vel.x = -(msg_rd->x)*100.0;
+		vel.y = -(msg_rd->y)*100.0;
+		PositionSensorUpdateVel( default_vision_sensor_index , vel , true , -1 );
 
-//     // /*
-// 	static char str[32];
-// 	sprintf(str,"Reg:%d",vision_present);
-// 	OLED_Draw_Str8x6(str,4,0);
-// 	sprintf(str,"vx:%4.3lf",vel_vision.x);
-// 	OLED_Draw_Str8x6(str,5,0);
-// 	sprintf(str,"vy:%4.3lf",vel_vision.y);
-// 	OLED_Draw_Str8x6(str,6,0);
-// 	sprintf(str,"vz:%4.3lf",vel_vision.z);
-// 	OLED_Draw_Str8x6(str,7,0);
-// 	OLED_Update();
-//     // */
-
-// }
+		// /* 屏幕打印
+		sprintf(str,"Vx=%5.3lf",vel.x);
+		OLED_Draw_Str8x6(str,1,0);	
+		sprintf(str,"Vy=%5.3lf",vel.y);
+		OLED_Draw_Str8x6(str,2,0);
+		OLED_Update();
+		// */
+    }
+}
 
 
 
@@ -625,7 +567,7 @@ void (*const Mavlink_RC_Process[])( uint8_t Port_index , const mavlink_message_t
 	/*100-*/	0	,
 	/*101-*/	0	,
 	/*102-*/	Msg102_VISION_POSITION_ESTIMATE	,//T265//20210713Y
-	/*103-*/	0,//Msg103_VISION_SPEED_ESTIMATE	,
+	/*103-*/	Msg103_VISION_SPEED_ESTIMATE	,
 	/*104-*/	0	,
 	/*105-*/	0	,
 	/*106-*/	0	,

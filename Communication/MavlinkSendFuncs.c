@@ -228,17 +228,17 @@ static bool Msg32_LOCAL_POSITION_NED( uint8_t port, mavlink_message_t* msg_sd )
 	// OLED_Draw_Str8x6(str,0,0);
     sprintf(str,"NED");
 	OLED_Draw_Str8x6(str,0,64);
-	sprintf(str,"N:%4.3lf",Position.y);
+	sprintf(str,"N:%5.3lf",Position.y);
 	OLED_Draw_Str8x6(str,1,64);
-	sprintf(str,"E:%4.3lf",Position.x);
+	sprintf(str,"E:%5.3lf",Position.x);
 	OLED_Draw_Str8x6(str,2,64);
-	sprintf(str,"D:%4.3lf",-Position.z);
+	sprintf(str,"D:%5.3lf",-Position.z);
 	OLED_Draw_Str8x6(str,3,64);
-    sprintf(str,"vN:%4.3lf",VelocityENU.y);
+    sprintf(str,"vN:%5.3lf",VelocityENU.y);
 	OLED_Draw_Str8x6(str,4,64);
-	sprintf(str,"vE:%4.3lf",VelocityENU.x);
+	sprintf(str,"vE:%5.3lf",VelocityENU.x);
 	OLED_Draw_Str8x6(str,5,64);
-	sprintf(str,"vD:%4.3lf",-VelocityENU.z);
+	sprintf(str,"vD:%5.3lf",-VelocityENU.z);
 	OLED_Draw_Str8x6(str,6,64);
 
 //Ultrasonic
